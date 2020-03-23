@@ -4,6 +4,27 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 const gltfLoader = new GLTFLoader()
 
+
+gltfLoader.load(
+    'models/gltf/duck/duck.gltf',
+    (gltf) =>
+    {
+        console.log('success')
+        console.log(gltf)
+    },
+    (progress) =>
+    {
+        console.log('progress')
+        console.log(progress)
+    },
+    (error) =>
+    {
+        console.log('error')
+        console.log(error)
+    }
+)
+
+
 /**
  * Sizes
  */
