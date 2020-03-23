@@ -18,7 +18,7 @@ export default class Room
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/room2/BoyRoom.gltf',
+            '/models/gltf/room/BoyRoom.gltf',
             (gltf) =>
             {
                 while(gltf.scene.children.length)
