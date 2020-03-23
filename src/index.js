@@ -1,16 +1,23 @@
 import './style/main.styl'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+
+const dracoLoader = new DRACOLoader()
+dracoLoader.setDecoderPath('/draco/')
 
 const gltfLoader = new GLTFLoader()
-
+gltfLoader.setDRACOLoader(dracoLoader)
 
 gltfLoader.load(
     'models/gltf/duck/duck.gltf',
     (gltf) =>
     {
-        console.log('success')
-        console.log(gltf)
+        while(gltf.scene.children.length)
+        {
+            const child = gltf.scene.children[0]
+            scene.add(child)
+        }
     },
     (progress) =>
     {
@@ -48,6 +55,12 @@ window.addEventListener('mousemove', (_event) => {
  * Scene
  */
 const scene = new THREE.Scene()
+
+/**
+ * Lights
+ */
+const ambiant_light = new THREE.AmbientLight(0xffffff, 0.3)
+scene.add(ambiant_light)
 
 /**
  * Objects
