@@ -58,7 +58,13 @@ const room = new Room()
 room.group.position.x = 0
 scene.add(room.group)
 
+// Video
+const video = document.getElementById( 'video' );
 
+const texture = new THREE.VideoTexture( video );
+texture.minFilter = THREE.LinearFilter;
+texture.magFilter = THREE.LinearFilter;
+texture.format = THREE.RGBFormat;
 
 
 /**
