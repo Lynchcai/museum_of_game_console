@@ -21,13 +21,16 @@ export default class Console_wii
             '/models/gltf/console_wii/scene.gltf',
             (gltf) =>
             {
-                while(gltf.scene.children.length)
-                {
+                let temp = gltf.scene.children.length
+                for (let i = 0; i < temp; i++) {
                     this.console_wii = gltf.scene.children[0]
+                    this.console_wii.traverse((child) => { 
+                        child.castShadow = true
+                        child.receiveShadow = true
+                        child.needsUpdate = true
+                    })
                     this.group.add(this.console_wii)
                     this.group.scale.set(0.06, 0.06, 0.06)
-                    this.group.position.set(0.6, 1.08, -1.0)
-                    this.group.rotation.set(0, Math.PI*0.5, 0)
                 }
             }
         )

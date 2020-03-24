@@ -21,13 +21,11 @@ export default class Console_nes
             '/models/gltf/console_nes/scene.gltf',
             (gltf) =>
             {
-                while(gltf.scene.children.length)
-                {
+                let temp = gltf.scene.children.length
+                for (let i = 0; i < temp; i++) {
                     this.console_nes = gltf.scene.children[0]
                     this.group.add(this.console_nes)
                     this.group.scale.set(0.02, 0.02, 0.02)
-                    this.group.position.set(0.5, 0.48, -1.1)
-                    this.group.rotation.set(0, -0.5, 0)
                 }
             }
         )

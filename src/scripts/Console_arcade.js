@@ -21,8 +21,8 @@ export default class Console_arcade
             '/models/gltf/console_arcade/scene.gltf',
             (gltf) =>
             {
-                while(gltf.scene.children.length)
-                {
+                let temp = gltf.scene.children.length
+                for (let i = 0; i < temp; i++) {
                     this.console_arcade = gltf.scene.children[0]
                     this.group.add(this.console_arcade)
                     this.group.scale.set(0.02, 0.02, 0.02)

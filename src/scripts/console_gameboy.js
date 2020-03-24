@@ -21,8 +21,8 @@ export default class Console_gameboy
             '/models/gltf/console_gameboy/scene.gltf',
             (gltf) =>
             {
-                while(gltf.scene.children.length)
-                {
+                let temp = gltf.scene.children.length
+                for (let i = 0; i < temp; i++) {
                     this.console_gameboy = gltf.scene.children[0]
                     this.group.add(this.console_gameboy)
                     this.group.scale.set(0.01, 0.01, 0.01)

@@ -21,8 +21,8 @@ export default class Console_wii_gamepad
             '/models/gltf/console_wii_gamepad/scene.gltf',
             (gltf) =>
             {
-                while(gltf.scene.children.length)
-                {
+                let temp = gltf.scene.children.length
+                for (let i = 0; i < temp; i++) {
                     this.console_wii_gamepad = gltf.scene.children[0]
                     this.group.add(this.console_wii_gamepad)
                     this.group.scale.set(0.1, 0.1, 0.1)

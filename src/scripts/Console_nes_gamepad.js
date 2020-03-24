@@ -21,13 +21,11 @@ export default class Console_nes_gamepad
             '/models/gltf/console_nes_gamepad/scene.gltf',
             (gltf) =>
             {
-                while(gltf.scene.children.length)
-                {
+                let temp = gltf.scene.children.length
+                for (let i = 0; i < temp; i++) {
                     this.console_nes_gamepad = gltf.scene.children[0]
                     this.group.add(this.console_nes_gamepad)
                     this.group.scale.set(0.015, 0.015, 0.015)
-                    this.group.position.set(0.5, 0.570, -1.1)
-                    this.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.9)
                 }
             }
         )

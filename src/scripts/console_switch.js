@@ -21,13 +21,11 @@ export default class Console_switch
             '/models/gltf/console_switch_and_gamepad/scene.gltf',
             (gltf) =>
             {
-                while(gltf.scene.children.length)
-                {
+                let temp = gltf.scene.children.length
+                for (let i = 0; i < temp; i++) {
                     this.console_switch = gltf.scene.children[0]
                     this.group.add(this.console_switch)
                     this.group.scale.set(0.01, 0.01, 0.01)
-                    this.group.position.set(-1, 0.951, -1.0)
-                    this.group.rotation.set(0, Math.PI*0.1, 0)
                 }
             }
         )

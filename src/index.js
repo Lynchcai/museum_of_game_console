@@ -52,7 +52,7 @@ const scene = new THREE.Scene()
 /**
  * Lights
  */
-const ambient_light = new THREE.AmbientLight(0x555555, 1)
+const ambient_light = new THREE.AmbientLight(0x555555, 0.4)
 ambient_light.position.x = 0
 ambient_light.position.y = 0
 ambient_light.position.z = 0
@@ -60,10 +60,12 @@ scene.add(ambient_light)
 
 
 const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1)
-directionalLight.position.x = 5
+directionalLight.position.x = -5
 directionalLight.position.y = 10
 directionalLight.position.z = 7.5
+directionalLight.castShadow = true
 scene.add(directionalLight)
+
 
 /**
  * Material
@@ -79,7 +81,13 @@ scene.add(directionalLight)
 
 // Room
 const room = new Room()
+
+
+
+
 scene.add(room.group)
+
+
 
 // Console arcade
 const console_arcade = new Console_arcade()
@@ -87,6 +95,9 @@ scene.add(console_arcade.group)
 
 // Console wii
 const console_wii = new Console_wii()
+console_wii.group.position.set(0.6, 1.08, -1.0)
+console_wii.group.rotation.set(0, Math.PI*0.5, 0)
+
 scene.add(console_wii.group)
 
 // // Console wii gamepad
@@ -95,11 +106,16 @@ scene.add(console_wii.group)
 
 // Console nes
 const console_nes = new Console_nes()
+console_nes.group.position.set(0.5, 0.48, -1.1)
+console_nes.group.rotation.set(0, -0.5, 0)
 scene.add(console_nes.group)
 
 // Console nes gamepad
 const console_nes_gamepad = new Console_nes_gamepad()
+console_nes_gamepad.group.position.set(0.5, 0.570, -1.1)
+console_nes_gamepad.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.9)
 scene.add(console_nes_gamepad.group)
+
 
 // // Console gameboy
 // const console_gameboy = new Console_gameboy()
@@ -107,7 +123,37 @@ scene.add(console_nes_gamepad.group)
 
 // Console switch
 const console_switch = new Console_switch()
+console_switch.group.position.set(-1, 0.951, -1.0)
+console_switch.group.rotation.set(0, Math.PI*0.1, 0)
 scene.add(console_switch.group)
+
+
+
+/**
+ * TEST TEST TEST
+ */
+
+const material = new THREE.MeshStandardMaterial(
+    {
+        color: 0xffffff,
+        metalness: 0.3, 
+        roughness: 0.3
+    }
+)
+
+// Sphere
+const sphere = new THREE.Mesh(new THREE.SphereGeometry(2, 16, 16), material)
+sphere.position.x = - 6
+sphere.receiveShadow = true
+sphere.castShadow = true
+scene.add(sphere)
+
+console.log(sphere);
+
+
+
+
+
 
 
 // Video
@@ -148,11 +194,14 @@ scene.add(camera)
 /**
  * Renderer
  */
-const renderer = new THREE.WebGLRenderer()
+const renderer = new THREE.WebGLRenderer( { antialias: true } )
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(window.devicePixelRatio)
-document.body.appendChild(renderer.domElement)
+renderer.gammaOutput = true
+renderer.gammaFactor = 2.2
+renderer.shadowMap.enabled = true
 
+document.body.appendChild(renderer.domElement)
 
 
 
@@ -162,6 +211,7 @@ document.body.appendChild(renderer.domElement)
 const cameraControls = new OrbitControls(camera, renderer.domElement)
 cameraControls.zoomSpeed = 0.3
 cameraControls.enableDamping = true // Add a sort of Easing
+
 
 
 
