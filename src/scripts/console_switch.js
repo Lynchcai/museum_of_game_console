@@ -23,11 +23,11 @@ export default class Console_switch
             {
                 while(gltf.scene.children.length)
                 {
-                    console.log(gltf.scene)
                     this.console_switch = gltf.scene.children[0]
                     this.group.add(this.console_switch)
                     this.group.scale.set(0.01, 0.01, 0.01)
-                    this.group.position.set(10, 0, 0)
+                    this.group.position.set(-1, 0.951, -1.0)
+                    this.group.rotation.set(0, Math.PI*0.1, 0)
                 }
             }
         )

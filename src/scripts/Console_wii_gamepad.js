@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
-export default class Console_wii
+export default class Console_wii_gamepad
 {
     constructor()
     {
@@ -23,11 +23,11 @@ export default class Console_wii
             {
                 while(gltf.scene.children.length)
                 {
-                    console.log(gltf.scene)
-                    this.console_wii = gltf.scene.children[0]
-                    this.group.add(this.console_wii)
-                    this.group.scale.set(0.01, 0.01, 0.01)
-                    this.group.position.set(10, 0, 0)
+                    this.console_wii_gamepad = gltf.scene.children[0]
+                    this.group.add(this.console_wii_gamepad)
+                    this.group.scale.set(0.1, 0.1, 0.1)
+                    this.group.position.set(0, 2.5, 10)
+                    this.group.rotation.set(0, Math.PI*0.5, 0)
                 }
             }
         )
