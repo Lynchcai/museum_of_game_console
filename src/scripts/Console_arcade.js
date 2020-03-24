@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
-export default class Room
+export default class Console_arcade
 {
     constructor()
     {
@@ -18,13 +18,13 @@ export default class Room
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/room/Room.gltf',
+            '/models/gltf/console_arcade/arcade.gltf',
             (gltf) =>
             {
                 while(gltf.scene.children.length)
                 {
-                    this.room = gltf.scene.children[0]
-                    this.group.add(this.room)
+                    this.console_arcade = gltf.scene.children[0]
+                    this.group.add(this.console_arcade)
                     this.group.scale.set(1, 1, 1)
                 }
             }

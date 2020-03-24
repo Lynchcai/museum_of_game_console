@@ -67,6 +67,7 @@ texture.magFilter = THREE.LinearFilter;
 texture.format = THREE.RGBFormat;
 
 
+
 /**
  * Camera
  */
