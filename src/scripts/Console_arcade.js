@@ -18,14 +18,30 @@ export default class Console_arcade
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/console_arcade/arcade.gltf',
+            '/models/gltf/console_arcade/scene.gltf',
             (gltf) =>
             {
                 while(gltf.scene.children.length)
                 {
+                    console.log(gltf.scene)
                     this.console_arcade = gltf.scene.children[0]
+                    this.console_arcade.material = new THREE.MeshToonMaterial(
+                        {
+                            color: 0xff00ff,
+                            normalMap: this.console_arcade.normalMap,
+                            side: THREE.DoubleSide
+                        }
+                    )
+
+
+
+
+
+
+
                     this.group.add(this.console_arcade)
-                    this.group.scale.set(1, 1, 1)
+                    this.group.scale.set(0.01, 0.01, 0.01)
+                    this.group.position.set(10, 0, 0)
                 }
             }
         )

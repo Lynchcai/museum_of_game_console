@@ -20,7 +20,7 @@ export default class Video
         video_texture.format = THREE.RGBFormat
 
         // Material
-        const video_material = new THREE.MeshBasicMaterial ( { map: video_texture, overdraw: true})
+        const video_material = new THREE.MeshBasicMaterial ({ map: video_texture})
         
         // Object
         const video_geometry = new THREE.PlaneGeometry( 240, 135, 4, 4) // 16:9

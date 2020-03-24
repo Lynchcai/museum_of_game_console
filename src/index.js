@@ -3,6 +3,7 @@ import * as THREE from 'three'
 // import { TweenLite } from 'gsap/all'
 import Room from './scripts/Room.js'
 import Video from './scripts/Video.js'
+import Console_arcade from './scripts/Console_arcade.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { TetrahedronBufferGeometry } from 'three'
 
@@ -49,6 +50,13 @@ const ambiant_light = new THREE.AmbientLight(0xffffff, 0.3)
 scene.add(ambiant_light)
 
 
+const point_light = new THREE.PointLight(0xffffff, 3, 10)
+point_light.position.x = 2
+point_light.position.y = 3
+point_light.position.z = 4
+scene.add(point_light)
+
+
 /**
  * Material
  */
@@ -66,8 +74,12 @@ const room = new Room()
 room.group.position.x = 0
 scene.add(room.group)
 
-// Consoles
 // Console arcade
+const console_arcade = new Console_arcade()
+scene.add(console_arcade.group)
+
+
+
 
 // Video
 const video_test = new Video('videos/test.mp4')
@@ -81,27 +93,6 @@ document.addEventListener(
 )
 
 
-// const video = document.getElementById( 'video' );
-
-// const videoTexture = new THREE.VideoTexture( video );
-// videoTexture.minFilter = THREE.LinearFilter;
-// videoTexture.magFilter = THREE.LinearFilter;
-// videoTexture.format = THREE.RGBFormat;
-
-
-// const movieMaterial = new THREE.MeshBasicMaterial ( { map: videoTexture, overdraw: true})
-// const movieGeometry = new THREE.PlaneGeometry( 240, 135, 4, 4) // 16:9
-// const movieScreen = new THREE.Mesh( movieGeometry, movieMaterial)
-// movieScreen.position.set(-0.22, 1.4, -1.032)
-// movieScreen.scale.set(0.0045, 0.0045, 0.0045)
-// scene.add(movieScreen)
-
-// document.addEventListener(
-//     'click',
-//     ()=>{
-//         video.play()
-//     }
-// )
 
 
 /**
