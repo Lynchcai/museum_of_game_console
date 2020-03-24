@@ -14,7 +14,7 @@ export default class Text
              {
                 font: new THREE.Font(font),
                 size: 0.03,
-                height: 0.001,
+                height: 0.005,
                 curveSegments: 6,
                 bevelEnabled: false,
                 bevelThickness: 0.02,

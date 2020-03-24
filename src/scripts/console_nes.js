@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
-export default class Console_arcade
+export default class Console_nes
 {
     constructor()
     {
@@ -18,23 +18,23 @@ export default class Console_arcade
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/console_arcade/scene.gltf',
+            '/models/gltf/console_nes/scene.gltf',
             (gltf) =>
             {
                 while(gltf.scene.children.length)
                 {
                     console.log(gltf.scene)
-                    this.console_arcade = gltf.scene.children[0]
-                    this.console_arcade.material = new THREE.MeshToonMaterial(
+                    this.console_nes = gltf.scene.children[0]
+                    this.console_nes.material = new THREE.MeshToonMaterial(
                         {
                             color: 0xff00ff,
-                            normalMap: this.console_arcade.normalMap,
+                            normalMap: this.console_nes.normalMap,
                             side: THREE.DoubleSide
                         }
                     )
-                    this.group.add(this.console_arcade)
-                    this.group.scale.set(0.02, 0.02, 0.02)
-                    this.group.position.set(1.1, 0.45, -1.05)
+                    this.group.add(this.console_nes)
+                    this.group.scale.set(0.01, 0.01, 0.01)
+                    this.group.position.set(10, 0, 0)
                 }
             }
         )
