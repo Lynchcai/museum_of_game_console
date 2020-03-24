@@ -132,10 +132,10 @@
       "uri": "textures/phong6SG_baseColor.png"
     },
     {
-      "uri": "textures/phong6SG_metallicRoughness.png"
+      "uri": "../blank.png"
     },
     {
-      "uri": "textures/phong6SG_normal.png"
+      "uri": "../blank.png"
     }
   ],
   "materials": [
