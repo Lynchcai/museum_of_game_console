@@ -79,7 +79,21 @@ scene.add(room.group)
 const console_arcade = new Console_arcade()
 scene.add(console_arcade.group)
 
+// Console wii
+const console_wii = new Console_wii()
+scene.add(console_wii.group)
 
+// Console nes
+const console_nes = new Console_nes()
+scene.add(console_nes.group)
+
+// Console gameboy
+const console_gameboy = new Console_gameboy()
+scene.add(console_gameboy.group)
+
+// Console switch
+const console_switch = new Console_switch()
+scene.add(console_switch.group)
 
 
 // Video
@@ -100,7 +114,7 @@ document.addEventListener(
 const text = new Text()
 text.group.position.x = - 0.7
 text.group.position.y = 1.65
-text.group.position.z = - 1.04
+text.group.position.z = - 1.03
 scene.add(text.group)
 
 
