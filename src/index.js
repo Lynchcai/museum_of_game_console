@@ -80,20 +80,20 @@ const console_arcade = new Console_arcade()
 scene.add(console_arcade.group)
 
 // Console wii
-const console_wii = new Console_wii()
-scene.add(console_wii.group)
+// const console_wii = new Console_wii()
+// scene.add(console_wii.group)
 
-// Console nes
-const console_nes = new Console_nes()
-scene.add(console_nes.group)
+// // Console nes
+// const console_nes = new Console_nes()
+// scene.add(console_nes.group)
 
-// Console gameboy
-const console_gameboy = new Console_gameboy()
-scene.add(console_gameboy.group)
+// // Console gameboy
+// const console_gameboy = new Console_gameboy()
+// scene.add(console_gameboy.group)
 
-// Console switch
-const console_switch = new Console_switch()
-scene.add(console_switch.group)
+// // Console switch
+// const console_switch = new Console_switch()
+// scene.add(console_switch.group)
 
 
 // Video
@@ -111,7 +111,7 @@ document.addEventListener(
 
 
 // Text
-const text = new Text()
+const text = new Text('Lorem ipsum dolor sit amet, consectetur adipiscing \nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum.')
 text.group.position.x = - 0.7
 text.group.position.y = 1.65
 text.group.position.z = - 1.03
