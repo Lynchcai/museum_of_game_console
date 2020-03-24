@@ -1699,25 +1699,25 @@
   ],
   "images": [
     {
-      "uri": "textures/pac__ghost_baseColor.jpeg"
+      "uri": "../blank.png"
     },
     {
-      "uri": "textures/pac__ghost_emissive.jpeg"
+      "uri": "../blank.png"
     },
     {
       "uri": "textures/automat_baseColor.jpeg"
     },
     {
-      "uri": "textures/automat_metallicRoughness.png"
+      "uri": "../blank.png"
     },
     {
-      "uri": "textures/automat_emissive.jpeg"
+      "uri": "../blank.png"
     },
     {
-      "uri": "textures/scheibe_baseColor.png"
+      "uri": "../blank.png"
     },
     {
-      "uri": "textures/scheibe_metallicRoughness.png"
+      "uri": "../blank.png"
     }
   ],
   "materials": [
