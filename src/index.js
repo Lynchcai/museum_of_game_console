@@ -50,16 +50,18 @@ const scene = new THREE.Scene()
 /**
  * Lights
  */
-const ambiant_light = new THREE.AmbientLight(0xffffff, 0.3)
-scene.add(ambiant_light)
+const ambient_light = new THREE.AmbientLight(0x555555, 1)
+ambient_light.position.x = 0
+ambient_light.position.y = 0
+ambient_light.position.z = 0
+scene.add(ambient_light)
 
 
-const point_light = new THREE.PointLight(0xffffff, 3, 10)
-point_light.position.x = 2
-point_light.position.y = 3
-point_light.position.z = 4
-scene.add(point_light)
-
+const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1)
+directionalLight.position.x = 5
+directionalLight.position.y = 10
+directionalLight.position.z = 7.5
+scene.add(directionalLight)
 
 /**
  * Material
