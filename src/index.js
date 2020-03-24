@@ -6,7 +6,9 @@ import Text from './scripts/Text.js'
 import Video from './scripts/Video.js'
 import Console_arcade from './scripts/Console_arcade.js'
 import Console_wii from './scripts/Console_wii.js'
+import Console_wii_gamepad from './scripts/Console_wii_gamepad.js'
 import Console_nes from './scripts/Console_nes.js'
+import Console_nes_gamepad from './scripts/Console_nes_gamepad.js'
 import Console_gameboy from './scripts/Console_gameboy.js'
 import Console_switch from './scripts/Console_switch.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
@@ -84,20 +86,28 @@ const console_arcade = new Console_arcade()
 scene.add(console_arcade.group)
 
 // Console wii
-// const console_wii = new Console_wii()
-// scene.add(console_wii.group)
+const console_wii = new Console_wii()
+scene.add(console_wii.group)
 
-// // Console nes
-// const console_nes = new Console_nes()
-// scene.add(console_nes.group)
+// // Console wii gamepad
+// const console_wii_gamepad = new Console_wii_gamepad()
+// scene.add(console_wii_gamepad.group)
+
+// Console nes
+const console_nes = new Console_nes()
+scene.add(console_nes.group)
+
+// Console nes gamepad
+const console_nes_gamepad = new Console_nes_gamepad()
+scene.add(console_nes_gamepad.group)
 
 // // Console gameboy
 // const console_gameboy = new Console_gameboy()
 // scene.add(console_gameboy.group)
 
-// // Console switch
-// const console_switch = new Console_switch()
-// scene.add(console_switch.group)
+// Console switch
+const console_switch = new Console_switch()
+scene.add(console_switch.group)
 
 
 // Video
