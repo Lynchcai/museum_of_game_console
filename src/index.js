@@ -93,12 +93,16 @@ document.addEventListener(
     }
 )
 
+
+
+
 // Text
 const text = new Text()
 text.group.position.x = - 0.7
 text.group.position.y = 1.65
 text.group.position.z = - 1.04
 scene.add(text.group)
+
 
 
 
