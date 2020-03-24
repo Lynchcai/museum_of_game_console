@@ -11,7 +11,16 @@ import Console_nes from './scripts/Console_nes.js'
 import Console_nes_gamepad from './scripts/Console_nes_gamepad.js'
 import Console_gameboy from './scripts/Console_gameboy.js'
 import Console_switch from './scripts/Console_switch.js'
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js'
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
+
+
+
+
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+
 
 
 
@@ -100,10 +109,6 @@ scene.add(directional_light_helper)
 
 // Room
 const room = new Room()
-
-
-
-
 scene.add(room.group)
 
 
@@ -142,34 +147,9 @@ scene.add(console_nes_gamepad.group)
 
 // Console switch
 const console_switch = new Console_switch()
-console_switch.group.position.set(-1, 0.951, -1.0)
+console_switch.group.position.set(-0.9, 0.965, -1.0)
 console_switch.group.rotation.set(0, Math.PI*0.1, 0)
 scene.add(console_switch.group)
-
-
-
-/**
- * TEST TEST TEST
- */
-
-const material = new THREE.MeshStandardMaterial(
-    {
-        color: 0xffffff,
-        metalness: 0.3, 
-        roughness: 0.3
-    }
-)
-
-// Sphere
-const sphere = new THREE.Mesh(new THREE.SphereGeometry(2, 16, 16), material)
-sphere.position.x = - 6
-sphere.receiveShadow = true
-sphere.castShadow = true
-scene.add(sphere)
-
-
-
-
 
 
 
@@ -228,7 +208,7 @@ scene.add(text5.group)
 /**
  * Camera
  */
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 2000)
+const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 4)
 camera.position.z = 2
 camera.position.y = 2
 scene.add(camera)
@@ -239,7 +219,7 @@ scene.add(camera)
  * Renderer
  */
 const renderer = new THREE.WebGLRenderer( { antialias: true } )
-renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor( 0xA6D1F3, 1);
 renderer.shadowMap.enabled = true;
@@ -252,12 +232,24 @@ renderer.gammaFactor = 2.2
 renderer.shadowMap.enabled = true
 renderer.shadowMapSoft = true
 renderer.shadowMapType = THREE.PCFSoftShadowMap
+renderer.shadowMap.autoUpdate = true
+renderer.shadowMap.needsUpdate = true
 
+// Post processing
+const effectComposer = new EffectComposer(renderer)
+const renderPass = new RenderPass(scene, camera)
+effectComposer.addPass(renderPass)
+
+// Pass
+const unrealPass = new UnrealBloomPass(new THREE.Vector2(sizes.width, sizes.height))
+unrealPass.strength = 0.3
+unrealPass.radius = 0.2
+unrealPass.threshold = 0.05
+effectComposer.addPass(unrealPass)
 
 
 
 document.body.appendChild(renderer.domElement)
-
 
 
 /**
@@ -281,7 +273,9 @@ window.addEventListener('resize', () => {
     camera.aspect = sizes.width / sizes.height
     camera.updateProjectionMatrix()
 
-    renderer.setSize(sizes.width, sizes.height)
+    // renderer.setSize(sizes.width, sizes.height)
+
+    effectComposer.setSize(sizes.width, sizes.height)
 })
 
 
@@ -294,7 +288,8 @@ const loop = () => {
     window.requestAnimationFrame(loop)
 
     // Render
-    renderer.render(scene, camera)
+    // renderer.render(scene, camera)
+    effectComposer.render(scene, camera)
 }
 
 loop()

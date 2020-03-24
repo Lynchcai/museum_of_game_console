@@ -26,8 +26,12 @@ export default class Console_wii
                     this.console_wii = gltf.scene.children[0]
                     this.console_wii.traverse((child) => { 
                         if ( child.isMesh ) {
-                            child.castShadow = true;
-                            child.receiveShadow = true;
+                            // Shadow
+                            child.castShadow = true
+                            child.receiveShadow = true
+                            // Matrix optimization
+                            child.matrixAutoUpdate = false
+                            child.updateMatrix()
                             child.material = new THREE.MeshStandardMaterial({
                                 color: child.material.color,
                                 map: child.material.map

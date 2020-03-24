@@ -26,10 +26,15 @@ export default class Console_switch
                     this.console_switch = gltf.scene.children[0]
                     this.console_switch.traverse((child) => { 
                         if ( child.isMesh ) {
-                            child.castShadow = true;
-                            child.receiveShadow = true;
+                            // Shadow
+                            child.castShadow = true
+                            child.receiveShadow = true
+                            // Matrix optimization
+                            child.matrixAutoUpdate = false
+                            child.updateMatrix()
                             child.material = new THREE.MeshStandardMaterial({
-                                map: child.material.map
+                                map: child.material.map,
+                                color: child.material.color
                             })
                         }
                     })

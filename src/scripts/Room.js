@@ -27,8 +27,12 @@ export default class Room
                     this.room = gltf.scene.children[0]
                     this.room.traverse((child) => { 
                         if ( child.isMesh ) {
-                            child.castShadow = true;
-                            child.receiveShadow = true;
+                            // Shadow
+                            child.castShadow = true
+                            child.receiveShadow = true
+                            // Matrix optimization
+                            child.matrixAutoUpdate = false
+                            child.updateMatrix()
                             child.material = new THREE.MeshStandardMaterial({
                                 color: child.material.color,
                                 map: child.material.map
