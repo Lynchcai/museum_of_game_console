@@ -30,7 +30,8 @@ export default class Room
                             child.castShadow = true;
                             child.receiveShadow = true;
                             child.material = new THREE.MeshStandardMaterial({
-                                color: child.material.color
+                                color: child.material.color,
+                                map: child.material.map
                             })
                         }
                     })
