@@ -25,13 +25,6 @@ export default class Console_gameboy
                 {
                     console.log(gltf.scene)
                     this.console_gameboy = gltf.scene.children[0]
-                    this.console_gameboy.material = new THREE.MeshToonMaterial(
-                        {
-                            color: 0xff00ff,
-                            normalMap: this.console_gameboy.normalMap,
-                            side: THREE.DoubleSide
-                        }
-                    )
                     this.group.add(this.console_gameboy)
                     this.group.scale.set(0.01, 0.01, 0.01)
                     this.group.position.set(10, 0, 0)

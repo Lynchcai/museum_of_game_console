@@ -25,13 +25,6 @@ export default class Console_wii
                 {
                     console.log(gltf.scene)
                     this.console_wii = gltf.scene.children[0]
-                    this.console_wii.material = new THREE.MeshToonMaterial(
-                        {
-                            color: 0xff00ff,
-                            normalMap: this.console_wii.normalMap,
-                            side: THREE.DoubleSide
-                        }
-                    )
                     this.group.add(this.console_wii)
                     this.group.scale.set(0.01, 0.01, 0.01)
                     this.group.position.set(10, 0, 0)

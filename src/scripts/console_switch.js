@@ -18,20 +18,13 @@ export default class Console_switch
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/console_switch/scene.gltf',
+            '/models/gltf/console_switch_and_gamepad/scene.gltf',
             (gltf) =>
             {
                 while(gltf.scene.children.length)
                 {
                     console.log(gltf.scene)
                     this.console_switch = gltf.scene.children[0]
-                    this.console_switch.material = new THREE.MeshToonMaterial(
-                        {
-                            color: 0xff00ff,
-                            normalMap: this.console_switch.normalMap,
-                            side: THREE.DoubleSide
-                        }
-                    )
                     this.group.add(this.console_switch)
                     this.group.scale.set(0.01, 0.01, 0.01)
                     this.group.position.set(10, 0, 0)

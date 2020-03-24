@@ -23,15 +23,7 @@ export default class Console_arcade
             {
                 while(gltf.scene.children.length)
                 {
-                    console.log(gltf.scene)
                     this.console_arcade = gltf.scene.children[0]
-                    this.console_arcade.material = new THREE.MeshToonMaterial(
-                        {
-                            color: 0xff00ff,
-                            normalMap: this.console_arcade.normalMap,
-                            side: THREE.DoubleSide
-                        }
-                    )
                     this.group.add(this.console_arcade)
                     this.group.scale.set(0.02, 0.02, 0.02)
                     this.group.position.set(1.1, 0.45, -1.05)
