@@ -110,7 +110,8 @@ scene.add(text.group)
  * Camera
  */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 2000)
-camera.position.z = 8
+camera.position.z = 2
+camera.position.y = 2
 scene.add(camera)
 
 
