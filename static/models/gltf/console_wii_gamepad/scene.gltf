@@ -3,183 +3,24 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 852,
+      "count": 7196,
       "max": [
-        17.702005386352539,
-        -2.9312896728515625,
-        1.0193189382553101
+        5.4963407516479492,
+        24.327056884765625,
+        22.163610458374023
       ],
       "min": [
-        15.453654289245605,
-        -3.1300315856933594,
-        0.56193661689758301
+        -5.4963407516479492,
+        -28.956939697265625,
+        13.492718696594238
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 10224,
+      "byteOffset": 86352,
       "componentType": 5126,
-      "count": 852,
-      "max": [
-        0.99998730421066284,
-        0.99999678134918213,
-        0.99946314096450806
-      ],
-      "min": [
-        -0.99998748302459717,
-        -0.39015418291091919,
-        -0.95884329080581665
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "componentType": 5126,
-      "count": 852,
-      "max": [
-        0.99834465980529785,
-        0.99708151817321777,
-        0.92146116495132446,
-        1
-      ],
-      "min": [
-        -0.91529989242553711,
-        -0.99877732992172241,
-        -0.99999678134918213,
-        1
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 1,
-      "componentType": 5126,
-      "count": 852,
-      "max": [
-        0.98005014657974243,
-        0.98174333572387695
-      ],
-      "min": [
-        0.019039511680603027,
-        0.019079715013504028
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 0,
-      "componentType": 5125,
-      "count": 3936,
-      "max": [
-        851
-      ],
-      "min": [
-        0
-      ],
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 20448,
-      "componentType": 5126,
-      "count": 402,
-      "max": [
-        16.334110260009766,
-        -2.9467320442199707,
-        0.89803189039230347
-      ],
-      "min": [
-        16.140260696411133,
-        -3.0686719417572021,
-        0.69764697551727295
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 25272,
-      "componentType": 5126,
-      "count": 402,
-      "max": [
-        0.99999392032623291,
-        0.99590843915939331,
-        0.99991261959075928
-      ],
-      "min": [
-        -0.99999415874481201,
-        -0.9988560676574707,
-        -0.99999916553497314
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "byteOffset": 13632,
-      "componentType": 5126,
-      "count": 402,
-      "max": [
-        0.99066823720932007,
-        0.98071593046188354,
-        0.73795276880264282,
-        1
-      ],
-      "min": [
-        -0.0034745228476822376,
-        -0.99378204345703125,
-        -0.60734027624130249,
-        -1
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 1,
-      "byteOffset": 6816,
-      "componentType": 5126,
-      "count": 402,
-      "max": [
-        0.36164969205856323,
-        0.83373618125915527
-      ],
-      "min": [
-        0.019039571285247803,
-        0.48135516047477722
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 0,
-      "byteOffset": 15744,
-      "componentType": 5125,
-      "count": 1680,
-      "max": [
-        401
-      ],
-      "min": [
-        0
-      ],
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 30096,
-      "componentType": 5126,
-      "count": 1813,
-      "max": [
-        3.1503105163574219,
-        0.50012731552124023,
-        -1.7944808006286621
-      ],
-      "min": [
-        -3.0484237670898438,
-        -0.99516820907592773,
-        -3.3153457641601562
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 51852,
-      "componentType": 5126,
-      "count": 1813,
+      "count": 7196,
       "max": [
         1,
         1,
@@ -193,193 +34,25 @@
       "type": "VEC3"
     },
     {
-      "bufferView": 3,
-      "byteOffset": 20064,
-      "componentType": 5126,
-      "count": 1813,
-      "max": [
-        1,
-        0.99998193979263306,
-        0.99997991323471069,
-        1
-      ],
-      "min": [
-        -0.99999421834945679,
-        -0.99997490644454956,
-        -1,
-        -1
-      ],
-      "type": "VEC4"
-    },
-    {
       "bufferView": 1,
-      "byteOffset": 10032,
       "componentType": 5126,
-      "count": 1813,
+      "count": 7196,
       "max": [
-        0.96887314319610596,
-        0.99227786064147949
+        0.6953125,
+        0.98437494039535522
       ],
       "min": [
-        0.0076553821563720703,
-        0.0077221393585205078
+        0.039062559604644775,
+        0.46484377980232239
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
-      "byteOffset": 22464,
       "componentType": 5125,
-      "count": 3471,
+      "count": 11661,
       "max": [
-        1812
-      ],
-      "min": [
-        0
-      ],
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 73608,
-      "componentType": 5126,
-      "count": 62,
-      "max": [
-        18.126190185546875,
-        -3.1464245319366455,
-        0.91940003633499146
-      ],
-      "min": [
-        18.070194244384766,
-        -3.3676865100860596,
-        0.59577834606170654
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 74352,
-      "componentType": 5126,
-      "count": 62,
-      "max": [
-        1,
-        0.9312673807144165,
-        0.94966179132461548
-      ],
-      "min": [
-        -0.001745455083437264,
-        -0.9312407374382019,
-        -0.99435454607009888
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "byteOffset": 49072,
-      "componentType": 5126,
-      "count": 62,
-      "max": [
-        0.00017153906810563058,
-        0.46139785647392273,
-        0.99862128496170044,
-        1
-      ],
-      "min": [
-        -0.0025649771559983492,
-        -0.76041758060455322,
-        0,
-        -1
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 0,
-      "byteOffset": 36348,
-      "componentType": 5125,
-      "count": 102,
-      "max": [
-        61
-      ],
-      "min": [
-        0
-      ],
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 75096,
-      "componentType": 5126,
-      "count": 144,
-      "max": [
-        0.62520217895507812,
-        0.50000190734863281,
-        0.5
-      ],
-      "min": [
-        -0.49182891845703125,
-        -0.46405220031738281,
-        -0.50000190734863281
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 76824,
-      "componentType": 5126,
-      "count": 144,
-      "max": [
-        0.99405539035797119,
-        0.999644935131073,
-        0.99896436929702759
-      ],
-      "min": [
-        -0.99698382616043091,
-        -0.99943923950195312,
-        -0.99896454811096191
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "byteOffset": 50064,
-      "componentType": 5126,
-      "count": 144,
-      "max": [
-        1,
-        0.37990456819534302,
-        0.99984335899353027,
-        1
-      ],
-      "min": [
-        -0.27314069867134094,
-        -0.4731525182723999,
-        -0.99918335676193237,
-        1
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 1,
-      "byteOffset": 24536,
-      "componentType": 5126,
-      "count": 144,
-      "max": [
-        0.875,
-        1
-      ],
-      "min": [
-        0.125,
-        -0
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 0,
-      "byteOffset": 36756,
-      "componentType": 5125,
-      "count": 540,
-      "max": [
-        143
+        7195
       ],
       "min": [
         0
@@ -389,85 +62,59 @@
   ],
   "asset": {
     "extras": {
-      "author": "DLFornicola (https://sketchfab.com/DLFornicola)",
+      "author": "alexro_art (https://sketchfab.com/alexro_art)",
       "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "https://sketchfab.com/models/346927e0ef4f47baa0b2d69117a21c1c",
-      "title": "Wii Controller Test"
+      "source": "https://sketchfab.com/3d-models/mando-wii-54c9ecf6c4984c1fbd096601c50df64f",
+      "title": "MANDO WII"
     },
-    "generator": "Sketchfab-3.19.3",
+    "generator": "Sketchfab-7.38.0",
     "version": "2.0"
   },
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 38916,
+      "byteLength": 46644,
       "byteOffset": 0,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 25688,
-      "byteOffset": 38916,
+      "byteLength": 57568,
+      "byteOffset": 46644,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 78552,
-      "byteOffset": 64604,
+      "byteLength": 172704,
+      "byteOffset": 104212,
       "byteStride": 12,
-      "name": "floatBufferViews",
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 52368,
-      "byteOffset": 143156,
-      "byteStride": 16,
       "name": "floatBufferViews",
       "target": 34962
     }
   ],
   "buffers": [
     {
-      "byteLength": 195524,
+      "byteLength": 276916,
       "uri": "scene.bin"
     }
   ],
   "images": [
     {
-      "uri": "textures/WiiRemoteButtonsMtl_baseColor.jpg"
-    },
-    {
-      "uri": "textures/WiiRemoteButtonsMtl_normal.png"
-    },
-    {
-      "uri": "textures/WiiRemoteButtonsMtl_metallicRoughness.png"
-    },
-    {
-      "uri": "textures/WiiAButton_baseColor.png"
-    },
-    {
-      "uri": "textures/WiiRemoteMtl_baseColor.png"
-    },
-    {
-      "uri": "textures/WiiRemoteMtl_normal.png"
-    },
-    {
-      "uri": "textures/WiiRemoteMtl_metallicRoughness.png"
+      "uri": "textures/Material_baseColor.png"
     }
   ],
   "materials": [
     {
       "doubleSided": true,
-      "name": "WiiRemoteButtonsMtl",
-      "normalTexture": {
-        "index": 1,
-        "scale": 1,
-        "texCoord": 0
-      },
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "Material",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           1,
@@ -479,161 +126,23 @@
           "index": 0,
           "texCoord": 0
         },
-        "metallicFactor": 1,
-        "metallicRoughnessTexture": {
-          "index": 2,
-          "texCoord": 0
-        },
-        "roughnessFactor": 1
-      }
-    },
-    {
-      "alphaMode": "BLEND",
-      "doubleSided": true,
-      "emissiveFactor": [
-        0,
-        0,
-        0
-      ],
-      "name": "WiiAButton",
-      "pbrMetallicRoughness": {
-        "baseColorFactor": [
-          0.5,
-          0.5,
-          0.5,
-          0.82755335370000005
-        ],
-        "baseColorTexture": {
-          "index": 3,
-          "texCoord": 0
-        },
         "metallicFactor": 0,
-        "roughnessFactor": 0.59999999999999998
-      }
-    },
-    {
-      "doubleSided": true,
-      "name": "WiiRemoteMtl",
-      "normalTexture": {
-        "index": 5,
-        "scale": 1,
-        "texCoord": 0
-      },
-      "pbrMetallicRoughness": {
-        "baseColorFactor": [
-          1,
-          1,
-          1,
-          1
-        ],
-        "baseColorTexture": {
-          "index": 4,
-          "texCoord": 0
-        },
-        "metallicFactor": 1,
-        "metallicRoughnessTexture": {
-          "index": 6,
-          "texCoord": 0
-        },
-        "roughnessFactor": 1
-      }
-    },
-    {
-      "doubleSided": true,
-      "emissiveFactor": [
-        0,
-        0,
-        0
-      ],
-      "name": "WiiRemoteInput",
-      "pbrMetallicRoughness": {
-        "baseColorFactor": [
-          0,
-          0,
-          0,
-          1
-        ],
-        "metallicFactor": 0,
-        "roughnessFactor": 1
+        "roughnessFactor": 0.80404082057734572
       }
     }
   ],
   "meshes": [
     {
-      "name": "WiiRemoteButtons_WiiRemoteButtonsMtl_0",
+      "name": "Cube_Material_0",
       "primitives": [
         {
           "attributes": {
             "NORMAL": 1,
             "POSITION": 0,
-            "TANGENT": 2,
-            "TEXCOORD_0": 3
+            "TEXCOORD_0": 2
           },
-          "indices": 4,
+          "indices": 3,
           "material": 0,
-          "mode": 4
-        }
-      ]
-    },
-    {
-      "name": "A_Button_WiiAButton_0",
-      "primitives": [
-        {
-          "attributes": {
-            "NORMAL": 6,
-            "POSITION": 5,
-            "TANGENT": 7,
-            "TEXCOORD_0": 8
-          },
-          "indices": 9,
-          "material": 1,
-          "mode": 4
-        }
-      ]
-    },
-    {
-      "name": "polySurface3_WiiRemoteMtl_0",
-      "primitives": [
-        {
-          "attributes": {
-            "NORMAL": 11,
-            "POSITION": 10,
-            "TANGENT": 12,
-            "TEXCOORD_0": 13
-          },
-          "indices": 14,
-          "material": 2,
-          "mode": 4
-        }
-      ]
-    },
-    {
-      "name": "polySurface2_WiiRemoteInput_0",
-      "primitives": [
-        {
-          "attributes": {
-            "NORMAL": 16,
-            "POSITION": 15,
-            "TANGENT": 17
-          },
-          "indices": 18,
-          "material": 3,
-          "mode": 4
-        }
-      ]
-    },
-    {
-      "name": "pCube1_WiiRemoteMtl_0",
-      "primitives": [
-        {
-          "attributes": {
-            "NORMAL": 20,
-            "POSITION": 19,
-            "TANGENT": 21,
-            "TEXCOORD_0": 22
-          },
-          "indices": 23,
-          "material": 2,
           "mode": 4
         }
       ]
@@ -680,7 +189,7 @@
         0,
         1
       ],
-      "name": "4708df5dda8a445cbb53872eea9626bf.fbx"
+      "name": "7fb1cc4bb0444258a3a19a0e14b04ac0.fbx"
     },
     {
       "children": [
@@ -693,210 +202,28 @@
         5
       ],
       "matrix": [
-        1,
+        100,
         0,
         0,
         0,
         0,
-        1,
+        -1.6292067939183141e-05,
+        -99.999999999998678,
+        0,
+        0,
+        99.999999999998678,
+        -1.6292067939183141e-05,
         0,
         0,
         0,
         0,
-        1,
-        0,
-        3.6527912616729736,
-        0,
-        -5.9249849319458008,
         1
       ],
-      "name": "group4"
-    },
-    {
-      "children": [
-        6
-      ],
-      "name": "Wii"
-    },
-    {
-      "children": [
-        7,
-        9,
-        11,
-        15,
-        17
-      ],
-      "matrix": [
-        0.44118872284889221,
-        0,
-        0,
-        0,
-        0,
-        0.37081173663142003,
-        0.1325778155537001,
-        0,
-        0,
-        -0.14853194104925749,
-        0.41543441318356922,
-        0,
-        14.695082664489746,
-        -2.7005586624145508,
-        5.2562403678894043,
-        1
-      ],
-      "name": "WiiRemote"
-    },
-    {
-      "children": [
-        8
-      ],
-      "matrix": [
-        2.2666037082672119,
-        0,
-        0,
-        0,
-        0,
-        2.391127157075267,
-        -0.76308171684293236,
-        0,
-        0,
-        0.69718122199462074,
-        2.1846270412705908,
-        0,
-        -41.587360382080078,
-        7.1537995338439941,
-        -0.67324763536453247,
-        1
-      ],
-      "name": "WiiRemoteButtons"
+      "name": "Cube"
     },
     {
       "mesh": 0,
-      "name": "WiiRemoteButtons_WiiRemoteButtonsMtl_0"
-    },
-    {
-      "children": [
-        10
-      ],
-      "matrix": [
-        2.2666037082672119,
-        0,
-        0,
-        0,
-        0,
-        2.391127157075267,
-        -0.76308171684293236,
-        0,
-        0,
-        0.69718122199462074,
-        2.1846270412705908,
-        0,
-        -41.587360382080078,
-        7.1549367904663086,
-        -0.6736106276512146,
-        1
-      ],
-      "name": "A_Button"
-    },
-    {
-      "mesh": 1,
-      "name": "A_Button_WiiAButton_0"
-    },
-    {
-      "children": [
-        12
-      ],
-      "matrix": [
-        1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        -3.6527912616729736,
-        0,
-        5.9249849319458008,
-        1
-      ],
-      "name": "WiiRemoteLow"
-    },
-    {
-      "children": [
-        13
-      ],
-      "name": "polySurface1"
-    },
-    {
-      "children": [
-        14
-      ],
-      "name": "polySurface3"
-    },
-    {
-      "mesh": 2,
-      "name": "polySurface3_WiiRemoteMtl_0"
-    },
-    {
-      "children": [
-        16
-      ],
-      "matrix": [
-        1.6973342895507812,
-        0,
-        0,
-        0,
-        0,
-        1.6169897580505521,
-        -0.51603082547893675,
-        0,
-        0,
-        0.51603082547893675,
-        1.6169897580505521,
-        0,
-        -31.268680572509766,
-        4.8220839500427246,
-        0.46593189239501953,
-        1
-      ],
-      "name": "polySurface2"
-    },
-    {
-      "mesh": 3,
-      "name": "polySurface2_WiiRemoteInput_0"
-    },
-    {
-      "children": [
-        18
-      ],
-      "matrix": [
-        -0.53119946383587058,
-        0.59512286874231635,
-        0,
-        0,
-        0.59130139369248436,
-        0.52778846149643299,
-        -9.7064210363871891e-17,
-        0,
-        -3.8313671731979128e-17,
-        -3.4198319289294885e-17,
-        -0.41935545206069946,
-        0,
-        -5.2614192962646484,
-        -0.55539232492446899,
-        3.3564343452453613,
-        1
-      ],
-      "name": "pCube1"
-    },
-    {
-      "mesh": 4,
-      "name": "pCube1_WiiRemoteMtl_0"
+      "name": "Cube_Material_0"
     }
   ],
   "samplers": [
@@ -920,30 +247,6 @@
     {
       "sampler": 0,
       "source": 0
-    },
-    {
-      "sampler": 0,
-      "source": 1
-    },
-    {
-      "sampler": 0,
-      "source": 2
-    },
-    {
-      "sampler": 0,
-      "source": 3
-    },
-    {
-      "sampler": 0,
-      "source": 4
-    },
-    {
-      "sampler": 0,
-      "source": 5
-    },
-    {
-      "sampler": 0,
-      "source": 6
     }
   ]
 }
