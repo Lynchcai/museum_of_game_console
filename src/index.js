@@ -2,6 +2,7 @@ import './style/main.styl'
 import * as THREE from 'three'
 // import { TweenLite } from 'gsap/all'
 import Room from './scripts/Room.js'
+import Text from './scripts/Text.js'
 import Video from './scripts/Video.js'
 import Console_arcade from './scripts/Console_arcade.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
@@ -92,6 +93,12 @@ document.addEventListener(
     }
 )
 
+// Text
+const text = new Text()
+text.group.position.x = - 0.7
+text.group.position.y = 1.65
+text.group.position.z = - 1.04
+scene.add(text.group)
 
 
 
