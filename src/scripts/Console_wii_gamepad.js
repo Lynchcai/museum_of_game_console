@@ -18,7 +18,7 @@ export default class Console_wii
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/console_wii/scene.gltf',
+            '/models/gltf/console_wii_gamepad/scene.gltf',
             (gltf) =>
             {
                 while(gltf.scene.children.length)

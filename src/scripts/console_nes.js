@@ -25,13 +25,6 @@ export default class Console_nes
                 {
                     console.log(gltf.scene)
                     this.console_nes = gltf.scene.children[0]
-                    this.console_nes.material = new THREE.MeshToonMaterial(
-                        {
-                            color: 0xff00ff,
-                            normalMap: this.console_nes.normalMap,
-                            side: THREE.DoubleSide
-                        }
-                    )
                     this.group.add(this.console_nes)
                     this.group.scale.set(0.01, 0.01, 0.01)
                     this.group.position.set(10, 0, 0)

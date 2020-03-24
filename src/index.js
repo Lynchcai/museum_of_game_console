@@ -5,8 +5,11 @@ import Room from './scripts/Room.js'
 import Text from './scripts/Text.js'
 import Video from './scripts/Video.js'
 import Console_arcade from './scripts/Console_arcade.js'
+import Console_wii from './scripts/Console_wii.js'
+import Console_nes from './scripts/Console_nes.js'
+import Console_gameboy from './scripts/Console_gameboy.js'
+import Console_switch from './scripts/Console_switch.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { TetrahedronBufferGeometry } from 'three'
 
 
 
@@ -72,7 +75,6 @@ scene.add(point_light)
 
 // Room
 const room = new Room()
-room.group.position.x = 0
 scene.add(room.group)
 
 // Console arcade
