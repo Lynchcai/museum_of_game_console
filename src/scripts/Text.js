@@ -8,7 +8,7 @@ export default class Text
         // Init group
         this.group = new THREE.Group()
 
-        const text_material = new THREE.MeshNormalMaterial()
+        const text_material = new THREE.MeshBasicMaterial({ color: 0xD1D1D1})
         const text_geometry = new THREE.TextGeometry(
             texts,
              {
@@ -25,6 +25,7 @@ export default class Text
         )
         
     const text_mesh = new THREE.Mesh(text_geometry, text_material)
+    this.group.visible = false
     this.group.add(text_mesh)
     }
 }
