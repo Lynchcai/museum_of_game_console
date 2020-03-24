@@ -2,6 +2,7 @@ import './style/main.styl'
 import * as THREE from 'three'
 // import { TweenLite } from 'gsap/all'
 import Room from './scripts/Room.js'
+import Text from './scripts/Text.js'
 import Video from './scripts/Video.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { TetrahedronBufferGeometry } from 'three'
@@ -80,28 +81,13 @@ document.addEventListener(
     }
 )
 
+// Text
+const text = new Text()
+text.group.position.x = - 0.7
+text.group.position.y = 1.65
+text.group.position.z = - 1.04
+scene.add(text.group)
 
-// const video = document.getElementById( 'video' );
-
-// const videoTexture = new THREE.VideoTexture( video );
-// videoTexture.minFilter = THREE.LinearFilter;
-// videoTexture.magFilter = THREE.LinearFilter;
-// videoTexture.format = THREE.RGBFormat;
-
-
-// const movieMaterial = new THREE.MeshBasicMaterial ( { map: videoTexture, overdraw: true})
-// const movieGeometry = new THREE.PlaneGeometry( 240, 135, 4, 4) // 16:9
-// const movieScreen = new THREE.Mesh( movieGeometry, movieMaterial)
-// movieScreen.position.set(-0.22, 1.4, -1.032)
-// movieScreen.scale.set(0.0045, 0.0045, 0.0045)
-// scene.add(movieScreen)
-
-// document.addEventListener(
-//     'click',
-//     ()=>{
-//         video.play()
-//     }
-// )
 
 
 /**
