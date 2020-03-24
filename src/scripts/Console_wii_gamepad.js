@@ -24,6 +24,15 @@ export default class Console_wii_gamepad
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
                     this.console_wii_gamepad = gltf.scene.children[0]
+                    this.console_wii_gamepad.traverse((child) => { 
+                        if ( child.isMesh ) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                            child.material = new THREE.MeshStandardMaterial({
+                                color: child.material.color
+                            })
+                        }
+                    })
                     this.group.add(this.console_wii_gamepad)
                     this.group.scale.set(0.1, 0.1, 0.1)
                     this.group.position.set(0, 2.5, 10)

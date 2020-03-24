@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import { log } from 'three'
+import { log, MeshBasicMaterial } from 'three'
 
 export default class Room
 {
@@ -29,6 +29,9 @@ export default class Room
                         if ( child.isMesh ) {
                             child.castShadow = true;
                             child.receiveShadow = true;
+                            child.material = new THREE.MeshStandardMaterial({
+                                color: child.material.color
+                            })
                         }
                     })
                     this.group.add(this.room)

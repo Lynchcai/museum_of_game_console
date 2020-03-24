@@ -24,6 +24,16 @@ export default class Console_nes
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
                     this.console_nes = gltf.scene.children[0]
+                    this.console_nes.traverse((child) => { 
+                        if ( child.isMesh ) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                            child.material = new THREE.MeshStandardMaterial({
+                                map: child.material.map,
+                                color: child.material.color
+                            })
+                        }
+                    })
                     this.group.add(this.console_nes)
                     this.group.scale.set(0.02, 0.02, 0.02)
                 }

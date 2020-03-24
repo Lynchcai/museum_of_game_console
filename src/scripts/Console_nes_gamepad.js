@@ -24,6 +24,16 @@ export default class Console_nes_gamepad
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
                     this.console_nes_gamepad = gltf.scene.children[0]
+                    this.console_nes_gamepad.traverse((child) => { 
+                        if ( child.isMesh ) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                            child.material = new THREE.MeshStandardMaterial({
+                                map: child.material.map,
+                                color: child.material.color
+                            })
+                        }
+                    })
                     this.group.add(this.console_nes_gamepad)
                     this.group.scale.set(0.015, 0.015, 0.015)
                 }

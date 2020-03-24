@@ -25,9 +25,14 @@ export default class Console_wii
                 for (let i = 0; i < temp; i++) {
                     this.console_wii = gltf.scene.children[0]
                     this.console_wii.traverse((child) => { 
-                        child.castShadow = true
-                        child.receiveShadow = true
-                        child.needsUpdate = true
+                        if ( child.isMesh ) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                            child.material = new THREE.MeshStandardMaterial({
+                                color: child.material.color,
+                                map: child.material.map
+                            })
+                        }
                     })
                     this.group.add(this.console_wii)
                     this.group.scale.set(0.06, 0.06, 0.06)

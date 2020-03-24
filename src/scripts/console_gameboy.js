@@ -24,6 +24,15 @@ export default class Console_gameboy
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
                     this.console_gameboy = gltf.scene.children[0]
+                    this.console_gameboy.traverse((child) => { 
+                        if ( child.isMesh ) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                            child.material = new THREE.MeshStandardMaterial({
+                                color: child.material.color
+                            })
+                        }
+                    })
                     this.group.add(this.console_gameboy)
                     this.group.scale.set(0.01, 0.01, 0.01)
                     this.group.position.set(0.6, 1.08, -1.0)

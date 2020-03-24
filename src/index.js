@@ -67,6 +67,7 @@ directionalLight.castShadow = true
 scene.add(directionalLight)
 
 
+
 /**
  * Material
  */
@@ -148,7 +149,6 @@ sphere.receiveShadow = true
 sphere.castShadow = true
 scene.add(sphere)
 
-console.log(sphere);
 
 
 
@@ -227,6 +227,10 @@ renderer.setPixelRatio(window.devicePixelRatio)
 renderer.gammaOutput = true
 renderer.gammaFactor = 2.2
 renderer.shadowMap.enabled = true
+renderer.shadowMapSoft = true
+renderer.shadowMapType = THREE.PCFSoftShadowMap;
+
+
 
 document.body.appendChild(renderer.domElement)
 

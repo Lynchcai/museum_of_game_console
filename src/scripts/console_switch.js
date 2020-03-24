@@ -24,6 +24,15 @@ export default class Console_switch
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
                     this.console_switch = gltf.scene.children[0]
+                    this.console_switch.traverse((child) => { 
+                        if ( child.isMesh ) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                            child.material = new THREE.MeshStandardMaterial({
+                                map: child.material.map
+                            })
+                        }
+                    })
                     this.group.add(this.console_switch)
                     this.group.scale.set(0.01, 0.01, 0.01)
                 }
