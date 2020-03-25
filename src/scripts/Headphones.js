@@ -18,7 +18,7 @@ export default class Headphones
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/headphones/scene.gltf',
+            'models/gltf/headphones/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length

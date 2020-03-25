@@ -18,7 +18,7 @@ export default class Pokeball_figurine
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/pokeball_figurine/scene.gltf',
+            'models/gltf/pokeball_figurine/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length

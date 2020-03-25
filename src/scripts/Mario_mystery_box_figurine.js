@@ -18,7 +18,7 @@ export default class Mario_mystery_box_figurine
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/mario_mystery_box_figurine/scene.gltf',
+            'models/gltf/mario_mystery_box_figurine/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length

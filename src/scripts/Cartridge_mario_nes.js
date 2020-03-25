@@ -18,7 +18,7 @@ export default class Cartridge_mario_nes
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/cartridge_mario_nes/scene.gltf',
+            'models/gltf/cartridge_mario_nes/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length

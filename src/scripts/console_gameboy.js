@@ -18,7 +18,7 @@ export default class Console_gameboy
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/console_gameboy/scene.gltf',
+            'models/gltf/console_gameboy/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length

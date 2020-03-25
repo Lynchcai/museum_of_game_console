@@ -18,7 +18,7 @@ export default class Bomb_mario
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/bob-omb_mario_figurine/scene.gltf',
+            'models/gltf/bob-omb_mario_figurine/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length

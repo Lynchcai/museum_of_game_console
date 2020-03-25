@@ -18,7 +18,7 @@ export default class Cartridge_pokemon_gameboy
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/cartridge_pokemon_gameboy/scene.gltf',
+            'models/gltf/cartridge_pokemon_gameboy/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length

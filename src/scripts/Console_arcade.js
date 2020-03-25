@@ -18,7 +18,7 @@ export default class Console_arcade
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/console_arcade/scene.gltf',
+            'models/gltf/console_arcade/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length

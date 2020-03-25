@@ -18,7 +18,7 @@ export default class Console_nes_gamepad
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/console_nes_gamepad/scene.gltf',
+            'models/gltf/console_nes_gamepad/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length

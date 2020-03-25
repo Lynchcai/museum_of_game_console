@@ -18,7 +18,7 @@ export default class Cartridge_duck_hunt_nes
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/cartridge_duck_hunt_nes/scene.gltf',
+            'models/gltf/cartridge_duck_hunt_nes/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length
