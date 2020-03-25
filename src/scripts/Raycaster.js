@@ -14,4 +14,3 @@ export default class Raycaster{
         this.hover = hover
     }
 }
-
