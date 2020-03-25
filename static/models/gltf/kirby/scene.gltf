@@ -1,0 +1,407 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 4891,
+      "max": [
+        1.3260400295257568,
+        0.9930499792098999,
+        1.379040002822876
+      ],
+      "min": [
+        -1.3257399797439575,
+        -0.99320000410079956,
+        -0.96741998195648193
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 58692,
+      "componentType": 5126,
+      "count": 4891,
+      "max": [
+        0.99944418668746948,
+        0.99922776222229004,
+        0.99986881017684937
+      ],
+      "min": [
+        -0.99904382228851318,
+        -0.99979501962661743,
+        -0.99988943338394165
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 4891,
+      "max": [
+        0.99968928098678589,
+        0.99926310777664185,
+        0.99958807229995728,
+        1
+      ],
+      "min": [
+        -0.99984610080718994,
+        -0.99988764524459839,
+        -0.99621403217315674,
+        1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 4891,
+      "max": [
+        0.99145001173019409,
+        0.99804002046585083
+      ],
+      "min": [
+        0.0019499999471008778,
+        0.0019499999471008778
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 28632,
+      "max": [
+        4890
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 117384,
+      "componentType": 5126,
+      "count": 528,
+      "max": [
+        0.94902998208999634,
+        0.17700999975204468,
+        1.0363399982452393
+      ],
+      "min": [
+        -1.0480899810791016,
+        -0.091360002756118774,
+        -0.96220999956130981
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 123720,
+      "componentType": 5126,
+      "count": 528,
+      "max": [
+        0.96335422992706299,
+        0.83432894945144653,
+        0.83290046453475952
+      ],
+      "min": [
+        -0.819710373878479,
+        -1,
+        -0.80684095621109009
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 78256,
+      "componentType": 5126,
+      "count": 528,
+      "max": [
+        0.99999570846557617,
+        0.97024565935134888,
+        0.86485141515731812,
+        1
+      ],
+      "min": [
+        -0.99885624647140503,
+        -0.94950991868972778,
+        -0.99127894639968872,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 39128,
+      "componentType": 5126,
+      "count": 528,
+      "max": [
+        0.95784002542495728,
+        0.95569998025894165
+      ],
+      "min": [
+        0.073459997773170471,
+        0.049339998513460159
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 114528,
+      "componentType": 5125,
+      "count": 768,
+      "max": [
+        527
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "splatoonz (https://sketchfab.com/splatoonz)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/models/89c3c84c308145a1b813877f8db66b3b",
+      "title": "Kirby"
+    },
+    "generator": "Sketchfab-3.18.2",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 117600,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 43352,
+      "byteOffset": 117600,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 130056,
+      "byteOffset": 160952,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 86704,
+      "byteOffset": 291008,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 377712,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/KirbyMat_baseColor.jpg"
+    },
+    {
+      "uri": "textures/StandMat_baseColor.jpg"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "StandMat",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 1,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "KirbyMat",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Kirby",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Stand",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "name": "Root"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -0,
+        1,
+        0,
+        0,
+        -1,
+        -0,
+        0,
+        0,
+        0,
+        1.36829,
+        1
+      ],
+      "name": "Kirby"
+    },
+    {
+      "mesh": 0,
+      "name": "Kirby"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        0.89440000000000008,
+        0.6416900000000002,
+        0,
+        0,
+        0,
+        -0,
+        -1.1007800000000001,
+        0,
+        -0.6416900000000002,
+        0.89440000000000008,
+        -0,
+        0,
+        0.078790000000000027,
+        -0.10860000000000002,
+        0.26467000000000002,
+        1
+      ],
+      "name": "Stand"
+    },
+    {
+      "mesh": 1,
+      "name": "Stand"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    }
+  ]
+}
+
