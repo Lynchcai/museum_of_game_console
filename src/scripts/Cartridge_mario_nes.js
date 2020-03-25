@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
-export default class Console_switch
+export default class Cartridge_mario_nes
 {
     constructor()
     {
@@ -18,13 +18,13 @@ export default class Console_switch
 
         // Load model
         gltfLoader.load(
-            'models/gltf/console_switch_and_gamepad/scene.gltf',
+            'models/gltf/cartridge_mario_nes/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
-                    this.console_switch = gltf.scene.children[0]
-                    this.console_switch.traverse((child) => { 
+                    this.cartridge_mario_nes = gltf.scene.children[0]
+                    this.cartridge_mario_nes.traverse((child) => { 
                         if ( child.isMesh ) {
                             // Shadow
                             child.castShadow = true
@@ -38,8 +38,8 @@ export default class Console_switch
                             })
                         }
                     })
-                    this.group.add(this.console_switch)
-                    this.group.scale.set(0.01, 0.01, 0.01)
+                    this.group.add(this.cartridge_mario_nes)
+                    this.group.scale.set(0.0005, 0.0005, 0.0005)
                 }
             }
         )

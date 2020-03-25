@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
-export default class Console_switch
+export default class Mario_mystery_box_figurine
 {
     constructor()
     {
@@ -18,13 +18,13 @@ export default class Console_switch
 
         // Load model
         gltfLoader.load(
-            'models/gltf/console_switch_and_gamepad/scene.gltf',
+            'models/gltf/mario_mystery_box_figurine/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
-                    this.console_switch = gltf.scene.children[0]
-                    this.console_switch.traverse((child) => { 
+                    this.mario_mystery_box_figurine = gltf.scene.children[0]
+                    this.mario_mystery_box_figurine.traverse((child) => { 
                         if ( child.isMesh ) {
                             // Shadow
                             child.castShadow = true
@@ -38,8 +38,8 @@ export default class Console_switch
                             })
                         }
                     })
-                    this.group.add(this.console_switch)
-                    this.group.scale.set(0.01, 0.01, 0.01)
+                    this.group.add(this.mario_mystery_box_figurine)
+                    this.group.scale.set(0.05, 0.05, 0.05)
                 }
             }
         )

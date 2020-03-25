@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
-export default class Console_switch
+export default class Bomb_mario
 {
     constructor()
     {
@@ -18,13 +18,13 @@ export default class Console_switch
 
         // Load model
         gltfLoader.load(
-            'models/gltf/console_switch_and_gamepad/scene.gltf',
+            'models/gltf/bob-omb_mario_figurine/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
-                    this.console_switch = gltf.scene.children[0]
-                    this.console_switch.traverse((child) => { 
+                    this.bomb_mario = gltf.scene.children[0]
+                    this.bomb_mario.traverse((child) => { 
                         if ( child.isMesh ) {
                             // Shadow
                             child.castShadow = true
@@ -38,8 +38,8 @@ export default class Console_switch
                             })
                         }
                     })
-                    this.group.add(this.console_switch)
-                    this.group.scale.set(0.01, 0.01, 0.01)
+                    this.group.add(this.bomb_mario)
+                    this.group.scale.set(0.0005, 0.0005, 0.0005)
                 }
             }
         )

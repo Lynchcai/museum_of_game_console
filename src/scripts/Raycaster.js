@@ -4,12 +4,10 @@ export default class Raycaster{
         if(intersects.length)
         {
             hover = true
-            document.body.style.cursor = 'pointer'
         }
         else
         {
             hover = false
-            document.body.style.cursor = 'default'
         }
         this.hover = hover
     }

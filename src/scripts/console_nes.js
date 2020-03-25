@@ -18,7 +18,7 @@ export default class Console_nes
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/console_nes/scene.gltf',
+            'models/gltf/console_nes/scene.gltf',
             (gltf) =>
             {
                 let temp = gltf.scene.children.length

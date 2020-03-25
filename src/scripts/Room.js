@@ -19,7 +19,7 @@ export default class Room
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/room/Room.gltf',
+            'models/gltf/room/Room.gltf',
             (gltf) =>
             {   
                 let temp = gltf.scene.children.length

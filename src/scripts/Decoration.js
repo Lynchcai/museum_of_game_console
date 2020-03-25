@@ -24,7 +24,7 @@ export default class Decoration
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
                     this.decoration = gltf.scene.children[0]
-                    this.decoration.traverse((child) => { 
+                    this.decoration.traverse((child) => {
                         if ( child.isMesh ) {
                             // Shadow
                             child.castShadow = true

@@ -124,40 +124,49 @@ document.addEventListener(
     }
 )
 
+
 // Console wii
 const console_wii = new Console_wii()
 console_wii.group.position.set(0.6, 1.08, -1.0)
 console_wii.group.rotation.set(0, Math.PI*0.5, 0)
-scene.add(console_wii.group)
 
 // Console wii gamepad
 const console_wii_gamepad_01 = new Console_wii_gamepad()
 console_wii_gamepad_01.group.position.set(0.57, 0.905, -1.05)
 console_wii_gamepad_01.group.rotation.set(0, Math.PI*0.06, 0)
-scene.add(console_wii_gamepad_01.group)
 
 const console_wii_gamepad_02 = new Console_wii_gamepad()
 console_wii_gamepad_02.group.position.set(0.65, 0.905, -1.0)
 console_wii_gamepad_02.group.rotation.set(0, -Math.PI*0.04, 0)
-scene.add(console_wii_gamepad_02.group)
+
+// Console wii group
+const console_wii_group = new THREE.Group()
+console_wii_group.add(console_wii.group)
+console_wii_group.add(console_wii_gamepad_01.group)
+console_wii_group.add(console_wii_gamepad_02.group)
+scene.add(console_wii_group)
 
 
 // Console nes
 const console_nes = new Console_nes()
 console_nes.group.position.set(0.5, 0.48, -1.1)
 console_nes.group.rotation.set(0, -0.5, 0)
-scene.add(console_nes.group)
 
 // Console nes gamepad
 const console_nes_gamepad_01 = new Console_nes_gamepad()
 console_nes_gamepad_01.group.position.set(0.47, 0.570, -1.15)
 console_nes_gamepad_01.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.9)
-scene.add(console_nes_gamepad_01.group)
 
 const console_nes_gamepad_02 = new Console_nes_gamepad()
 console_nes_gamepad_02.group.position.set(0.53, 0.570, -1.05)
 console_nes_gamepad_02.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.7)
-scene.add(console_nes_gamepad_02.group)
+
+// Console nes group
+const console_nes_group = new THREE.Group()
+console_nes_group.add(console_nes.group)
+console_nes_group.add(console_nes_gamepad_01.group)
+console_nes_group.add(console_nes_gamepad_02.group)
+scene.add(console_nes_group)
 
 
 // Console gameboy
@@ -166,11 +175,13 @@ console_gameboy.group.position.set(-1.1, 0.955, -1.3)
 console_gameboy.group.rotation.set(0, Math.PI*-0.6, 0)
 scene.add(console_gameboy.group)
 
+
 // Console switch
 const console_switch = new Console_switch()
 console_switch.group.position.set(-0.9, 0.965, -1.0)
 console_switch.group.rotation.set(0, Math.PI*0.1, 0)
 scene.add(console_switch.group)
+
 
 // Decoration
 const bomb_mario = new Decoration('models/gltf/bob-omb_mario_figurine/scene.gltf')
@@ -339,6 +350,8 @@ text5.group.position.z = - 1.03
 scene.add(text5.group)
 
 
+
+
 /**
  * Camera
  */
@@ -390,7 +403,7 @@ document.body.appendChild(renderer.domElement)
  */
 const cameraControls = new OrbitControls(camera, renderer.domElement)
 cameraControls.zoomSpeed = 0.3
-cameraControls.enableDamping = true // Add a sort of Easing
+cameraControls.enableDamping = true
 
 
 
@@ -423,9 +436,21 @@ let hover_console_switch = false
 document.addEventListener('click',()=>{if(hover_console_switch){const object_movement = new Object_movement(console_switch.group, 'console_switch')}})
 
 // Console wii
-// let hover_console_wii = false
-// let hover_console_wii_gamepad = false
-// document.addEventListener('click',()=>{if(hover_console_wii || hover_console_wii_gamepad){const object_movement = new Object_movement(console_switch.group, 'console_switch')}})
+let hover_console_wii = false
+document.addEventListener('click',()=>{if(hover_console_wii){const object_movement = new Object_movement(console_wii_group, 'console_wii')}})
+
+// Console nes
+let hover_console_nes = false
+document.addEventListener('click',()=>{if(hover_console_nes){const object_movement = new Object_movement(console_nes_group, 'console_nes')}})
+
+// Console gameboy
+let hover_console_gameboy = false
+document.addEventListener('click',()=>{if(hover_console_gameboy){const object_movement = new Object_movement(console_gameboy.group, 'console_gameboy')}})
+
+// Console arcade
+let hover_console_arcade = false
+document.addEventListener('click',()=>{if(hover_console_arcade){const object_movement = new Object_movement(console_arcade.group, 'console_arcade')}})
+
 
 
 
@@ -443,11 +468,39 @@ const loop = () => {
     const raycaster_cursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
     raycaster.setFromCamera(raycaster_cursor, camera)
 
-    // Raycast console switch
-    const intersects = new Raycaster(console_switch.group, hover_console_switch, raycaster)
-    hover_console_switch = intersects.hover
 
-    
+
+
+    // Raycast console switch
+    const intersects_switch = new Raycaster(console_switch.group, hover_console_switch, raycaster)
+    hover_console_switch = intersects_switch.hover
+
+    // Raycast console wii
+    const intersects_wii = new Raycaster(console_wii_group, hover_console_wii, raycaster)
+    hover_console_wii = intersects_wii.hover
+
+    // Raycast console nes
+    const intersects_nes = new Raycaster(console_nes_group, hover_console_nes, raycaster)
+    hover_console_nes = intersects_nes.hover
+
+    // Raycast console gameboy
+    const intersects_gameboy = new Raycaster(console_gameboy.group, hover_console_gameboy, raycaster)
+    hover_console_gameboy = intersects_gameboy.hover
+
+    // Raycast console arcade
+    const intersects_arcade = new Raycaster(console_arcade.group, hover_console_arcade, raycaster)
+    hover_console_arcade = intersects_arcade.hover
+
+
+
+
+    // Change cursor on hover
+    if(hover_console_wii || hover_console_switch || hover_console_nes || hover_console_gameboy || hover_console_arcade){
+        document.body.style.cursor = 'pointer'
+    }
+    else{
+        document.body.style.cursor = 'default'
+    }
 }
 
 loop()
