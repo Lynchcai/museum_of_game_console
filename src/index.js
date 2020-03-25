@@ -1,6 +1,5 @@
 import './style/main.styl'
 import * as THREE from 'three'
-// import { TweenLite } from 'gsap/all'
 import Room from './scripts/Room.js'
 import Text from './scripts/Text.js'
 import Video from './scripts/Video.js'
@@ -12,10 +11,13 @@ import Console_nes from './scripts/Console_nes.js'
 import Console_nes_gamepad from './scripts/Console_nes_gamepad.js'
 import Console_gameboy from './scripts/Console_gameboy.js'
 import Console_switch from './scripts/Console_switch.js'
+import Raycaster from './scripts/Raycaster.js'
+import Object_movement from './scripts/Object_movement.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
+import { TweenLite } from 'gsap/all'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import Bomb_mario from './scripts/Bomb_mario.js'
 import Cartridge_duck_hunt_nes from './scripts/Cartridge_duck_hunt_nes.js'
@@ -215,6 +217,8 @@ pokeball_figurine.group.position.set(0.15, 0.975, -0.9)
 pokeball_figurine.group.rotation.set(1.3, Math.PI*1, 0)
 scene.add(pokeball_figurine.group)
 
+const raycaster = new THREE.Raycaster()
+
 
 
 // Video
@@ -310,8 +314,7 @@ unrealPass.radius = 0.2
 unrealPass.threshold = 0.05
 effectComposer.addPass(unrealPass)
 
-
-
+// Render
 document.body.appendChild(renderer.domElement)
 
 
@@ -342,17 +345,33 @@ window.addEventListener('resize', () => {
 })
 
 
-
+document.addEventListener('click', () =>
+{
+    if(hover_console_switch)
+    {
+        console.log('click sur la switch')
+    }
+})
 
 /**
  * Loop
  */
+let hover_console_switch = false
+
 const loop = () => {
     window.requestAnimationFrame(loop)
-
     // Render
-    // renderer.render(scene, camera)
     effectComposer.render(scene, camera)
+
+    // Raycaster
+    const raycaster_cursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
+    raycaster.setFromCamera(raycaster_cursor, camera)
+
+    // Console switch
+    const intersects = new Raycaster(console_switch.group, hover_console_switch, raycaster)
+    hover_console_switch = intersects.hover
+
+    
 }
 
 loop()
