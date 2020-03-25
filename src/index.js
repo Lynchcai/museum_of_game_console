@@ -184,11 +184,11 @@ scene.add(console_switch.group)
 
 
 // Decoration
-const bomb_mario = new Decoration('models/gltf/bob-omb_mario_figurine/scene.gltf')
-bomb_mario.group.position.set(-1.15, 1, -1.0)
-bomb_mario.group.rotation.set(0, Math.PI*1.2, 0)
-bomb_mario.group.scale.set(0.0005, 0.0005, 0.0005)
-scene.add(bomb_mario.group)
+// const bomb_mario = new Decoration('models/gltf/bob-omb_mario_figurine/scene.gltf')
+// bomb_mario.group.position.set(-1.15, 1, -1.0)
+// bomb_mario.group.rotation.set(0, Math.PI*1.2, 0)
+// bomb_mario.group.scale.set(0.0005, 0.0005, 0.0005)
+// scene.add(bomb_mario.group)
 
 const cartridge_duck_hunt_nes = new Decoration('models/gltf/cartridge_duck_hunt_nes/scene.gltf')
 cartridge_duck_hunt_nes.group.position.set(0.2, 0.528, -1.0)
@@ -244,6 +244,7 @@ zelda_shield.group.rotation.set(-0.5, Math.PI*-2, 0.8)
 zelda_shield.group.scale.set(0.1, 0.1, 0.1)
 scene.add(zelda_shield.group)
 
+
 const plante_piranha = new Decoration('models/gltf/plante_piranha/scene.gltf')
 plante_piranha.group.position.set(0.63, 1.02, -1.25)
 plante_piranha.group.rotation.set(0, Math.PI*0, 0)
@@ -285,10 +286,20 @@ matrix.group.position.set(0.5, 2, -1.33)
 matrix.group.scale.set(0.002, 0.005, 0.002)
 scene.add(matrix.group)
 
-const ready_player_one = new Poster('poster_affiche/ready_player_one.jpg')
-ready_player_one.group.position.set(-0.8, 2, -1.33)
-ready_player_one.group.scale.set(0.002, 0.005, 0.002)
-scene.add(ready_player_one.group)
+const le_seigneur_des_anneaux = new Poster('poster_affiche/le_seigneur_des_anneaux.jpg')
+le_seigneur_des_anneaux.group.position.set(-0.8, 2, -1.33)
+le_seigneur_des_anneaux.group.scale.set(0.002, 0.005, 0.002)
+scene.add(le_seigneur_des_anneaux.group)
+
+const terminator = new Poster('poster_affiche/Terminator.jpg')
+terminator.group.position.set(-0.15, 2.05, -1.33)
+terminator.group.scale.set(0.002, 0.005, 0.002)
+scene.add(terminator.group)
+
+const animal_crossing = new Poster('poster_affiche/animal_crossing.jpg')
+animal_crossing.group.position.set(-0.95, 1.41, -1.33)
+animal_crossing.group.scale.set(0.002, 0.003, 0.003)
+scene.add(animal_crossing.group)
 
 const star_wars = new Poster('poster_affiche/star_wars.jpg')
 star_wars.group.position.set(-1.2, 1.7, -0.75)
@@ -389,7 +400,7 @@ effectComposer.addPass(renderPass)
 
 // Pass
 const unrealPass = new UnrealBloomPass(new THREE.Vector2(sizes.width, sizes.height))
-unrealPass.strength = 0.2
+unrealPass.strength = 0.05
 unrealPass.radius = 0.2
 unrealPass.threshold = 0.05
 effectComposer.addPass(unrealPass)
