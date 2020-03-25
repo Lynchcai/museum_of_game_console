@@ -33,14 +33,13 @@ export default class Console_wii_gamepad
                             child.matrixAutoUpdate = false
                             child.updateMatrix()
                             child.material = new THREE.MeshStandardMaterial({
-                                color: child.material.color
+                                color: child.material.color,
+                                map: child.material.map
                             })
                         }
                     })
                     this.group.add(this.console_wii_gamepad)
-                    this.group.scale.set(0.1, 0.1, 0.1)
-                    this.group.position.set(0, 2.5, 10)
-                    this.group.rotation.set(0, Math.PI*0.5, 0)
+                    this.group.scale.set(0.000035, 0.000035, 0.000035)
                 }
             }
         )

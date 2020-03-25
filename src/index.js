@@ -124,9 +124,17 @@ console_wii.group.rotation.set(0, Math.PI*0.5, 0)
 
 scene.add(console_wii.group)
 
-// // Console wii gamepad
-// const console_wii_gamepad = new Console_wii_gamepad()
-// scene.add(console_wii_gamepad.group)
+// Console wii gamepad
+const console_wii_gamepad_01 = new Console_wii_gamepad()
+console_wii_gamepad_01.group.position.set(0.57, 0.905, -1.05)
+console_wii_gamepad_01.group.rotation.set(0, Math.PI*0.06, 0)
+scene.add(console_wii_gamepad_01.group)
+
+const console_wii_gamepad_02 = new Console_wii_gamepad()
+console_wii_gamepad_02.group.position.set(0.65, 0.905, -1.0)
+console_wii_gamepad_02.group.rotation.set(0, -Math.PI*0.04, 0)
+scene.add(console_wii_gamepad_02.group)
+
 
 // Console nes
 const console_nes = new Console_nes()
@@ -135,10 +143,15 @@ console_nes.group.rotation.set(0, -0.5, 0)
 scene.add(console_nes.group)
 
 // Console nes gamepad
-const console_nes_gamepad = new Console_nes_gamepad()
-console_nes_gamepad.group.position.set(0.5, 0.570, -1.1)
-console_nes_gamepad.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.9)
-scene.add(console_nes_gamepad.group)
+const console_nes_gamepad_01 = new Console_nes_gamepad()
+console_nes_gamepad_01.group.position.set(0.47, 0.570, -1.15)
+console_nes_gamepad_01.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.9)
+scene.add(console_nes_gamepad_01.group)
+
+const console_nes_gamepad_02 = new Console_nes_gamepad()
+console_nes_gamepad_02.group.position.set(0.53, 0.570, -1.05)
+console_nes_gamepad_02.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.7)
+scene.add(console_nes_gamepad_02.group)
 
 
 // // Console gameboy
@@ -208,7 +221,7 @@ scene.add(text5.group)
 /**
  * Camera
  */
-const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 4)
+const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 200)
 camera.position.z = 2
 camera.position.y = 2
 scene.add(camera)
