@@ -303,7 +303,7 @@ const raycaster = new THREE.Raycaster()
 
 
 // Video
-const video_test = new Video('videos/test.mp4')
+const video_test = new Video('videos/gameboy.mp4')
 scene.add(video_test.group)
 
 document.addEventListener(
