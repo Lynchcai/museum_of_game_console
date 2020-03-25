@@ -18,7 +18,7 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
 import { TweenLite } from 'gsap/all'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import Poster from './scripts/Poster.js'
 import Decoration from './scripts/Decoration.js'
 
@@ -110,6 +110,9 @@ scene.add(room.group)
 
 
 
+
+
+
 // Console arcade
 const console_arcade = new Console_arcade()
 scene.add(console_arcade.group)
@@ -117,12 +120,12 @@ scene.add(console_arcade.group)
 const console_arcade_video_test = new Console_arcade_video('videos/test.mp4')
 scene.add(console_arcade_video_test.group)
 
-document.addEventListener(
-    'click',
-    ()=>{
-        console_arcade_video_test.play()
-    }
-)
+// document.addEventListener(
+//     'click',
+//     ()=>{
+//         console_arcade_video_test.play()
+//     }
+// )
 
 
 // Console wii
@@ -307,10 +310,100 @@ scene.add(text5.group)
 /**
  * Camera
  */
-const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 200)
-camera.position.z = 2
-camera.position.y = 2
+const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 8)
+
+
+// Position front basket
+// camera.position.set (2, 1.5, 1)
+// camera.lookAt(2, 1.25, -2)
+
+// Position front arcade console
+// camera.position.set (1.1, 1.5, 1)
+// camera.lookAt(1.1, 1.25, -2)
+
+
+// Position front screen
+let camera_parallax_strength = 0.25
+
+// Camera pos
+let camera_pos = {
+    x: -0.25,
+    y: 1.5,
+    z: 1
+}
+
+camera.position.set (camera_pos.x, camera_pos.y, camera_pos.z)
+
+// Camera look at
+let camera_look_at_pos = {
+    x: -0.25,
+    y: 1.25,
+    z: -2
+}
+
+// Camera movement detection
+
+let camera_to_arcade = false
+
+const camera_reset = ()=>{
+    camera_to_arcade = false
+}
+
+document.addEventListener(
+    'click',
+    ()=>{
+        setTimeout(
+            ()=>{
+                if (camera_to_arcade) {
+                    TweenLite.to(
+                        camera_pos,
+                        1,
+                        {
+                            x: 1.1,
+                            y: 1.5,
+                            z: 1,
+                            ease: 'Power3.easeInOut'
+                        }
+                    )
+                    TweenLite.to(
+                        camera_look_at_pos,
+                        1,
+                        {
+                            x: 1.1,
+                            y: 1.25,
+                            z: -2,
+                            ease: 'Power3.easeInOut'
+                        }
+                    )
+                }
+                else{
+                    TweenLite.to(
+                        camera_pos,
+                        1,
+                        {
+                            x: -0.25,
+                            y: 1.5,
+                            z: 1,
+                            ease: 'Power3.easeInOut'
+                        }
+                    )
+                    TweenLite.to(
+                        camera_look_at_pos,
+                        1,
+                        {
+                            x: -0.25,
+                            y: 1.25,
+                            z: -2,
+                            ease: 'Power3.easeInOut'
+                        }
+                    )
+                }
+            }, 10
+        )
+    }
+)
 scene.add(camera)
+
 
 
 
@@ -353,9 +446,9 @@ document.body.appendChild(renderer.domElement)
 /**
  * Camera controls with a library
  */
-const cameraControls = new OrbitControls(camera, renderer.domElement)
-cameraControls.zoomSpeed = 0.3
-cameraControls.enableDamping = true
+// const cameraControls = new OrbitControls(camera, renderer.domElement)
+// cameraControls.zoomSpeed = 0.3
+// cameraControls.enableDamping = true
 
 
 
@@ -380,28 +473,28 @@ window.addEventListener('resize', () => {
 
 
 /**
- * Object movement
+ * Object movement click detection
  */
 
 // Console switch
 let hover_console_switch = false
-document.addEventListener('click',()=>{if(hover_console_switch){const object_movement = new Object_movement(console_switch.group, 'console_switch')}})
+document.addEventListener('click',()=>{if(hover_console_switch){const object_movement = new Object_movement(console_switch.group, 'console_switch'); camera_reset()}})
 
 // Console wii
 let hover_console_wii = false
-document.addEventListener('click',()=>{if(hover_console_wii){const object_movement = new Object_movement(console_wii_group, 'console_wii')}})
+document.addEventListener('click',()=>{if(hover_console_wii){const object_movement = new Object_movement(console_wii_group, 'console_wii'); camera_reset()}})
 
 // Console nes
 let hover_console_nes = false
-document.addEventListener('click',()=>{if(hover_console_nes){const object_movement = new Object_movement(console_nes_group, 'console_nes')}})
+document.addEventListener('click',()=>{if(hover_console_nes){const object_movement = new Object_movement(console_nes_group, 'console_nes'); camera_reset()}})
 
 // Console gameboy
 let hover_console_gameboy = false
-document.addEventListener('click',()=>{if(hover_console_gameboy){const object_movement = new Object_movement(console_gameboy.group, 'console_gameboy')}})
+document.addEventListener('click',()=>{if(hover_console_gameboy){const object_movement = new Object_movement(console_gameboy.group, 'console_gameboy'); camera_reset()}})
 
 // Console arcade
 let hover_console_arcade = false
-document.addEventListener('click',()=>{if(hover_console_arcade){const object_movement = new Object_movement(console_arcade.group, 'console_arcade')}})
+document.addEventListener('click',()=>{if(hover_console_arcade){const object_movement = new Object_movement(console_arcade.group, 'console_arcade'); camera_reset(); camera_to_arcade=true}})
 
 
 
@@ -416,7 +509,7 @@ const loop = () => {
     // Render
     effectComposer.render(scene, camera)
 
-    // Raycaster
+    Raycaster
     const raycaster_cursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
     raycaster.setFromCamera(raycaster_cursor, camera)
 
@@ -453,6 +546,12 @@ const loop = () => {
     else{
         document.body.style.cursor = 'default'
     }
+
+
+    // Camera parallax
+    camera.position.x = camera_pos.x + cursor.x * camera_parallax_strength
+    camera.position.y = camera_pos.y + cursor.y * - camera_parallax_strength
+    camera.lookAt(camera_look_at_pos.x, camera_look_at_pos.y, camera_look_at_pos.z)
 }
 
 loop()
