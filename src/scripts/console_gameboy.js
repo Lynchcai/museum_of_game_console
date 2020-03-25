@@ -39,8 +39,6 @@ export default class Console_gameboy
                     })
                     this.group.add(this.console_gameboy)
                     this.group.scale.set(0.01, 0.01, 0.01)
-                    this.group.position.set(0.6, 1.08, -1.0)
-                    this.group.rotation.set(0, Math.PI*0.5, 0)
                 }
             }
         )

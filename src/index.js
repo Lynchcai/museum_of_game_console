@@ -93,14 +93,11 @@ scene.add(point_light)
 
 
 
-const directional_light_helper = new THREE.PointLightHelper(point_light)
-scene.add(directional_light_helper)
-
-
 /**
- * Material
+ * Light helper
  */
-
+const point_light_helper = new THREE.PointLightHelper(point_light)
+scene.add(point_light_helper)
 
 
 
@@ -156,9 +153,11 @@ console_nes_gamepad_02.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.7)
 scene.add(console_nes_gamepad_02.group)
 
 
-// // Console gameboy
-// const console_gameboy = new Console_gameboy()
-// scene.add(console_gameboy.group)
+// Console gameboy
+const console_gameboy = new Console_gameboy()
+console_gameboy.group.position.set(-0.9, 0.965, -1.0)
+console_gameboy.group.rotation.set(0, Math.PI*0.1, 0)
+scene.add(console_gameboy.group)
 
 // Console switch
 const console_switch = new Console_switch()
