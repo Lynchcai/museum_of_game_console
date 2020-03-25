@@ -16,11 +16,15 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
-
-
-
-
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import Bomb_mario from './scripts/Bomb_mario.js'
+import Cartridge_duck_hunt_nes from './scripts/Cartridge_duck_hunt_nes.js'
+import Cartridge_mario_nes from './scripts/Cartridge_mario_nes.js'
+import Headphones from './scripts/Headphones.js'
+import Mario_mystery_box_figurine from './scripts/Mario_mystery_box_figurine.js'
+import Pokeball_figurine from './scripts/Pokeball_figurine.js'
+import Cartridge_pokemon_gameboy from './scripts/Cartridge_pokemon_gameboy.js'
+import Poster from './scripts/Poster.js'
 
 
 
@@ -131,7 +135,6 @@ document.addEventListener(
 const console_wii = new Console_wii()
 console_wii.group.position.set(0.6, 1.08, -1.0)
 console_wii.group.rotation.set(0, Math.PI*0.5, 0)
-
 scene.add(console_wii.group)
 
 // Console wii gamepad
@@ -176,6 +179,41 @@ console_switch.group.position.set(-0.9, 0.965, -1.0)
 console_switch.group.rotation.set(0, Math.PI*0.1, 0)
 scene.add(console_switch.group)
 
+// Decoration
+const bomb_mario = new Bomb_mario()
+bomb_mario.group.position.set(-1.15, 1, -1.0)
+bomb_mario.group.rotation.set(0, Math.PI*1.2, 0)
+scene.add(bomb_mario.group)
+
+const cartridge_duck_hunt_nes = new Cartridge_duck_hunt_nes()
+cartridge_duck_hunt_nes.group.position.set(0.2, 0.55, -1.0)
+cartridge_duck_hunt_nes.group.rotation.set(0, Math.PI*0.2, 0)
+scene.add(cartridge_duck_hunt_nes.group)
+
+const cartridge_mario_nes = new Cartridge_mario_nes()
+cartridge_mario_nes.group.position.set(0.35, 0.478, -0.9)
+cartridge_mario_nes.group.rotation.set(0, Math.PI*0.2, 0)
+scene.add(cartridge_mario_nes.group)
+
+const cartridge_pokemon_gameboy = new Cartridge_pokemon_gameboy()
+cartridge_pokemon_gameboy.group.position.set(-0.9, 0.958, -1.2)
+cartridge_pokemon_gameboy.group.rotation.set(-1.5, Math.PI*0, 0)
+scene.add(cartridge_pokemon_gameboy.group)
+
+const headphones = new Headphones()
+headphones.group.position.set(-0.5, 0.98, -0.9)
+headphones.group.rotation.set(-1.7, Math.PI*2, 0.8)
+scene.add(headphones.group)
+
+const mario_mystery_box_figurine = new Mario_mystery_box_figurine()
+mario_mystery_box_figurine.group.position.set(-1, 0.173, -0.5)
+mario_mystery_box_figurine.group.rotation.set(0, Math.PI*0.1, 0)
+scene.add(mario_mystery_box_figurine.group)
+
+const pokeball_figurine = new Pokeball_figurine()
+pokeball_figurine.group.position.set(0.15, 0.975, -0.9)
+pokeball_figurine.group.rotation.set(1.3, Math.PI*1, 0)
+scene.add(pokeball_figurine.group)
 
 
 
