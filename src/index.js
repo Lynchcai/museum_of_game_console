@@ -12,6 +12,7 @@ import Console_nes from './scripts/Console_nes.js'
 import Console_nes_gamepad from './scripts/Console_nes_gamepad.js'
 import Console_gameboy from './scripts/Console_gameboy.js'
 import Console_switch from './scripts/Console_switch.js'
+import Raycaster from './scripts/Raycaster.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js'
@@ -176,6 +177,7 @@ console_switch.group.position.set(-0.9, 0.965, -1.0)
 console_switch.group.rotation.set(0, Math.PI*0.1, 0)
 scene.add(console_switch.group)
 
+const raycaster = new THREE.Raycaster()
 
 
 
@@ -304,17 +306,33 @@ window.addEventListener('resize', () => {
 })
 
 
-
+document.addEventListener('click', () =>
+{
+    if(hover_console_switch)
+    {
+        console.log('click sur la switch')
+    }
+})
 
 /**
  * Loop
  */
+let hover_console_switch = false
+
 const loop = () => {
     window.requestAnimationFrame(loop)
-
     // Render
-    // renderer.render(scene, camera)
     effectComposer.render(scene, camera)
+
+    // Raycaster
+    const raycaster_cursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
+    raycaster.setFromCamera(raycaster_cursor, camera)
+
+    // Console switch
+    const intersects = new Raycaster(console_switch.group, hover_console_switch, raycaster)
+    hover_console_switch = intersects.hover
+
+    
 }
 
 loop()
