@@ -5,7 +5,6 @@ export default class Raycaster{
         {
             hover = true
             document.body.style.cursor = 'pointer'
-            group.position.y = group.position.y + 0.01
         }
         else
         {

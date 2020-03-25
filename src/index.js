@@ -1,6 +1,5 @@
 import './style/main.styl'
 import * as THREE from 'three'
-// import { TweenLite } from 'gsap/all'
 import Room from './scripts/Room.js'
 import Text from './scripts/Text.js'
 import Video from './scripts/Video.js'
@@ -13,11 +12,12 @@ import Console_nes_gamepad from './scripts/Console_nes_gamepad.js'
 import Console_gameboy from './scripts/Console_gameboy.js'
 import Console_switch from './scripts/Console_switch.js'
 import Raycaster from './scripts/Raycaster.js'
+import Object_movement from './scripts/Object_movement.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
-
+import { TweenLite } from 'gsap/all'
 
 
 
@@ -274,8 +274,7 @@ unrealPass.radius = 0.2
 unrealPass.threshold = 0.05
 effectComposer.addPass(unrealPass)
 
-
-
+// Render
 document.body.appendChild(renderer.domElement)
 
 
