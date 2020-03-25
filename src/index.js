@@ -316,38 +316,23 @@ document.addEventListener(
 
 
 // Text
-const text = new Text('Une borne d\'arcade est un des premiers jeu vidéo \ndisponible au grand public notamment dans des \nlieux ouverts au public comme les bars, les centres \ncommerciaux ou certains établissements de \ndivertissement.L\'origine du nom provient des lieux \noù ces bornes étaient souvent installées, sous les \narcades afin de rentabiliser l\'espace. C\'est sur ce \nsupport que l’on a vu apparaître pour la première \nfois l\'icône du jeu vidéo de Nintendo : “Mario”.')
-text.group.position.x = - 0.7
-text.group.position.y = 1.65
-text.group.position.z = - 1.03
-// text.group.visible = true
+const text = new Text('Une borne d\'arcade est un des premiers jeu vidéo disponible au grand public \n\nnotamment dans des lieux ouverts au public comme les bars, les centres \n\ncommerciaux ou certains établissements de divertissement. L\'origine du nom \n\nprovient des lieux où ces bornes étaient souvent installées, sous les arcades \n\nafin de rentabiliser l\'espace. C\'est sur ce support que l’on a vu apparaître \n\npour la première fois l\'icône du jeu vidéo de Nintendo : “Mario”.')
+text.group.visible = true
 scene.add(text.group)
 
-const text2 = new Text('La Nintendo Entertainment System, par abréviation \nNES, est une des première console de jeux de salon \nfabriquée par l\'entreprise japonaise Nintendo.Elle a \nété distribuée à partir de 1985.La console connut \nun succès mondial, ce qui fixa les normes pour les \nconsoles suivantes notamment en matière de game \ndesign.Super Mario Bros fut le jeu le plus vendu sur \nla console. Son succès fut tel que ce jeu justifiait \nbien souvent l\'achat de la console à lui tout seul.')
-text2.group.position.x = - 0.7
-text2.group.position.y = 1.65
-text2.group.position.z = - 1.03
+const text2 = new Text('La Nintendo Entertainment System, par abréviation NES, est une des premières \n\nconsoles de jeux de salon fabriquée par l\'entreprise japonaise Nintendo.\n\nElle a été distribuée à partir de 1985 ; La console connut un succès mondial, \n\nce qui fixa les normes pour les consoles suivantes notamment en matière \n\nde game design. Super Mario Bros fut le jeu le plus vendu sur la console. \n\nSon succès fut tel que ce jeu justifiait bien souvent l\'achat de la console \n\nà lui tout seul.')
 // text2.group.visible = true
 scene.add(text2.group)
 
-const text3 = new Text('La Game Boy est une des premières consoles \nportables de jeu vidéo fabriquée par Nintendo et \nmise en vente au Japon en 1989, c’est la première \nconsole portable qui a démocratisé l’utilisation de \nces dernières dans le monde.Malgré la sortie de \nconsoles portables techniquement plus avancées, \nla Game Boy connaît un franc succès. Les modèles \nGame Boy et Game Boy Color totalisent 118 \nmillions d\'exemplaires vendus à travers le monde.')
-text3.group.position.x = - 0.7
-text3.group.position.y = 1.65
-text3.group.position.z = - 1.03
+const text3 = new Text('La Game Boy est une des premières consoles portables de jeu vidéo fabriquée \n\npar Nintendo et mise en vente au Japon en 1989, c’est la première console \n\nportable qui a démocratisé l’utilisation de ces dernières dans le monde.\n\nMalgré la sortie de consoles portables techniquement plus avancées, \n\nla Game Boy connaît un franc succès. Les modèles Game Boy et Game Boy Color \n\ntotalisent 118 millions d\'exemplaires vendus à travers le monde.')
 // text3.group.visible = true
 scene.add(text3.group)
 
-const text4 = new Text('La Wii est une console de jeux de salon dot \nde reconnaissance de mouvement, sortie en 2006. \nConsole de la septième génération, tout comme la \nXbox 360 et la PlayStation 3 avec lesquelles elle \nest en rivalité.La Wii est la console de salon la plus \nvendue de sa génération avec 100 millions \nd\'exemplaires écoulés en 2016.Elle a comme \nparticularité d’avoir été une des premières consoles \nà utiliser un accéléromètre capable de détecter la \nposition, l\'orientation et les mouvements dans \nl\'espace de la manette.')
-text4.group.position.x = - 0.7
-text4.group.position.y = 1.65
-text4.group.position.z = - 1.03
+const text4 = new Text('La Wii est une console de jeux de salon dot de reconnaissance de mouvement, \n\nsortie en 2006. Console de la septième génération, tout comme la Xbox 360 et \n\nla PlayStation 3 avec lesquelles elle est en rivalité. La Wii est la console de salon \n\nla plus vendue de sa génération avec 100 millions d\'exemplaires écoulés en 2016.\n\nElle a comme particularité d’avoir été une des premières consoles à utiliser un \n\naccéléromètre capable de détecter la position, l\'orientation et les mouvements \n\ndans l\'espace de la manette.')
 // text4.group.visible = true
 scene.add(text4.group)
 
-const text5 = new Text('La Nintendo Switch est la première console de jeu \nvidéo à offrir une expérience hybride entre la \nconsole de salon et la console portable.Il suffit de \nrentrer sa console dans  une petite borne connecté \nen HDMI à la télé pour voir son ecran passé sur la \ntélé du salon et offrir une expérience plus agréable \net familiale.La Nintendo Switch est sortie \nmondialement en 2017.')
-text5.group.position.x = - 0.7
-text5.group.position.y = 1.65
-text5.group.position.z = - 1.03
+const text5 = new Text('La Nintendo Switch est la première console de jeu vidéo à offrir une expérience \n\nhybride entre la console de salon et la console portable. Il suffit de rentrer sa \n\nconsole dans  une petite borne connecté en HDMI à la télé pour voir son ecran \n\npassé sur la télé du salon et offrir une expérience plus agréable et familiale.\n\nLa Nintendo Switch est sortie mondialement en 2017.')
 // text5.group.visible = true
 scene.add(text5.group)
 

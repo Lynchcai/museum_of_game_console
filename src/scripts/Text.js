@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import font from 'three/examples/fonts/helvetiker_bold.typeface.json'
+import font from '../style/fonts/Nintendo_DS_BIOS_Regular.json'
 
 export default class Text
 {
@@ -25,6 +25,9 @@ export default class Text
         )
         
     const text_mesh = new THREE.Mesh(text_geometry, text_material)
+    this.group.position.x = -0.73
+    this.group.position.y = 1.65
+    this.group.position.z = -1.03
     this.group.visible = false
     this.group.add(text_mesh)
     }
