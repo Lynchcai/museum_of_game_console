@@ -59,15 +59,6 @@ ambient_light.position.y = 0
 ambient_light.position.z = 0
 scene.add(ambient_light)
 
-
-// const directional_light = new THREE.DirectionalLight(0xFFFFFF, 1)
-// directional_light.position.x = -5
-// directional_light.position.y = 4
-// directional_light.position.z = 1
-// directional_light.castShadow = true
-// scene.add(directional_light)
-
-
 const point_light = new THREE.PointLight(0xffffff, 2, 6)
 point_light.position.x = 2
 point_light.position.y = 4
