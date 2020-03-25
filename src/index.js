@@ -305,18 +305,27 @@ window.addEventListener('resize', () => {
 })
 
 
-document.addEventListener('click', () =>
-{
-    if(hover_console_switch)
-    {
-        console.log('click sur la switch')
-    }
-})
+
+
+/**
+ * Object movement
+ */
+
+// Console switch
+let hover_console_switch = false
+document.addEventListener('click',()=>{if(hover_console_switch){const object_movement = new Object_movement(console_switch.group, 'console_switch')}})
+
+// Console wii
+// let hover_console_wii = false
+// let hover_console_wii_gamepad = false
+// document.addEventListener('click',()=>{if(hover_console_wii || hover_console_wii_gamepad){const object_movement = new Object_movement(console_switch.group, 'console_switch')}})
+
+
 
 /**
  * Loop
  */
-let hover_console_switch = false
+
 
 const loop = () => {
     window.requestAnimationFrame(loop)
@@ -327,7 +336,7 @@ const loop = () => {
     const raycaster_cursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
     raycaster.setFromCamera(raycaster_cursor, camera)
 
-    // Console switch
+    // Raycast console switch
     const intersects = new Raycaster(console_switch.group, hover_console_switch, raycaster)
     hover_console_switch = intersects.hover
 
