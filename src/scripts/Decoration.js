@@ -2,9 +2,9 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
-export default class Cartridge_duck_hunt_nes
+export default class Decoration
 {
-    constructor()
+    constructor(decorations)
     {
         // Init group
         this.group = new THREE.Group()
@@ -18,13 +18,13 @@ export default class Cartridge_duck_hunt_nes
 
         // Load model
         gltfLoader.load(
-            '/models/gltf/cartridge_duck_hunt_nes/scene.gltf',
+            decorations,
             (gltf) =>
             {
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
-                    this.cartridge_duck_hunt_nes = gltf.scene.children[0]
-                    this.cartridge_duck_hunt_nes.traverse((child) => { 
+                    this.decoration = gltf.scene.children[0]
+                    this.decoration.traverse((child) => { 
                         if ( child.isMesh ) {
                             // Shadow
                             child.castShadow = true
@@ -38,8 +38,7 @@ export default class Cartridge_duck_hunt_nes
                             })
                         }
                     })
-                    this.group.add(this.cartridge_duck_hunt_nes)
-                    this.group.scale.set(0.00004, 0.00004, 0.00004)
+                    this.group.add(this.decoration)
                 }
             }
         )
