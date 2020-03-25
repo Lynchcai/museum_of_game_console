@@ -87,6 +87,8 @@ point_light.shadow.camera.right = 2;
 point_light.shadow.camera.near = 0.2;
 point_light.shadow.camera.far = 8;
 point_light.castShadow = true
+point_light.shadow.mapSize.width = 2048
+point_light.shadow.mapSize.height = 2048
 scene.add(point_light)
 
 
