@@ -2,9 +2,9 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
-export default class Console_switch
+export default class Console_arcade
 {
-    constructor()
+    constructor(consoles)
     {
         // Init group
         this.group = new THREE.Group()
@@ -18,13 +18,13 @@ export default class Console_switch
 
         // Load model
         gltfLoader.load(
-            'models/gltf/console_switch_and_gamepad/scene.gltf',
+            consoles,
             (gltf) =>
             {
                 let temp = gltf.scene.children.length
                 for (let i = 0; i < temp; i++) {
-                    this.console_switch = gltf.scene.children[0]
-                    this.console_switch.traverse((child) => { 
+                    this.console_arcade = gltf.scene.children[0]
+                    this.console_arcade.traverse((child) => { 
                         if ( child.isMesh ) {
                             // Shadow
                             child.castShadow = true
@@ -38,8 +38,7 @@ export default class Console_switch
                             })
                         }
                     })
-                    this.group.add(this.console_switch)
-                    this.group.scale.set(0.01, 0.01, 0.01)
+                    this.group.add(this.console_arcade)
                 }
             }
         )

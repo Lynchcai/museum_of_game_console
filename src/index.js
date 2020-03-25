@@ -3,14 +3,8 @@ import * as THREE from 'three'
 import Room from './scripts/Room.js'
 import Text from './scripts/Text.js'
 import Video from './scripts/Video.js'
-import Console_arcade from './scripts/Console_arcade.js'
+import Console from './scripts/Console.js'
 import Console_arcade_video from './scripts/Console_arcade_video.js'
-import Console_wii from './scripts/Console_wii.js'
-import Console_wii_gamepad from './scripts/Console_wii_gamepad.js'
-import Console_nes from './scripts/Console_nes.js'
-import Console_nes_gamepad from './scripts/Console_nes_gamepad.js'
-import Console_gameboy from './scripts/Console_gameboy.js'
-import Console_switch from './scripts/Console_switch.js'
 import Raycaster from './scripts/Raycaster.js'
 import Object_movement from './scripts/Object_movement.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
@@ -114,7 +108,9 @@ scene.add(room.group)
 
 
 // Console arcade
-const console_arcade = new Console_arcade()
+const console_arcade = new Console('models/gltf/console_arcade/scene.gltf')
+console_arcade.group.position.set(1.1, 0.45, -1.05)
+console_arcade.group.scale.set(0.02, 0.02, 0.02)
 scene.add(console_arcade.group)
 
 const console_arcade_video_test = new Console_arcade_video('videos/test.mp4')
@@ -129,16 +125,19 @@ scene.add(console_arcade_video_test.group)
 
 
 // Console wii
-const console_wii = new Console_wii()
+const console_wii = new Console('models/gltf/console_wii/scene.gltf')
+console_wii.group.scale.set(0.06, 0.06, 0.06)
 console_wii.group.position.set(0.6, 1.08, -1.0)
 console_wii.group.rotation.set(0, Math.PI*0.5, 0)
 
 // Console wii gamepad
-const console_wii_gamepad_01 = new Console_wii_gamepad()
+const console_wii_gamepad_01 = new Console('models/gltf/console_wii_gamepad/scene.gltf')
+console_wii_gamepad_01.group.scale.set(0.000035, 0.000035, 0.000035)
 console_wii_gamepad_01.group.position.set(0.57, 0.905, -1.05)
 console_wii_gamepad_01.group.rotation.set(0, Math.PI*0.06, 0)
 
-const console_wii_gamepad_02 = new Console_wii_gamepad()
+const console_wii_gamepad_02 = new Console('models/gltf/console_wii_gamepad/scene.gltf')
+console_wii_gamepad_02.group.scale.set(0.000035, 0.000035, 0.000035)
 console_wii_gamepad_02.group.position.set(0.65, 0.905, -1.0)
 console_wii_gamepad_02.group.rotation.set(0, -Math.PI*0.04, 0)
 
@@ -151,16 +150,19 @@ scene.add(console_wii_group)
 
 
 // Console nes
-const console_nes = new Console_nes()
+const console_nes = new Console('models/gltf/console_nes/scene.gltf')
+console_nes.group.scale.set(0.02, 0.02, 0.02)
 console_nes.group.position.set(0.5, 0.48, -1.1)
 console_nes.group.rotation.set(0, -0.5, 0)
 
 // Console nes gamepad
-const console_nes_gamepad_01 = new Console_nes_gamepad()
+const console_nes_gamepad_01 = new Console('models/gltf/console_nes_gamepad/scene.gltf')
+console_nes_gamepad_01.group.scale.set(0.015, 0.015, 0.015)
 console_nes_gamepad_01.group.position.set(0.47, 0.570, -1.15)
 console_nes_gamepad_01.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.9)
 
-const console_nes_gamepad_02 = new Console_nes_gamepad()
+const console_nes_gamepad_02 = new Console('models/gltf/console_nes_gamepad/scene.gltf')
+console_nes_gamepad_02.group.scale.set(0.015, 0.015, 0.015)
 console_nes_gamepad_02.group.position.set(0.53, 0.570, -1.05)
 console_nes_gamepad_02.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.7)
 
@@ -173,14 +175,16 @@ scene.add(console_nes_group)
 
 
 // Console gameboy
-const console_gameboy = new Console_gameboy()
+const console_gameboy = new Console('models/gltf/console_gameboy/scene.gltf')
+console_gameboy.group.scale.set(0.0007, 0.0007, 0.0007)
 console_gameboy.group.position.set(-1.1, 0.955, -1.3)
 console_gameboy.group.rotation.set(0, Math.PI*-0.6, 0)
 scene.add(console_gameboy.group)
 
 
 // Console switch
-const console_switch = new Console_switch()
+const console_switch = new Console('models/gltf/console_switch_and_gamepad/scene.gltf')
+console_switch.group.scale.set(0.01, 0.01, 0.01)
 console_switch.group.position.set(-0.9, 0.965, -1.0)
 console_switch.group.rotation.set(0, Math.PI*0.1, 0)
 scene.add(console_switch.group)
