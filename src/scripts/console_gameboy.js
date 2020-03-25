@@ -33,12 +33,14 @@ export default class Console_gameboy
                             child.matrixAutoUpdate = false
                             child.updateMatrix()
                             child.material = new THREE.MeshStandardMaterial({
-                                color: child.material.color
+                                color: child.material.color,
+                                map: child.material.map,
+                                normalMap: child.material.normalMap
                             })
                         }
                     })
                     this.group.add(this.console_gameboy)
-                    this.group.scale.set(0.01, 0.01, 0.01)
+                    this.group.scale.set(0.0007, 0.0007, 0.0007)
                 }
             }
         )

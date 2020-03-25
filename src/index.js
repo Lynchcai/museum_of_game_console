@@ -166,8 +166,8 @@ scene.add(console_nes_gamepad_02.group)
 
 // Console gameboy
 const console_gameboy = new Console_gameboy()
-console_gameboy.group.position.set(-0.9, 0.965, -1.0)
-console_gameboy.group.rotation.set(0, Math.PI*0.1, 0)
+console_gameboy.group.position.set(-1.1, 0.955, -1.3)
+console_gameboy.group.rotation.set(0, Math.PI*-0.6, 0)
 scene.add(console_gameboy.group)
 
 // Console switch
@@ -267,7 +267,7 @@ effectComposer.addPass(renderPass)
 
 // Pass
 const unrealPass = new UnrealBloomPass(new THREE.Vector2(sizes.width, sizes.height))
-unrealPass.strength = 0.3
+unrealPass.strength = 0.2
 unrealPass.radius = 0.2
 unrealPass.threshold = 0.05
 effectComposer.addPass(unrealPass)
