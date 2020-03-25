@@ -235,12 +235,6 @@ cable.group.rotation.set(0, Math.PI*-0.5, 0)
 cable.group.scale.set(0.1, 0.1, 0.1)
 scene.add(cable.group)
 
-const pikmin_figurine = new Decoration('models/gltf/pikmin_figurine/scene.gltf')
-pikmin_figurine.group.position.set(0, 0.95, -0.92)
-pikmin_figurine.group.rotation.set(0, Math.PI*0.25, 0)
-pikmin_figurine.group.scale.set(0.005, 0.005, 0.005)
-scene.add(pikmin_figurine.group)
-
 const zelda_shield = new Decoration('models/gltf/zelda_shield/scene.gltf')
 zelda_shield.group.position.set(-0.3, 0.6, -0.72)
 zelda_shield.group.rotation.set(-0.5, Math.PI*-2, 0.8)
