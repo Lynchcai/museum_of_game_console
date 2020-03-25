@@ -5,6 +5,7 @@ import Room from './scripts/Room.js'
 import Text from './scripts/Text.js'
 import Video from './scripts/Video.js'
 import Console_arcade from './scripts/Console_arcade.js'
+import Console_arcade_video from './scripts/Console_arcade_video.js'
 import Console_wii from './scripts/Console_wii.js'
 import Console_wii_gamepad from './scripts/Console_wii_gamepad.js'
 import Console_nes from './scripts/Console_nes.js'
@@ -115,6 +116,16 @@ scene.add(room.group)
 // Console arcade
 const console_arcade = new Console_arcade()
 scene.add(console_arcade.group)
+
+const console_arcade_video_test = new Console_arcade_video('videos/test.mp4')
+scene.add(console_arcade_video_test.group)
+
+document.addEventListener(
+    'click',
+    ()=>{
+        console_arcade_video_test.play()
+    }
+)
 
 // Console wii
 const console_wii = new Console_wii()
