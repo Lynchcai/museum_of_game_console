@@ -19,17 +19,8 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
 import { TweenLite } from 'gsap/all'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import Bomb_mario from './scripts/Bomb_mario.js'
-import Cartridge_duck_hunt_nes from './scripts/Cartridge_duck_hunt_nes.js'
-import Cartridge_mario_nes from './scripts/Cartridge_mario_nes.js'
-import Headphones from './scripts/Headphones.js'
-import Mario_mystery_box_figurine from './scripts/Mario_mystery_box_figurine.js'
-import Pokeball_figurine from './scripts/Pokeball_figurine.js'
-import Cartridge_pokemon_gameboy from './scripts/Cartridge_pokemon_gameboy.js'
 import Poster from './scripts/Poster.js'
-
-
-
+import Decoration from './scripts/Decoration.js'
 
 
 /**
@@ -193,44 +184,71 @@ scene.add(console_switch.group)
 
 
 // Decoration
-const bomb_mario = new Bomb_mario()
+const bomb_mario = new Decoration('models/gltf/bob-omb_mario_figurine/scene.gltf')
 bomb_mario.group.position.set(-1.15, 1, -1.0)
 bomb_mario.group.rotation.set(0, Math.PI*1.2, 0)
+bomb_mario.group.scale.set(0.0005, 0.0005, 0.0005)
 scene.add(bomb_mario.group)
 
-const cartridge_duck_hunt_nes = new Cartridge_duck_hunt_nes()
+const cartridge_duck_hunt_nes = new Decoration('models/gltf/cartridge_duck_hunt_nes/scene.gltf')
 cartridge_duck_hunt_nes.group.position.set(0.2, 0.55, -1.0)
 cartridge_duck_hunt_nes.group.rotation.set(0, Math.PI*0.2, 0)
+cartridge_duck_hunt_nes.group.scale.set(0.00004, 0.00004, 0.00004)
 scene.add(cartridge_duck_hunt_nes.group)
 
-const cartridge_mario_nes = new Cartridge_mario_nes()
+const cartridge_mario_nes = new Decoration('models/gltf/cartridge_mario_nes/scene.gltf')
 cartridge_mario_nes.group.position.set(0.35, 0.478, -0.9)
 cartridge_mario_nes.group.rotation.set(0, Math.PI*0.2, 0)
+cartridge_mario_nes.group.scale.set(0.0005, 0.0005, 0.0005)
 scene.add(cartridge_mario_nes.group)
 
-const cartridge_pokemon_gameboy = new Cartridge_pokemon_gameboy()
+const cartridge_pokemon_gameboy = new Decoration('models/gltf/cartridge_pokemon_gameboy/scene.gltf')
 cartridge_pokemon_gameboy.group.position.set(-0.9, 0.958, -1.2)
 cartridge_pokemon_gameboy.group.rotation.set(-1.5, Math.PI*0, 0)
+cartridge_pokemon_gameboy.group.scale.set(1, 1, 1)
 scene.add(cartridge_pokemon_gameboy.group)
 
-const headphones = new Headphones()
+const headphones = new Decoration('models/gltf/headphones/scene.gltf')
 headphones.group.position.set(-0.5, 0.98, -0.9)
 headphones.group.rotation.set(-1.7, Math.PI*2, 0.8)
+headphones.group.scale.set(0.02, 0.02, 0.02)
 scene.add(headphones.group)
 
-const mario_mystery_box_figurine = new Mario_mystery_box_figurine()
+const mario_mystery_box_figurine = new Decoration('models/gltf/mario_mystery_box_figurine/scene.gltf')
 mario_mystery_box_figurine.group.position.set(-1, 0.173, -0.5)
 mario_mystery_box_figurine.group.rotation.set(0, Math.PI*0.1, 0)
+mario_mystery_box_figurine.group.scale.set(0.05, 0.05, 0.05)
 scene.add(mario_mystery_box_figurine.group)
 
-const pokeball_figurine = new Pokeball_figurine()
+const pokeball_figurine = new Decoration('models/gltf/pokeball_figurine/scene.gltf')
 pokeball_figurine.group.position.set(0.15, 0.975, -0.9)
 pokeball_figurine.group.rotation.set(1.3, Math.PI*1, 0)
+pokeball_figurine.group.scale.set(0.004, 0.004, 0.004)
 scene.add(pokeball_figurine.group)
 
-// Raycaster
-const raycaster = new THREE.Raycaster()
+// Poster
+const alien = new Poster('poster_affiche/alien.jpg')
+alien.group.position.set(1.8, 1.7, -1.33)
+alien.group.scale.set(0.002, 0.005, 0.002)
+scene.add(alien.group)
 
+const matrix = new Poster('poster_affiche/matrix.jpg')
+matrix.group.position.set(0.5, 2, -1.33)
+matrix.group.scale.set(0.002, 0.005, 0.002)
+scene.add(matrix.group)
+
+const ready_player_one = new Poster('poster_affiche/ready_player_one.jpg')
+ready_player_one.group.position.set(-0.8, 2, -1.33)
+ready_player_one.group.scale.set(0.002, 0.005, 0.002)
+scene.add(ready_player_one.group)
+
+const star_wars = new Poster('poster_affiche/star_wars.jpg')
+star_wars.group.position.set(-1.2, 1.7, -0.75)
+star_wars.group.rotation.set(0, Math.PI*0.5, 0)
+star_wars.group.scale.set(0.002, 0.005, 0.002)
+scene.add(star_wars.group)
+
+const raycaster = new THREE.Raycaster()
 
 
 // Video
@@ -424,7 +442,7 @@ const loop = () => {
     // Raycast console arcade
     const intersects_arcade = new Raycaster(console_arcade.group, hover_console_arcade, raycaster)
     hover_console_arcade = intersects_arcade.hover
-    
+
 
 
 
