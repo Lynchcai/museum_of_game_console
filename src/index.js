@@ -6,7 +6,6 @@ import Video from './scripts/Video.js'
 import Console from './scripts/Console.js'
 import Console_arcade_video from './scripts/Console_arcade_video.js'
 import Raycaster from './scripts/Raycaster.js'
-import Object_movement from './scripts/Object_movement.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js'
@@ -507,28 +506,211 @@ window.addEventListener('resize', () => {
 
 
 /**
- * Object movement click detection
+ * Object movement
  */
 
-// Console switch
+// Hover console detection - false or true
 let hover_console_switch = false
-document.addEventListener('click',()=>{if(hover_console_switch){const object_movement = new Object_movement(console_switch.group, 'console_switch'); camera_reset()}})
-
-// Console wii
 let hover_console_wii = false
-document.addEventListener('click',()=>{if(hover_console_wii){const object_movement = new Object_movement(console_wii_group, 'console_wii'); camera_reset()}})
-
-// Console nes
 let hover_console_nes = false
-document.addEventListener('click',()=>{if(hover_console_nes){const object_movement = new Object_movement(console_nes_group, 'console_nes'); camera_reset()}})
-
-// Console gameboy
 let hover_console_gameboy = false
-document.addEventListener('click',()=>{if(hover_console_gameboy){const object_movement = new Object_movement(console_gameboy.group, 'console_gameboy'); camera_reset()}})
+let hover_console_arcade = false
+
+// Click console detection - null or not null
+let click_console_switch = null
+let click_console_wii = null
+let click_console_wii_gamepad_01 = null
+let click_console_wii_gamepad_02 = null
+let click_console_nes = null
+let click_console_nes_gamepad_01 = null
+let click_console_nes_gamepad_02 = null
+let click_console_gameboy = null
+let click_console_arcade = null
+
+
+// Object movement translation
+const object_movement_translation = (object, x, y, z)=>{
+    TweenLite.to(
+        object.position,
+        1,
+        {
+            // x: -0.9,
+            // y: 0.965,
+            // z: -1,
+            x: x,
+            y: y,
+            z: z,
+            ease: 'Power3.easeInOut'
+        }
+    )
+}
+
+// Object movement rotation
+const object_movement_rotation = (object) => {
+    return setInterval(
+        () => {
+            setTimeout(
+                ()=>{
+                    object.rotation.x += 0.007
+                    object.rotation.y += 0.01
+                    object.rotation.z += 0.013
+                    if (object.rotation.x > Math.PI*2)
+                        object.rotation.x - Math.PI*2
+                    if (object.rotation.y > Math.PI*2)
+                        object.rotation.y - Math.PI*2
+                    if (object.rotation.z > Math.PI*2)
+                        object.rotation.z - Math.PI*2
+                }, 200
+            )
+        }, 40
+    )
+}
+
+// Object movement rotation reset
+const object_movement_rotation_reset = (object, x, y, z) => {
+    TweenLite.to(
+        object.rotation,
+        1,
+        {
+            x: x,
+            y: y,
+            z: z,
+            ease: 'Power3.easeInOut'
+        }
+    )
+}
+
+
+document.addEventListener(
+    'click',
+    () => {
+        // Console switch
+        if(hover_console_switch) {
+            camera_reset()
+
+            // Start animation translation
+            object_movement_translation(console_switch.group, -0.25, 1, -0.5)
+
+            // Start animation rotation
+            if (click_console_switch == null) {
+                click_console_switch = object_movement_rotation(console_switch.group)
+            }
+        } else {
+            // Reset animation translation
+            object_movement_translation(console_switch.group, -0.9, 0.965, -1)
+
+            // Reset animation rotation
+            clearInterval(click_console_switch)
+            object_movement_rotation_reset(console_switch.group, 0, Math.PI*0.1, 0)
+            click_console_switch = null
+        }
+
+
+
+
+        // Console wii
+        if(hover_console_wii) {
+            camera_reset()
+
+            // Start animation translation
+            object_movement_translation(console_wii.group, -0.25, 1.1, -0.5)
+            object_movement_translation(console_wii_gamepad_01.group, -0.25, 1, -0.5)
+            object_movement_translation(console_wii_gamepad_02.group, -0.25, 0.9, -0.5)
+
+            // Start animation rotation
+            if (click_console_wii == null) {
+                click_console_wii = object_movement_rotation(console_wii.group)
+                click_console_wii_gamepad_01 = object_movement_rotation(console_wii_gamepad_01.group)
+                click_console_wii_gamepad_02 = object_movement_rotation(console_wii_gamepad_02.group)
+            }
+        } else {
+            // Reset animation translation
+            object_movement_translation(console_wii.group, 0.6, 1.08, -1.0)
+            object_movement_translation(console_wii_gamepad_01.group, 0.57, 0.905, -1.05)
+            object_movement_translation(console_wii_gamepad_02.group, 0.65, 0.905, -1.0)
+
+            // Reset animation rotation
+            clearInterval(click_console_wii)
+            clearInterval(click_console_wii_gamepad_01)
+            clearInterval(click_console_wii_gamepad_02)
+            object_movement_rotation_reset(console_wii.group, 0, Math.PI*0.5, 0)
+            object_movement_rotation_reset(console_wii_gamepad_01.group, 0, Math.PI*0.06, 0)
+            object_movement_rotation_reset(console_wii_gamepad_02.group, 0, -Math.PI*0.04, 0)
+            click_console_wii = null
+        }
+
+
+
+
+        // Console nes
+        if(hover_console_nes) {
+            camera_reset()
+
+            // Start animation translation
+            object_movement_translation(console_nes.group, -0.25, 1, -0.5)
+            object_movement_translation(console_nes_gamepad_01.group, -0.30, 1.15, -0.25)
+            object_movement_translation(console_nes_gamepad_02.group, -0.15, 1.1, -0.25)
+
+            // Start animation rotation
+            if (click_console_nes == null) {
+                click_console_nes = object_movement_rotation(console_nes.group)
+                click_console_nes_gamepad_01 = object_movement_rotation(console_nes_gamepad_01.group)
+                click_console_nes_gamepad_02 = object_movement_rotation(console_nes_gamepad_02.group)
+            }
+        } else {
+            // Reset animation translation
+            object_movement_translation(console_nes.group, 0.5, 0.48, -1.1)
+            object_movement_translation(console_nes_gamepad_01.group, 0.47, 0.570, -1.15)
+            object_movement_translation(console_nes_gamepad_02.group, 0.53, 0.570, -1.05)
+
+            // Reset animation rotation
+            clearInterval(click_console_nes)
+            clearInterval(click_console_nes_gamepad_01)
+            clearInterval(click_console_nes_gamepad_02)
+            object_movement_rotation_reset(console_nes.group, 0, -0.5, 0)
+            object_movement_rotation_reset(console_nes_gamepad_01.group, Math.PI/2, Math.PI, Math.PI*0.9)
+            object_movement_rotation_reset(console_nes_gamepad_02.group, Math.PI/2, Math.PI, Math.PI*0.7)
+            click_console_nes = null
+        }
+
+
+
+
+        // Console gameboy
+        if(hover_console_gameboy) {
+            camera_reset()
+
+            // Start animation translation
+            object_movement_translation(console_gameboy.group, -0.25, 1, -0.5)
+
+            // Start animation rotation
+            if (click_console_gameboy == null) {
+                click_console_gameboy = object_movement_rotation(console_gameboy.group)
+            }
+        } else {
+            // Reset animation translation
+            object_movement_translation(console_gameboy.group, -1.1, 0.955, -1.3)
+
+            // Reset animation rotation
+            clearInterval(click_console_gameboy)
+            object_movement_rotation_reset(console_gameboy.group, 0, Math.PI*-0.6, 0)
+            click_console_gameboy = null
+        }
+
+
+
+
+        // Console Arcade
+        if(hover_console_arcade){
+            camera_reset()
+            camera_to_arcade=true
+        }
+
+    }
+)
+
 
 // Console arcade
-let hover_console_arcade = false
-document.addEventListener('click',()=>{if(hover_console_arcade){const object_movement = new Object_movement(console_arcade.group, 'console_arcade'); camera_reset(); camera_to_arcade=true}})
 
 
 
@@ -586,6 +768,11 @@ const loop = () => {
     camera.position.x = camera_pos.x + cursor.x * camera_parallax_strength
     camera.position.y = camera_pos.y + cursor.y * - camera_parallax_strength
     camera.lookAt(camera_look_at_pos.x, camera_look_at_pos.y, camera_look_at_pos.z)
+
+
+    // Object movement rotation
+
+
 }
 
 loop()
