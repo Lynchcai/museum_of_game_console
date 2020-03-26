@@ -530,17 +530,17 @@
     ],
     "images" : [
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "NES_AV_S_Mat_baseColor",
             "uri" : "NES_AV_S_Mat_baseColor.jpeg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "NES_DGray_Mat_baseColor",
             "uri" : "NES_DGray_Mat_baseColor.jpeg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "NES_AV_S_Mat_baseColor.jpeg",
             "uri" : "NES_AV_S_Mat_baseColor.jpeg"
         }

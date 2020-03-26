@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
 .vscode
-static/videos/test.mp4
+dist
