@@ -168,7 +168,7 @@ scene.add(console_nes_group)
 // Console gameboy
 const console_gameboy = new Console('models/gltf/console_gameboy/scene.gltf')
 console_gameboy.group.scale.set(0.0007, 0.0007, 0.0007)
-console_gameboy.group.position.set(-1.1, 0.955, -1.3)
+console_gameboy.group.position.set(-0.32, 0.956, -1.05)
 console_gameboy.group.rotation.set(0, Math.PI*-0.6, 0)
 scene.add(console_gameboy.group)
 
@@ -231,9 +231,9 @@ cable.group.scale.set(0.1, 0.1, 0.1)
 scene.add(cable.group)
 
 const zelda_shield = new Decoration('models/gltf/zelda_shield/scene.gltf')
-zelda_shield.group.position.set(-0.3, 0.6, -0.72)
+zelda_shield.group.position.set(-0.3, 0.65, -0.485)
 zelda_shield.group.rotation.set(-0.5, Math.PI*-2, 0.8)
-zelda_shield.group.scale.set(0.1, 0.1, 0.1)
+zelda_shield.group.scale.set(0.025, 0.025, 0.025)
 scene.add(zelda_shield.group)
 
 
@@ -267,6 +267,12 @@ power_up_figurine.group.rotation.set(0, Math.PI*-0.6, 0)
 power_up_figurine.group.scale.set(0.04, 0.04, 0.04)
 scene.add(power_up_figurine.group)
 
+const nooks_house = new Decoration('models/gltf/nooks_house/scene.gltf')
+nooks_house.group.position.set(-1.1, 0.995, -1.28)
+nooks_house.group.rotation.set(0, Math.PI*-0.7, 0)
+nooks_house.group.scale.set(0.04, 0.04, 0.04)
+scene.add(nooks_house.group)
+
 // Poster
 const alien = new Poster('poster_affiche/alien.jpg')
 alien.group.position.set(1.8, 1.7, -1.33)
@@ -287,11 +293,6 @@ const terminator = new Poster('poster_affiche/Terminator.jpg')
 terminator.group.position.set(-0.15, 2.05, -1.33)
 terminator.group.scale.set(0.002, 0.005, 0.002)
 scene.add(terminator.group)
-
-const animal_crossing = new Poster('poster_affiche/animal_crossing.jpg')
-animal_crossing.group.position.set(-0.95, 1.41, -1.33)
-animal_crossing.group.scale.set(0.002, 0.003, 0.003)
-scene.add(animal_crossing.group)
 
 const star_wars = new Poster('poster_affiche/star_wars.jpg')
 star_wars.group.position.set(-1.2, 1.7, -0.75)
