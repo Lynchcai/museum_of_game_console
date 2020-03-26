@@ -24,8 +24,6 @@ import Decoration from './scripts/Decoration.js'
 
 import img_click_src from './images/click.png'
 import img_spacebar_src from './images/spacebar.png' 
-import { log } from 'three'
-
 
 // Declare variable
 const $intro_container = document.querySelector('.container_intro')
@@ -33,7 +31,7 @@ const $img_container = $intro_container.querySelector('.img_container')
 const $img_click = $img_container.querySelector('.img_click')
 const $img_spacebar = $img_container.querySelector('.img_spacebar')
 const $text = $intro_container.querySelector('.main_text_intro')
-let intro_finish = false
+let intro_finish = 0 // 0 = false, 1 = true, 2 = cancel
 
 // Img source
 $img_click.src = img_click_src
@@ -81,7 +79,7 @@ const typing_text = (text)=> {
                             $text.classList.toggle('blink')
                         }, 1000
                     )
-                    intro_finish = true
+                    intro_finish = 1
                 }
                 // Show tutorial images
                 if (text_number == 5) {
@@ -452,8 +450,6 @@ const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 
 
 // Position front screen
 let camera_parallax_strength = 0.25
-
-let camera_pos_intro = true
 
 
 // Camera pos default
@@ -1023,7 +1019,8 @@ document.addEventListener(
                     }
                 )
             }
-            else if (intro_finish){
+            else if (intro_finish == 1){
+                intro_finish = 2
                 $intro_container.classList.add('hide')
                 document.querySelector('body').style.pointerEvents = 'auto'
                 camera_pos = {
