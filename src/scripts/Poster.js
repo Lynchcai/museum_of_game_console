@@ -15,7 +15,7 @@ export default class Poster
         // Texture
         const image_texture = new THREE.TextureLoader().load(image_url)
         // Material
-        const image_material = new THREE.MeshBasicMaterial ({ map: image_texture})
+        const image_material = new THREE.MeshToonMaterial ({ map: image_texture})
         
         // Object
         const image_geometry = new THREE.PlaneGeometry( 240, 135, 4, 4) // 16:9
