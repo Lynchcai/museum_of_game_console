@@ -472,13 +472,12 @@ document.body.appendChild(renderer.domElement)
 
 
 /**
- * Camera controls with a library
+ * Camera controls with orbitcontrols (dev)
  */
+
 // const cameraControls = new OrbitControls(camera, renderer.domElement)
 // cameraControls.zoomSpeed = 0.3
 // cameraControls.enableDamping = true
-
-
 
 
 
@@ -578,7 +577,9 @@ const object_movement_rotation_reset = (object, x, y, z) => {
 }
 
 
-// Click detection
+/**
+ * Click detection
+ */
 document.addEventListener(
     'click',
     () => {
@@ -752,11 +753,17 @@ document.addEventListener(
             black_screen_arcade.group.visible = true
         }
 
+
+
+
         // Tv
         if(hover_tv){
             camera_reset()
         }
 
+
+
+        
         // Poster mario
         if(hover_poster_mario){
             super_mario_bowing.group.visible = false
@@ -765,7 +772,7 @@ document.addEventListener(
 )
 
 
-// Console arcade
+
 
 /**
  * Keyboard
@@ -775,6 +782,7 @@ document.addEventListener(
     'keydown',
     _event => {
         if(_event.code === 'Space'){
+            // Console switch
             if (click_console_switch !== null) {
                 // Hide all texts & videos
                 hide_texts_console()
@@ -784,6 +792,11 @@ document.addEventListener(
                 videos_console[0].group.visible = true
                 videos_console[0].play()
             }
+
+
+
+
+            // Console wii
             else if (click_console_wii !== null) {
                 // Hide all texts & videos
                 hide_texts_console()
@@ -793,6 +806,11 @@ document.addEventListener(
                 videos_console[1].group.visible = true
                 videos_console[1].play()
             }
+
+
+
+
+            // Console nes
             else if (click_console_nes !== null) {
                 // Hide all texts & videos
                 hide_texts_console()
@@ -802,6 +820,11 @@ document.addEventListener(
                 videos_console[2].group.visible = true
                 videos_console[2].play()
             }
+
+
+
+
+            // Console gameboy
             else if (click_console_gameboy !== null) {
                 // Hide all texts & videos
                 hide_texts_console()
@@ -811,6 +834,11 @@ document.addEventListener(
                 videos_console[3].group.visible = true
                 videos_console[3].play()
             }
+
+
+
+
+            // Console arcade
             else if (click_console_arcade !== null) {
                 // Hide all texts & videos
                 hide_texts_console()
@@ -858,10 +886,12 @@ const loop = () => {
     // Render
     effectComposer.render(scene, camera)
 
-    Raycaster
+
+
+
+    // Raycaster
     const raycaster_cursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
     raycaster.setFromCamera(raycaster_cursor, camera)
-
 
     // Raycast poster mario
     const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
@@ -892,6 +922,8 @@ const loop = () => {
     hover_console_arcade = intersects_arcade.hover
 
 
+
+
     // Change cursor on hover
     if(hover_console_wii || hover_console_switch || hover_console_nes || hover_console_gameboy || hover_console_arcade || hover_tv || hover_poster_mario){
         document.body.style.cursor = 'pointer'
@@ -901,15 +933,12 @@ const loop = () => {
     }
 
 
+
+
     // Camera parallax
     camera.position.x = camera_pos.x + cursor.x * - camera_parallax_strength
     camera.position.y = camera_pos.y + cursor.y * camera_parallax_strength
     camera.lookAt(camera_look_at_pos.x, camera_look_at_pos.y, camera_look_at_pos.z)
-
-
-    // Object movement rotation
-
-
 }
 
 loop()
