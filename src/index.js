@@ -41,7 +41,7 @@ const texts = []
 texts.push('Hey ! Salut toi !')
 texts.push('Comment ça va ?')
 texts.push('Bienvenue dans le musée des grandes consoles de Nintendo')
-texts.push('Alors visite ma chambre et découvre les secrets qu\'elle renferme !')
+texts.push('Alors visite la chambre et découvre les secrets qu\'elle renferme !')
 texts.push('Ah oui attend !')
 texts.push('J\'ai oublié de te donner les commandes')
 texts.push('Maintenant amuse-toi bien !')
@@ -404,8 +404,6 @@ const hide_videos_console = ()=>{
     for (let i = 0; i < videos_console.length; i++) {
         videos_console[i].group.visible = false
         videos_console[i].reset_current_time()
-        console.log('test');
-        
     }
 }
 
@@ -834,7 +832,12 @@ document.addEventListener(
 
         // Tv
         if(hover_tv){
+            // Reset camera
             camera_reset()
+
+            // Hide all texts & videos
+            hide_texts_console()
+            hide_videos_console()
         }
 
 
