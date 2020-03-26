@@ -102,7 +102,7 @@ tv.scale.set(0.0045, 0.0045, 0.0045)
 scene.add(tv)
 
 // Console switch
-const console_switch = new Console('models/gltf/console_switch_and_gamepad/scene.gltf')
+const console_switch = new Console('./models/gltf/console_switch_and_gamepad/scene.gltf')
 console_switch.group.scale.set(0.01, 0.01, 0.01)
 console_switch.group.position.set(-0.9, 0.965, -1.0)
 console_switch.group.rotation.set(0, Math.PI*0.1, 0)
@@ -110,19 +110,19 @@ scene.add(console_switch.group)
 
 
 // Console wii
-const console_wii = new Console('models/gltf/console_wii/scene.gltf')
+const console_wii = new Console('./models/gltf/console_wii/scene.gltf')
 console_wii.group.scale.set(0.06, 0.06, 0.06)
 console_wii.group.position.set(0.6, 1.08, -1.0)
 console_wii.group.rotation.set(0, Math.PI*0.5, 0)
 
 
 // Console wii gamepad
-const console_wii_gamepad_01 = new Console('models/gltf/console_wii_gamepad/scene.gltf')
+const console_wii_gamepad_01 = new Console('./models/gltf/console_wii_gamepad/scene.gltf')
 console_wii_gamepad_01.group.scale.set(0.000035, 0.000035, 0.000035)
 console_wii_gamepad_01.group.position.set(0.57, 0.905, -1.05)
 console_wii_gamepad_01.group.rotation.set(0, Math.PI*0.06, 0)
 
-const console_wii_gamepad_02 = new Console('models/gltf/console_wii_gamepad/scene.gltf')
+const console_wii_gamepad_02 = new Console('./models/gltf/console_wii_gamepad/scene.gltf')
 console_wii_gamepad_02.group.scale.set(0.000035, 0.000035, 0.000035)
 console_wii_gamepad_02.group.position.set(0.65, 0.905, -1.0)
 console_wii_gamepad_02.group.rotation.set(0, -Math.PI*0.04, 0)
@@ -137,19 +137,19 @@ scene.add(console_wii_group)
 
 
 // Console nes
-const console_nes = new Console('models/gltf/console_nes/scene.gltf')
+const console_nes = new Console('./models/gltf/console_nes/scene.gltf')
 console_nes.group.scale.set(0.02, 0.02, 0.02)
 console_nes.group.position.set(0.5, 0.48, -1.1)
 console_nes.group.rotation.set(0, -0.5, 0)
 
 
 // Console nes gamepad
-const console_nes_gamepad_01 = new Console('models/gltf/console_nes_gamepad/scene.gltf')
+const console_nes_gamepad_01 = new Console('./models/gltf/console_nes_gamepad/scene.gltf')
 console_nes_gamepad_01.group.scale.set(0.015, 0.015, 0.015)
 console_nes_gamepad_01.group.position.set(0.47, 0.570, -1.15)
 console_nes_gamepad_01.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.9)
 
-const console_nes_gamepad_02 = new Console('models/gltf/console_nes_gamepad/scene.gltf')
+const console_nes_gamepad_02 = new Console('./models/gltf/console_nes_gamepad/scene.gltf')
 console_nes_gamepad_02.group.scale.set(0.015, 0.015, 0.015)
 console_nes_gamepad_02.group.position.set(0.53, 0.570, -1.05)
 console_nes_gamepad_02.group.rotation.set(Math.PI/2, Math.PI, Math.PI*0.7)
@@ -164,7 +164,7 @@ scene.add(console_nes_group)
 
 
 // Console gameboy
-const console_gameboy = new Console('models/gltf/console_gameboy/scene.gltf')
+const console_gameboy = new Console('./models/gltf/console_gameboy/scene.gltf')
 console_gameboy.group.scale.set(0.0007, 0.0007, 0.0007)
 console_gameboy.group.position.set(0.15, 0.956, -1.05)
 console_gameboy.group.rotation.set(0, Math.PI*-0.6, 0)
@@ -172,7 +172,7 @@ scene.add(console_gameboy.group)
 
 
 // Console arcade
-const console_arcade = new Console('models/gltf/console_arcade/scene.gltf')
+const console_arcade = new Console('./models/gltf/console_arcade/scene.gltf')
 console_arcade.group.position.set(1.1, 0.45, -1.05)
 console_arcade.group.scale.set(0.02, 0.02, 0.02)
 scene.add(console_arcade.group)
@@ -189,131 +189,131 @@ scene.add(console_arcade_video_test.group)
 
 
 // Decoration
-// const bomb_mario = new Decoration('models/gltf/bob-omb_mario_figurine/scene.gltf')
+// const bomb_mario = new Decoration('./models/gltf/bob-omb_mario_figurine/scene.gltf')
 // bomb_mario.group.position.set(-1.15, 1, -1.0)
 // bomb_mario.group.rotation.set(0, Math.PI*1.2, 0)
 // bomb_mario.group.scale.set(0.0005, 0.0005, 0.0005)
 // scene.add(bomb_mario.group)
 
-const cartridge_duck_hunt_nes = new Decoration('models/gltf/cartridge_duck_hunt_nes/scene.gltf')
+const cartridge_duck_hunt_nes = new Decoration('./models/gltf/cartridge_duck_hunt_nes/scene.gltf')
 cartridge_duck_hunt_nes.group.position.set(0.2, 0.528, -1.0)
 cartridge_duck_hunt_nes.group.rotation.set(0, Math.PI*0.2, 0)
 cartridge_duck_hunt_nes.group.scale.set(0.000025, 0.000025, 0.000025)
 scene.add(cartridge_duck_hunt_nes.group)
 
-const cartridge_mario_nes = new Decoration('models/gltf/cartridge_mario_nes/scene.gltf')
+const cartridge_mario_nes = new Decoration('./models/gltf/cartridge_mario_nes/scene.gltf')
 cartridge_mario_nes.group.position.set(0.35, 0.478, -0.9)
 cartridge_mario_nes.group.rotation.set(0, Math.PI*0.2, 0)
 cartridge_mario_nes.group.scale.set(0.0005, 0.0005, 0.0005)
 scene.add(cartridge_mario_nes.group)
 
-const cartridge_pokemon_gameboy = new Decoration('models/gltf/cartridge_pokemon_gameboy/scene.gltf')
+const cartridge_pokemon_gameboy = new Decoration('./models/gltf/cartridge_pokemon_gameboy/scene.gltf')
 cartridge_pokemon_gameboy.group.position.set(-0.85, 0.958, -1.15)
 cartridge_pokemon_gameboy.group.rotation.set(-1.5, Math.PI*0, 0)
 cartridge_pokemon_gameboy.group.scale.set(1, 1, 1)
 scene.add(cartridge_pokemon_gameboy.group)
 
-const headphones = new Decoration('models/gltf/headphones/scene.gltf')
+const headphones = new Decoration('./models/gltf/headphones/scene.gltf')
 headphones.group.position.set(-0.5, 0.98, -0.9)
 headphones.group.rotation.set(-1.7, Math.PI*2, 0.8)
 headphones.group.scale.set(0.02, 0.02, 0.02)
 scene.add(headphones.group)
 
-const mario_mystery_box_figurine = new Decoration('models/gltf/mario_mystery_box_figurine/scene.gltf')
+const mario_mystery_box_figurine = new Decoration('./models/gltf/mario_mystery_box_figurine/scene.gltf')
 mario_mystery_box_figurine.group.position.set(-1, 0.173, -0.5)
 mario_mystery_box_figurine.group.rotation.set(0, Math.PI*0.1, 0)
 mario_mystery_box_figurine.group.scale.set(0.05, 0.05, 0.05)
 scene.add(mario_mystery_box_figurine.group)
 
-const pokeball_figurine = new Decoration('models/gltf/pokeball_figurine/scene.gltf')
+const pokeball_figurine = new Decoration('./models/gltf/pokeball_figurine/scene.gltf')
 pokeball_figurine.group.position.set(-0.32, 0.975, -0.9)
 pokeball_figurine.group.rotation.set(1.3, Math.PI*1, 0)
 pokeball_figurine.group.scale.set(0.004, 0.004, 0.004)
 scene.add(pokeball_figurine.group)
 
-const cable = new Decoration('models/gltf/cable/scene.gltf')
+const cable = new Decoration('./models/gltf/cable/scene.gltf')
 cable.group.position.set(-0.8, 0.96, -1.19)
 cable.group.rotation.set(0, Math.PI*-0.5, 0)
 cable.group.scale.set(0.1, 0.1, 0.1)
 scene.add(cable.group)
 
-const zelda_shield = new Decoration('models/gltf/zelda_shield/scene.gltf')
+const zelda_shield = new Decoration('./models/gltf/zelda_shield/scene.gltf')
 zelda_shield.group.position.set(-0.3, 0.65, -0.485)
 zelda_shield.group.rotation.set(-0.5, Math.PI*-2, 0.8)
 zelda_shield.group.scale.set(0.025, 0.025, 0.025)
 scene.add(zelda_shield.group)
 
 
-const plante_piranha = new Decoration('models/gltf/plante_piranha/scene.gltf')
+const plante_piranha = new Decoration('./models/gltf/plante_piranha/scene.gltf')
 plante_piranha.group.position.set(0.63, 1.02, -1.25)
 plante_piranha.group.rotation.set(0, Math.PI*0, 0)
 plante_piranha.group.scale.set(0.0004, 0.0004, 0.0004)
 scene.add(plante_piranha.group)
 
-const battery_duracell = new Decoration('models/gltf/battery_duracell/scene.gltf')
+const battery_duracell = new Decoration('./models/gltf/battery_duracell/scene.gltf')
 battery_duracell.group.position.set(0.5, 0.962, -0.9)
 battery_duracell.group.rotation.set(1.2, Math.PI*0.25, 0.5)
 battery_duracell.group.scale.set(0.001, 0.001, 0.001)
 scene.add(battery_duracell.group)
 
-const picture_frame = new Decoration('models/gltf/picture_frame/scene.gltf')
+const picture_frame = new Decoration('./models/gltf/picture_frame/scene.gltf')
 picture_frame.group.position.set(-1.14, 0.955, -0.95)
 picture_frame.group.rotation.set(0, Math.PI*-0.30, 0)
 picture_frame.group.scale.set(0.04, 0.04, 0.03)
 scene.add(picture_frame.group)
 
-const box_nes = new Decoration('models/gltf/box_nes/scene.gltf')
+const box_nes = new Decoration('./models/gltf/box_nes/scene.gltf')
 box_nes.group.position.set(0.7, 0.498, -0.9)
 box_nes.group.rotation.set(-1.5, Math.PI*0, -0.4)
 box_nes.group.scale.set(0.02, 0.02, 0.02)
 scene.add(box_nes.group)
 
-const fire_flower_figurine = new Decoration('models/gltf/fire_flower_figurine/scene.gltf')
+const fire_flower_figurine = new Decoration('./models/gltf/fire_flower_figurine/scene.gltf')
 fire_flower_figurine.group.position.set(0.3, 0.99, -1.05)
 fire_flower_figurine.group.rotation.set(0, Math.PI*-0.6, 0)
 fire_flower_figurine.group.scale.set(0.01, 0.01, 0.01)
 scene.add(fire_flower_figurine.group)
 
-const nooks_house = new Decoration('models/gltf/nooks_house/scene.gltf')
+const nooks_house = new Decoration('./models/gltf/nooks_house/scene.gltf')
 nooks_house.group.position.set(-1.1, 0.995, -1.28)
 nooks_house.group.rotation.set(0, Math.PI*-0.7, 0)
 nooks_house.group.scale.set(0.04, 0.04, 0.04)
 scene.add(nooks_house.group)
 
 // Poster
-const alien = new Poster('poster_affiche/alien.jpg')
+const alien = new Poster('./poster_affiche/alien.jpg')
 alien.group.position.set(1.8, 1.7, -1.33)
 alien.group.scale.set(0.002, 0.005, 0.002)
 scene.add(alien.group)
 
-const matrix = new Poster('poster_affiche/matrix.jpg')
+const matrix = new Poster('./poster_affiche/matrix.jpg')
 matrix.group.position.set(0.5, 2, -1.33)
 matrix.group.scale.set(0.002, 0.005, 0.002)
 scene.add(matrix.group)
 
-const le_seigneur_des_anneaux = new Poster('poster_affiche/le_seigneur_des_anneaux.jpg')
+const le_seigneur_des_anneaux = new Poster('./poster_affiche/le_seigneur_des_anneaux.jpg')
 le_seigneur_des_anneaux.group.position.set(-0.8, 2, -1.33)
 le_seigneur_des_anneaux.group.scale.set(0.002, 0.005, 0.002)
 scene.add(le_seigneur_des_anneaux.group)
 
-const terminator = new Poster('poster_affiche/Terminator.jpg')
+const terminator = new Poster('./poster_affiche/Terminator.jpg')
 terminator.group.position.set(-0.15, 2.05, -1.33)
 terminator.group.scale.set(0.002, 0.005, 0.002)
 scene.add(terminator.group)
 
-const star_wars = new Poster('poster_affiche/star_wars.jpg')
+const star_wars = new Poster('./poster_affiche/star_wars.jpg')
 star_wars.group.position.set(-1.2, 1.7, -0.75)
 star_wars.group.rotation.set(0, Math.PI*0.5, 0)
 star_wars.group.scale.set(0.002, 0.005, 0.002)
 scene.add(star_wars.group)
 
-const satoru_iwata = new Poster('poster_affiche/satoru_iwata.jpg')
+const satoru_iwata = new Poster('./poster_affiche/satoru_iwata.jpg')
 satoru_iwata.group.position.set(-1.134, 1.05, -0.94)
 satoru_iwata.group.rotation.set(-0.38, Math.PI*0.2, 0.22)
 satoru_iwata.group.scale.set(0.0005, 0.00125, 0.0005)
 scene.add(satoru_iwata.group)
 
-const super_mario_bowing = new Poster('poster_affiche/super_mario_bowing.jpg')
+const super_mario_bowing = new Poster('./poster_affiche/super_mario_bowing.jpg')
 super_mario_bowing.group.position.set(-1.133, 1.05, -0.94)
 super_mario_bowing.group.rotation.set(-0.38, Math.PI*0.2, 0.22)
 super_mario_bowing.group.scale.set(0.0005, 0.00125, 0.0005)
@@ -323,7 +323,7 @@ const raycaster = new THREE.Raycaster()
 
 
 // Video
-const video_test = new Video('videos/gameboy.mp4')
+const video_test = new Video('./videos/gameboy.mp4')
 scene.add(video_test.group)
 
 // document.addEventListener(
@@ -337,11 +337,11 @@ scene.add(video_test.group)
 
 
 // Text
-const texts = new Array() // switch, wii, gameboy, nes, arcade
+const texts = new Array() // switch, wii, nes, gameboy, arcade
 texts.push(new Text('La Nintendo Switch est la première console de jeu vidéo à offrir une expérience \n\nhybride entre la console de salon et la console portable. Il suffit de rentrer sa \n\nconsole dans  une petite borne connecté en HDMI à la télé pour voir son ecran \n\npassé sur la télé du salon et offrir une expérience plus agréable et familiale.\n\nLa Nintendo Switch est sortie mondialement en 2017.'))
 texts.push(new Text('La Wii est une console de jeux de salon dot de reconnaissance de mouvement, \n\nsortie en 2006. Console de la septième génération, tout comme la Xbox 360 et \n\nla PlayStation 3 avec lesquelles elle est en rivalité. La Wii est la console de salon \n\nla plus vendue de sa génération avec 100 millions d\'exemplaires écoulés en 2016.\n\nElle a comme particularité d’avoir été une des premières consoles à utiliser un \n\naccéléromètre capable de détecter la position, l\'orientation et les mouvements \n\ndans l\'espace de la manette.'))
-texts.push(new Text('La Game Boy est une des premières consoles portables de jeu vidéo fabriquée \n\npar Nintendo et mise en vente au Japon en 1989, c’est la première console \n\nportable qui a démocratisé l’utilisation de ces dernières dans le monde.\n\nMalgré la sortie de consoles portables techniquement plus avancées, \n\nla Game Boy connaît un franc succès. Les modèles Game Boy et Game Boy Color \n\ntotalisent 118 millions d\'exemplaires vendus à travers le monde.'))
 texts.push(new Text('La Nintendo Entertainment System, par abréviation NES, est une des premières \n\nconsoles de jeux de salon fabriquée par l\'entreprise japonaise Nintendo.\n\nElle a été distribuée à partir de 1985 ; La console connut un succès mondial, \n\nce qui fixa les normes pour les consoles suivantes notamment en matière \n\nde game design. Super Mario Bros fut le jeu le plus vendu sur la console. \n\nSon succès fut tel que ce jeu justifiait bien souvent l\'achat de la console \n\nà lui tout seul.'))
+texts.push(new Text('La Game Boy est une des premières consoles portables de jeu vidéo fabriquée \n\npar Nintendo et mise en vente au Japon en 1989, c’est la première console \n\nportable qui a démocratisé l’utilisation de ces dernières dans le monde.\n\nMalgré la sortie de consoles portables techniquement plus avancées, \n\nla Game Boy connaît un franc succès. Les modèles Game Boy et Game Boy Color \n\ntotalisent 118 millions d\'exemplaires vendus à travers le monde.'))
 texts.push(new Text('Une borne d\'arcade est un des premiers jeu vidéo disponible au grand public \n\nnotamment dans des lieux ouverts au public comme les bars, les centres \n\ncommerciaux ou certains établissements de divertissement. L\'origine du nom \n\nprovient des lieux où ces bornes étaient souvent installées, sous les arcades \n\nafin de rentabiliser l\'espace. C\'est sur ce support que l’on a vu apparaître \n\npour la première fois l\'icône du jeu vidéo de Nintendo : “Mario”.'))
 
 for (let i = 0; i < texts.length; i++) {

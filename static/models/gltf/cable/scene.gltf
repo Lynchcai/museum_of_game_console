@@ -196,9 +196,9 @@
             "uri" : "../blank.png"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Maps_baseColor",
-            "uri" : "Maps_baseColor.png"
+            "uri" : "Maps_baseColor.jpeg"
         }
     ],
     "accessors" : [
