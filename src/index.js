@@ -506,6 +506,7 @@ window.addEventListener('resize', () => {
 
 // Hover detection - false or true
 let hover_tv = false
+let hover_poster_mario = false
 let hover_console_switch = false
 let hover_console_wii = false
 let hover_console_nes = false
@@ -751,9 +752,14 @@ document.addEventListener(
             black_screen_arcade.group.visible = true
         }
 
-        // Console tv
+        // Tv
         if(hover_tv){
             camera_reset()
+        }
+
+        // Poster mario
+        if(hover_poster_mario){
+            super_mario_bowing.group.visible = false
         }
     }
 )
@@ -857,6 +863,10 @@ const loop = () => {
     raycaster.setFromCamera(raycaster_cursor, camera)
 
 
+    // Raycast poster mario
+    const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
+    hover_poster_mario = intersects_mario.hover
+
     // Raycast tv
     const intersects_tv = new Raycaster(tv, hover_tv, raycaster)
     hover_tv = intersects_tv.hover
@@ -882,10 +892,8 @@ const loop = () => {
     hover_console_arcade = intersects_arcade.hover
 
 
-
-
     // Change cursor on hover
-    if(hover_console_wii || hover_console_switch || hover_console_nes || hover_console_gameboy || hover_console_arcade || hover_tv){
+    if(hover_console_wii || hover_console_switch || hover_console_nes || hover_console_gameboy || hover_console_arcade || hover_tv || hover_poster_mario){
         document.body.style.cursor = 'pointer'
     }
     else{
