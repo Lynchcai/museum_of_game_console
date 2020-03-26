@@ -23,9 +23,9 @@ export default class Video
         const video_material = new THREE.MeshBasicMaterial ({ map: video_texture})
         
         // Object
-        const video_geometry = new THREE.PlaneGeometry( 240, 135, 4, 4) // 16:9
+        const video_geometry = new THREE.PlaneGeometry( 238, 139, 4, 4) // 16:9
         this.video = new THREE.Mesh( video_geometry, video_material)
-        this.video.position.set(-0.22, 1.4, -1.032)
+        this.video.position.set(-0.22, 1.393, -1.033)
         this.video.scale.set(0.0045, 0.0045, 0.0045)
 
         this.group.add(this.video)

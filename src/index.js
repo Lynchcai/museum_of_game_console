@@ -275,7 +275,7 @@ scene.add(nooks_house.group)
 const cabinet = new Decoration('models/gltf/cabinet/scene.gltf')
 cabinet.group.position.set(1.6, 0.7, -1.25)
 cabinet.group.rotation.set(0, Math.PI*0, 0)
-cabinet.group.scale.set(0.006, 0.006, 0.006)
+cabinet.group.scale.set(0.008, 0.008, 0.008)
 scene.add(cabinet.group)
 
 // Poster
@@ -324,12 +324,12 @@ const raycaster = new THREE.Raycaster()
 const video_test = new Video('videos/gameboy.mp4')
 scene.add(video_test.group)
 
-// document.addEventListener(
-//     'click',
-//     ()=>{
-//         video_test.play()
-//     }
-// )
+document.addEventListener(
+    'click',
+    ()=>{
+        video_test.play()
+    }
+)
 
 
 
