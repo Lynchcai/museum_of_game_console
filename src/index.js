@@ -177,15 +177,7 @@ console_arcade.group.position.set(1.1, 0.45, -1.05)
 console_arcade.group.scale.set(0.02, 0.02, 0.02)
 scene.add(console_arcade.group)
 
-const console_arcade_video_test = new Console_arcade_video('videos/test.mp4')
-scene.add(console_arcade_video_test.group)
 
-// document.addEventListener(
-//     'click',
-//     ()=>{
-//         console_arcade_video_test.play()
-//     }
-// )
 
 const cartridge_duck_hunt_nes = new Decoration('./models/gltf/cartridge_duck_hunt_nes/scene.gltf')
 cartridge_duck_hunt_nes.group.position.set(0.2, 0.528, -1.0)
@@ -320,19 +312,22 @@ scene.add(super_mario_bowing.group)
 const raycaster = new THREE.Raycaster()
 
 
-// Video
 
+
+// Videos
 const videos_console = new Array() // switch, wii, nes, gameboy, arcade
 videos_console.push(new Video('./videos/switch.mp4'))
 videos_console.push(new Video('./videos/wii.mp4'))
 videos_console.push(new Video('./videos/nes.mp4'))
 videos_console.push(new Video('./videos/gameboy.mp4'))
-videos_console.push(new Video('./videos/arcade.mp4'))
+videos_console.push(new Console_arcade_video('./videos/arcade.mp4'))
 
+// Add videos to scene
 for (let i = 0; i < videos_console.length; i++) {
     scene.add(videos_console[i].group)
 }
 
+// Hide all videos
 const hide_videos_console = ()=>{
     for (let i = 0; i < videos_console.length; i++) {
         videos_console[i].group.visible = false
@@ -340,18 +335,13 @@ const hide_videos_console = ()=>{
     }
 }
 
-
-document.addEventListener(
-    'click',
-    ()=>{
-        video_test.play()
-    }
-)
+// Black screen arcade
+const black_screen_arcade = new Console_arcade_video('./videos/arcade.mp4')
+black_screen_arcade.group.visible = true
+scene.add(black_screen_arcade.group)
 
 
-
-
-// Text
+// Texts
 const texts_console = new Array() // switch, wii, nes, gameboy, arcade
 texts_console.push(new Text('La Nintendo Switch est la première console de jeu vidéo à offrir une expérience \n\nhybride entre la console de salon et la console portable. Il suffit de rentrer sa \n\nconsole dans  une petite borne connecté en HDMI à la télé pour voir son ecran \n\npassé sur la télé du salon et offrir une expérience plus agréable et familiale.\n\nLa Nintendo Switch est sortie mondialement en 2017.\n\nAppuyer sur ESPACE pour continuer'))
 texts_console.push(new Text('La Wii est une console de jeux de salon dot de reconnaissance de mouvement, \n\nsortie en 2006. Console de la septième génération, tout comme la Xbox 360 et \n\nla PlayStation 3 avec lesquelles elle est en rivalité. La Wii est la console de salon \n\nla plus vendue de sa génération avec 100 millions d\'exemplaires écoulés en 2016.\n\nElle a comme particularité d’avoir été une des premières consoles à utiliser un \n\naccéléromètre capable de détecter la position, l\'orientation et les mouvements \n\ndans l\'espace de la manette.\n\nAppuyer sur ESPACE pour continuer'))
@@ -359,10 +349,12 @@ texts_console.push(new Text('La Nintendo Entertainment System, par abréviation 
 texts_console.push(new Text('La Game Boy est une des premières consoles portables de jeu vidéo fabriquée \n\npar Nintendo et mise en vente au Japon en 1989, c’est la première console \n\nportable qui a démocratisé l’utilisation de ces dernières dans le monde.\n\nMalgré la sortie de consoles portables techniquement plus avancées, \n\nla Game Boy connaît un franc succès. Les modèles Game Boy et Game Boy Color \n\ntotalisent 118 millions d\'exemplaires vendus à travers le monde.\n\nAppuyer sur ESPACE pour continuer'))
 texts_console.push(new Text('Une borne d\'arcade est un des premiers jeu vidéo disponible au grand public \n\nnotamment dans des lieux ouverts au public comme les bars, les centres \n\ncommerciaux ou certains établissements de divertissement. L\'origine du nom \n\nprovient des lieux où ces bornes étaient souvent installées, sous les arcades \n\nafin de rentabiliser l\'espace. C\'est sur ce support que l’on a vu apparaître \n\npour la première fois l\'icône du jeu vidéo de Nintendo : “Mario”.\n\nAppuyer sur ESPACE pour continuer'))
 
+// Add videos to scene
 for (let i = 0; i < texts_console.length; i++) {
     scene.add(texts_console[i].group)
 }
 
+// Hide all texts
 const hide_texts_console = ()=>{
     for (let i = 0; i < texts_console.length; i++) {
         texts_console[i].group.visible = false
@@ -371,20 +363,11 @@ const hide_texts_console = ()=>{
 
 
 
+
 /**
  * Camera
  */
 const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 8)
-
-
-// Position front basket
-// camera.position.set (2, 1.5, 1)
-// camera.lookAt(2, 1.25, -2)
-
-// Position front arcade console
-// camera.position.set (1.1, 1.5, 1)
-// camera.lookAt(1.1, 1.25, -2)
-
 
 // Position front screen
 let camera_parallax_strength = 0.25
@@ -759,11 +742,13 @@ document.addEventListener(
             texts_console[4].group.visible = true
             if (click_console_arcade == null) {
                 click_console_arcade = 'not null'
+                black_screen_arcade.group.visible = true
             }
 
         }
         else {
             click_console_arcade = null
+            black_screen_arcade.group.visible = true
         }
 
         // Console tv
@@ -824,10 +809,11 @@ document.addEventListener(
                 // Hide all texts & videos
                 hide_texts_console()
                 hide_videos_console()
+                black_screen_arcade.group.visible = false
 
                 // // Show video
-                // videos_console[4].group.visible = true
-                // videos_console[4].play()
+                videos_console[4].group.visible = true
+                videos_console[4].play()
 
                 // Switch camera to arcade
                 camera_to_arcade = true
