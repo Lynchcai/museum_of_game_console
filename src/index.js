@@ -17,7 +17,6 @@ import Decoration from './scripts/Decoration.js'
 
 
 
-
 // /**
 //  * Introduction
 //  */
@@ -92,9 +91,6 @@ const typing_text = (text)=> {
 
 
 
-
-
-
 /**
  * Sizes
  */
@@ -124,7 +120,6 @@ window.addEventListener('mousemove', (_event) => {
  * Scene
  */
 const scene = new THREE.Scene()
-
 
 
 
@@ -159,7 +154,6 @@ scene.add(point_light)
  */
 const point_light_helper = new THREE.PointLightHelper(point_light)
 scene.add(point_light_helper)
-
 
 
 
@@ -356,14 +350,14 @@ alien.group.scale.set(0.002, 0.005, 0.002)
 scene.add(alien.group)
 
 const matrix = new Poster('./poster/matrix.jpg')
-matrix.group.position.set(0.5, 2, -1.33)
+matrix.group.position.set(0.5, 2.05, -1.33)
 matrix.group.scale.set(0.002, 0.005, 0.002)
 scene.add(matrix.group)
 
-const le_seigneur_des_anneaux = new Poster('./poster/le_seigneur_des_anneaux.jpg')
-le_seigneur_des_anneaux.group.position.set(-0.8, 2, -1.33)
-le_seigneur_des_anneaux.group.scale.set(0.002, 0.005, 0.002)
-scene.add(le_seigneur_des_anneaux.group)
+const lord_of_the_ring = new Poster('./poster/lord_of_the_ring.jpg')
+lord_of_the_ring.group.position.set(-0.8, 2, -1.33)
+lord_of_the_ring.group.scale.set(0.002, 0.005, 0.002)
+scene.add(lord_of_the_ring.group)
 
 const terminator = new Poster('./poster/Terminator.jpg')
 terminator.group.position.set(-0.15, 2.05, -1.33)
@@ -389,7 +383,6 @@ super_mario_bowing.group.scale.set(0.0005, 0.00125, 0.0005)
 scene.add(super_mario_bowing.group)
 
 const raycaster = new THREE.Raycaster()
-
 
 
 
@@ -442,7 +435,6 @@ const hide_texts_console = ()=>{
 
 
 
-
 /**
  * Camera
  */
@@ -467,7 +459,6 @@ let camera_look_at_pos = {
     y: 1.25,
     z: -2
 }
-
 
 
 
@@ -517,7 +508,6 @@ scene.add(camera)
 
 
 
-
 /**
  * Renderer
  */
@@ -555,16 +545,6 @@ document.body.appendChild(renderer.domElement)
 
 
 /**
- * Camera controls with orbitcontrols (dev)
- */
-
-// const cameraControls = new OrbitControls(camera, renderer.domElement)
-// cameraControls.zoomSpeed = 0.3
-// cameraControls.enableDamping = true
-
-
-
-/**
  * Resize
  */
 window.addEventListener('resize', () => {
@@ -578,8 +558,6 @@ window.addEventListener('resize', () => {
 
     effectComposer.setSize(sizes.width, sizes.height)
 })
-
-
 
 
 /**
@@ -602,7 +580,10 @@ let hover_poster_matrix = false
 let hover_decoration_plante_piranha = false
 let hover_decoration_pokeball_figurine = false
 let hover_poster_terminator = false
-let hover_poster_le_seigneur_des_anneaux = false
+let hover_poster_lord_of_the_ring = false
+let hover_decoration_zelda_shield = false
+let intro_finish_audio = false
+let hover_decoration_headphones = false
 
 
 // Click detection - null or not null
@@ -901,19 +882,19 @@ document.addEventListener(
             hover_poster_terminator.play()
         }
 
-        if(hover_poster_le_seigneur_des_anneaux){
-            hover_poster_le_seigneur_des_anneaux = new Audio('./audio/you_shall_not_pass.mp3')
-            hover_poster_le_seigneur_des_anneaux.play()
+        if(hover_poster_lord_of_the_ring){
+            hover_poster_lord_of_the_ring = new Audio('./audio/you_shall_not_pass.mp3')
+            hover_poster_lord_of_the_ring.play()
         }
 
-        if(hover_decoration_nooks){
-            hover_decoration_nooks = new Audio('./audio/animal_crossing.mp3')
-            hover_decoration_nooks.play()
+        if(hover_decoration_zelda_shield){
+            hover_decoration_zelda_shield = new Audio('./audio/armure_2.mp3')
+            hover_decoration_zelda_shield.play()
         }
 
-        if(hover_decoration_nooks){
-            hover_decoration_nooks = new Audio('./audio/animal_crossing.mp3')
-            hover_decoration_nooks.play()
+
+        if(hover_decoration_headphones){
+            hover_decoration_headphones = intro_finish_audio.pause()
         }
     }
 )
@@ -1021,6 +1002,8 @@ document.addEventListener(
             }
             else if (intro_finish == 1){
                 intro_finish = 2
+                intro_finish_audio = new Audio('./background_music/room_ambiance_sound.mp3')
+                intro_finish_audio.play()
                 $intro_container.classList.add('hide')
                 document.querySelector('body').style.pointerEvents = 'auto'
                 camera_pos = {
@@ -1066,7 +1049,7 @@ const $loader_text = $intro_container.querySelector('.loader_text')
 let load_pourcentage = 0
 
 // All objects
-let load_those_objects = [room, console_switch, console_wii, console_wii_gamepad_01, console_wii_gamepad_02, console_nes, console_nes_gamepad_01, console_nes_gamepad_02, console_gameboy, console_arcade, cartridge_duck_hunt_nes, cartridge_mario_nes, cartridge_pokemon_gameboy, headphones, mario_mystery_box_figurine, pokeball_figurine, cable, zelda_shield, plante_piranha, battery_duracell, picture_frame, box_nes, fire_flower_figurine, nooks_house, cabinet, alien, matrix, le_seigneur_des_anneaux, terminator, star_wars, satoru_iwata, super_mario_bowing]
+let load_those_objects = [room, console_switch, console_wii, console_wii_gamepad_01, console_wii_gamepad_02, console_nes, console_nes_gamepad_01, console_nes_gamepad_02, console_gameboy, console_arcade, cartridge_duck_hunt_nes, cartridge_mario_nes, cartridge_pokemon_gameboy, headphones, mario_mystery_box_figurine, pokeball_figurine, cable, zelda_shield, plante_piranha, battery_duracell, picture_frame, box_nes, fire_flower_figurine, nooks_house, cabinet, alien, matrix, lord_of_the_ring, terminator, star_wars, satoru_iwata, super_mario_bowing]
 let load_those_objects_length_static = load_those_objects.length
 
 // Check if object are loaded & change pourcentage value
@@ -1107,7 +1090,6 @@ const loop = () => {
     window.requestAnimationFrame(loop)
     // Render
     effectComposer.render(scene, camera)
-
 
 
 
@@ -1176,17 +1158,16 @@ const loop = () => {
     hover_poster_terminator = intersects_terminator.hover
 
     // Raycast poster mario
-    const intersects_le_seigneur_des_anneaux = new Raycaster(le_seigneur_des_anneaux.group, hover_poster_mario, raycaster)
-    hover_poster_le_seigneur_des_anneaux = intersects_le_seigneur_des_anneaux.hover
+    const intersects_lord_of_the_ring = new Raycaster(lord_of_the_ring.group, hover_poster_mario, raycaster)
+    hover_poster_lord_of_the_ring = intersects_lord_of_the_ring.hover
 
-    // // Raycast poster mario
-    // const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
-    // hover_poster_mario = intersects_mario.hover
+    // Raycast zelda shield
+    const intersects_zelda_shield = new Raycaster(zelda_shield.group, hover_decoration_zelda_shield, raycaster)
+    hover_decoration_zelda_shield = intersects_zelda_shield.hover
 
-    // // Raycast poster mario
-    // const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
-    // hover_poster_mario = intersects_mario.hover
-
+    // Raycast headphones
+    const intersects_headphones = new Raycaster(headphones.group, hover_decoration_headphones, raycaster)
+    hover_decoration_headphones = intersects_headphones.hover
 
 
 
@@ -1197,7 +1178,6 @@ const loop = () => {
     else{
         document.body.style.cursor = 'default'
     }
-
 
 
 
