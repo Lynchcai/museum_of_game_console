@@ -46,7 +46,7 @@ texts.push('Alors visite ma chambre et découvre les secrets quelle renferme !')
 texts.push('Ah oui attend !')
 texts.push('J\'ai oublié de te donner les commandes')
 texts.push('Maintenant amuse-toi bien !')
-texts.push('Appuyez sur la touche \'Espace\'')
+texts.push('Appuyez sur la touche \'Espace\' pour continuer')
 let speed = 50 /* The speed/duration of the effect in milliseconds */
 
 

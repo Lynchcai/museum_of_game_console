@@ -135,13 +135,13 @@
   ],
   "images": [
     {
-      "uri": "textures/Material_001_diffuse.png"
+      "uri": "textures/Material_001_diffuse.jpg"
     },
     {
-      "uri": "textures/Material_001_normal.png"
+      "uri": "../blank.png"
     },
     {
-      "uri": "textures/Material_001_specularGlossiness.png"
+      "uri": "../blank.png"
     }
   ],
   "materials": [

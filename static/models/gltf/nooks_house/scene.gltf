@@ -294,13 +294,13 @@
   ],
   "images": [
     {
-      "uri": "textures/phong4SG_baseColor.png"
+      "uri": "textures/phong4SG_baseColor.jpeg"
     },
     {
-      "uri": "textures/phong5SG_baseColor.png"
+      "uri": "textures/phong5SG_baseColor.jpeg"
     },
     {
-      "uri": "textures/phong3SG_baseColor.png"
+      "uri": "textures/phong3SG_baseColor.jpeg"
     }
   ],
   "materials": [
