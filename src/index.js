@@ -596,6 +596,7 @@ let click_console_nes_gamepad_01 = null
 let click_console_nes_gamepad_02 = null
 let click_console_gameboy = null
 let click_console_arcade = null
+let click_decoration_headphones = null
 
 
 // Object movement translation
@@ -888,13 +889,20 @@ document.addEventListener(
         }
 
         if(hover_decoration_zelda_shield){
-            hover_decoration_zelda_shield = new Audio('./audio/armure_2.mp3')
+            hover_decoration_zelda_shield = new Audio('./audio/shield.mp3')
             hover_decoration_zelda_shield.play()
         }
 
 
         if(hover_decoration_headphones){
-            hover_decoration_headphones = intro_finish_audio.pause()
+            if(click_decoration_headphones == null){
+                click_decoration_headphones = 'not null'
+                intro_finish_audio.pause()
+            }
+            else{
+                click_decoration_headphones = null
+                intro_finish_audio.play()
+            }
         }
     }
 )
