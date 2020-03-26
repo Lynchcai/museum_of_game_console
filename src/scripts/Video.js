@@ -35,5 +35,6 @@ export default class Video
     }
     reset_current_time(){
         this.$video.currentTime = 0
+        this.$video.pause()
     }
 }
