@@ -705,10 +705,10 @@
   ],
   "images": [
     {
-      "uri": "textures/Plant_baseColor.png"
+      "uri": "textures/Plant_baseColor.jpeg"
     },
     {
-      "uri": "textures/Plant_metallicRoughness.png"
+      "uri": "../blank.png"
     }
   ],
   "materials": [
