@@ -187,14 +187,6 @@ scene.add(console_arcade_video_test.group)
 //     }
 // )
 
-
-// Decoration
-// const bomb_mario = new Decoration('./models/gltf/bob-omb_mario_figurine/scene.gltf')
-// bomb_mario.group.position.set(-1.15, 1, -1.0)
-// bomb_mario.group.rotation.set(0, Math.PI*1.2, 0)
-// bomb_mario.group.scale.set(0.0005, 0.0005, 0.0005)
-// scene.add(bomb_mario.group)
-
 const cartridge_duck_hunt_nes = new Decoration('./models/gltf/cartridge_duck_hunt_nes/scene.gltf')
 cartridge_duck_hunt_nes.group.position.set(0.2, 0.528, -1.0)
 cartridge_duck_hunt_nes.group.rotation.set(0, Math.PI*0.2, 0)
@@ -280,40 +272,46 @@ nooks_house.group.rotation.set(0, Math.PI*-0.7, 0)
 nooks_house.group.scale.set(0.04, 0.04, 0.04)
 scene.add(nooks_house.group)
 
+const cabinet = new Decoration('models/gltf/cabinet/scene.gltf')
+cabinet.group.position.set(1.6, 0.7, -1.25)
+cabinet.group.rotation.set(0, Math.PI*0, 0)
+cabinet.group.scale.set(0.006, 0.006, 0.006)
+scene.add(cabinet.group)
+
 // Poster
-const alien = new Poster('./poster_affiche/alien.jpg')
+const alien = new Poster('./poster/alien.jpg')
 alien.group.position.set(1.8, 1.7, -1.33)
 alien.group.scale.set(0.002, 0.005, 0.002)
 scene.add(alien.group)
 
-const matrix = new Poster('./poster_affiche/matrix.jpg')
+const matrix = new Poster('./poster/matrix.jpg')
 matrix.group.position.set(0.5, 2, -1.33)
 matrix.group.scale.set(0.002, 0.005, 0.002)
 scene.add(matrix.group)
 
-const le_seigneur_des_anneaux = new Poster('./poster_affiche/le_seigneur_des_anneaux.jpg')
+const le_seigneur_des_anneaux = new Poster('./poster/le_seigneur_des_anneaux.jpg')
 le_seigneur_des_anneaux.group.position.set(-0.8, 2, -1.33)
 le_seigneur_des_anneaux.group.scale.set(0.002, 0.005, 0.002)
 scene.add(le_seigneur_des_anneaux.group)
 
-const terminator = new Poster('./poster_affiche/Terminator.jpg')
+const terminator = new Poster('./poster/Terminator.jpg')
 terminator.group.position.set(-0.15, 2.05, -1.33)
 terminator.group.scale.set(0.002, 0.005, 0.002)
 scene.add(terminator.group)
 
-const star_wars = new Poster('./poster_affiche/star_wars.jpg')
+const star_wars = new Poster('./poster/star_wars.jpg')
 star_wars.group.position.set(-1.2, 1.7, -0.75)
 star_wars.group.rotation.set(0, Math.PI*0.5, 0)
 star_wars.group.scale.set(0.002, 0.005, 0.002)
 scene.add(star_wars.group)
 
-const satoru_iwata = new Poster('./poster_affiche/satoru_iwata.jpg')
+const satoru_iwata = new Poster('./poster/satoru_iwata.jpg')
 satoru_iwata.group.position.set(-1.134, 1.05, -0.94)
 satoru_iwata.group.rotation.set(-0.38, Math.PI*0.2, 0.22)
 satoru_iwata.group.scale.set(0.0005, 0.00125, 0.0005)
 scene.add(satoru_iwata.group)
 
-const super_mario_bowing = new Poster('./poster_affiche/super_mario_bowing.jpg')
+const super_mario_bowing = new Poster('./poster/super_mario_bowing.jpg')
 super_mario_bowing.group.position.set(-1.133, 1.05, -0.94)
 super_mario_bowing.group.rotation.set(-0.38, Math.PI*0.2, 0.22)
 super_mario_bowing.group.scale.set(0.0005, 0.00125, 0.0005)
@@ -799,8 +797,8 @@ const loop = () => {
 
 
     // Camera parallax
-    camera.position.x = camera_pos.x + cursor.x * camera_parallax_strength
-    camera.position.y = camera_pos.y + cursor.y * - camera_parallax_strength
+    camera.position.x = camera_pos.x + cursor.x * - camera_parallax_strength
+    camera.position.y = camera_pos.y + cursor.y * camera_parallax_strength
     camera.lookAt(camera_look_at_pos.x, camera_look_at_pos.y, camera_look_at_pos.z)
 
 
