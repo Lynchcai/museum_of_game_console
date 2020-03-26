@@ -321,8 +321,25 @@ const raycaster = new THREE.Raycaster()
 
 
 // Video
-const video_test = new Video('./videos/gameboy.mp4')
-scene.add(video_test.group)
+
+const videos_console = new Array() // switch, wii, nes, gameboy, arcade
+videos_console.push(new Video('./videos/switch.mp4'))
+videos_console.push(new Video('./videos/wii.mp4'))
+videos_console.push(new Video('./videos/nes.mp4'))
+videos_console.push(new Video('./videos/gameboy.mp4'))
+videos_console.push(new Video('./videos/arcade.mp4'))
+
+for (let i = 0; i < videos_console.length; i++) {
+    scene.add(videos_console[i].group)
+}
+
+const hide_videos_console = ()=>{
+    for (let i = 0; i < videos_console.length; i++) {
+        videos_console[i].group.visible = false
+        videos_console[i].reset_current_time()
+    }
+}
+
 
 // document.addEventListener(
 //     'click',
@@ -335,20 +352,20 @@ scene.add(video_test.group)
 
 
 // Text
-const texts = new Array() // switch, wii, nes, gameboy, arcade
-texts.push(new Text('La Nintendo Switch est la première console de jeu vidéo à offrir une expérience \n\nhybride entre la console de salon et la console portable. Il suffit de rentrer sa \n\nconsole dans  une petite borne connecté en HDMI à la télé pour voir son ecran \n\npassé sur la télé du salon et offrir une expérience plus agréable et familiale.\n\nLa Nintendo Switch est sortie mondialement en 2017.'))
-texts.push(new Text('La Wii est une console de jeux de salon dot de reconnaissance de mouvement, \n\nsortie en 2006. Console de la septième génération, tout comme la Xbox 360 et \n\nla PlayStation 3 avec lesquelles elle est en rivalité. La Wii est la console de salon \n\nla plus vendue de sa génération avec 100 millions d\'exemplaires écoulés en 2016.\n\nElle a comme particularité d’avoir été une des premières consoles à utiliser un \n\naccéléromètre capable de détecter la position, l\'orientation et les mouvements \n\ndans l\'espace de la manette.'))
-texts.push(new Text('La Nintendo Entertainment System, par abréviation NES, est une des premières \n\nconsoles de jeux de salon fabriquée par l\'entreprise japonaise Nintendo.\n\nElle a été distribuée à partir de 1985 ; La console connut un succès mondial, \n\nce qui fixa les normes pour les consoles suivantes notamment en matière \n\nde game design. Super Mario Bros fut le jeu le plus vendu sur la console. \n\nSon succès fut tel que ce jeu justifiait bien souvent l\'achat de la console \n\nà lui tout seul.'))
-texts.push(new Text('La Game Boy est une des premières consoles portables de jeu vidéo fabriquée \n\npar Nintendo et mise en vente au Japon en 1989, c’est la première console \n\nportable qui a démocratisé l’utilisation de ces dernières dans le monde.\n\nMalgré la sortie de consoles portables techniquement plus avancées, \n\nla Game Boy connaît un franc succès. Les modèles Game Boy et Game Boy Color \n\ntotalisent 118 millions d\'exemplaires vendus à travers le monde.'))
-texts.push(new Text('Une borne d\'arcade est un des premiers jeu vidéo disponible au grand public \n\nnotamment dans des lieux ouverts au public comme les bars, les centres \n\ncommerciaux ou certains établissements de divertissement. L\'origine du nom \n\nprovient des lieux où ces bornes étaient souvent installées, sous les arcades \n\nafin de rentabiliser l\'espace. C\'est sur ce support que l’on a vu apparaître \n\npour la première fois l\'icône du jeu vidéo de Nintendo : “Mario”.'))
+const texts_console = new Array() // switch, wii, nes, gameboy, arcade
+texts_console.push(new Text('La Nintendo Switch est la première console de jeu vidéo à offrir une expérience \n\nhybride entre la console de salon et la console portable. Il suffit de rentrer sa \n\nconsole dans  une petite borne connecté en HDMI à la télé pour voir son ecran \n\npassé sur la télé du salon et offrir une expérience plus agréable et familiale.\n\nLa Nintendo Switch est sortie mondialement en 2017.'))
+texts_console.push(new Text('La Wii est une console de jeux de salon dot de reconnaissance de mouvement, \n\nsortie en 2006. Console de la septième génération, tout comme la Xbox 360 et \n\nla PlayStation 3 avec lesquelles elle est en rivalité. La Wii est la console de salon \n\nla plus vendue de sa génération avec 100 millions d\'exemplaires écoulés en 2016.\n\nElle a comme particularité d’avoir été une des premières consoles à utiliser un \n\naccéléromètre capable de détecter la position, l\'orientation et les mouvements \n\ndans l\'espace de la manette.'))
+texts_console.push(new Text('La Nintendo Entertainment System, par abréviation NES, est une des premières \n\nconsoles de jeux de salon fabriquée par l\'entreprise japonaise Nintendo.\n\nElle a été distribuée à partir de 1985 ; La console connut un succès mondial, \n\nce qui fixa les normes pour les consoles suivantes notamment en matière \n\nde game design. Super Mario Bros fut le jeu le plus vendu sur la console. \n\nSon succès fut tel que ce jeu justifiait bien souvent l\'achat de la console \n\nà lui tout seul.'))
+texts_console.push(new Text('La Game Boy est une des premières consoles portables de jeu vidéo fabriquée \n\npar Nintendo et mise en vente au Japon en 1989, c’est la première console \n\nportable qui a démocratisé l’utilisation de ces dernières dans le monde.\n\nMalgré la sortie de consoles portables techniquement plus avancées, \n\nla Game Boy connaît un franc succès. Les modèles Game Boy et Game Boy Color \n\ntotalisent 118 millions d\'exemplaires vendus à travers le monde.'))
+texts_console.push(new Text('Une borne d\'arcade est un des premiers jeu vidéo disponible au grand public \n\nnotamment dans des lieux ouverts au public comme les bars, les centres \n\ncommerciaux ou certains établissements de divertissement. L\'origine du nom \n\nprovient des lieux où ces bornes étaient souvent installées, sous les arcades \n\nafin de rentabiliser l\'espace. C\'est sur ce support que l’on a vu apparaître \n\npour la première fois l\'icône du jeu vidéo de Nintendo : “Mario”.'))
 
-for (let i = 0; i < texts.length; i++) {
-    scene.add(texts[i].group)
+for (let i = 0; i < texts_console.length; i++) {
+    scene.add(texts_console[i].group)
 }
 
-const hide_texts = ()=>{
-    for (let i = 0; i < texts.length; i++) {
-        texts[i].group.visible = false
+const hide_texts_console = ()=>{
+    for (let i = 0; i < texts_console.length; i++) {
+        texts_console[i].group.visible = false
     }
 }
 
@@ -402,26 +419,7 @@ document.addEventListener(
         setTimeout(
             ()=>{
                 if (camera_to_arcade) {
-                    TweenLite.to(
-                        camera_pos,
-                        1,
-                        {
-                            x: 1.1,
-                            y: 1.5,
-                            z: 1,
-                            ease: 'Power3.easeInOut'
-                        }
-                    )
-                    TweenLite.to(
-                        camera_look_at_pos,
-                        1,
-                        {
-                            x: 1.1,
-                            y: 1.25,
-                            z: -2,
-                            ease: 'Power3.easeInOut'
-                        }
-                    )
+
                 }
                 else{
                     TweenLite.to(
@@ -596,14 +594,21 @@ const object_movement_rotation_reset = (object, x, y, z) => {
 }
 
 
+// Click detection
 document.addEventListener(
     'click',
     () => {
         // Console switch
         if(hover_console_switch) {
+            // Reset camera
             camera_reset()
-            hide_texts()
-            texts[0].group.visible = true
+
+            // Hide all texts & videos
+            hide_texts_console()
+            hide_videos_console()
+
+            // Show text
+            texts_console[0].group.visible = true
 
             // Start animation translation
             object_movement_translation(console_switch.group, -0.25, 1, -0.5)
@@ -627,9 +632,15 @@ document.addEventListener(
 
         // Console wii
         if(hover_console_wii) {
+            // Reset camera
             camera_reset()
-            hide_texts()
-            texts[1].group.visible = true
+
+            // Hide all texts & videos
+            hide_texts_console()
+            hide_videos_console()
+
+            // Show text
+            texts_console[1].group.visible = true
 
             // Start animation translation
             object_movement_translation(console_wii.group, -0.25, 1.1, -0.5)
@@ -663,9 +674,15 @@ document.addEventListener(
 
         // Console nes
         if(hover_console_nes) {
+            // Reset camera
             camera_reset()
-            hide_texts()
-            texts[2].group.visible = true
+
+            // Hide all texts & videos
+            hide_texts_console()
+            hide_videos_console()
+
+            // Show text
+            texts_console[2].group.visible = true
 
             // Start animation translation
             object_movement_translation(console_nes.group, -0.25, 1, -0.5)
@@ -699,9 +716,15 @@ document.addEventListener(
 
         // Console gameboy
         if(hover_console_gameboy) {
+            // Reset camera
             camera_reset()
-            hide_texts()
-            texts[3].group.visible = true
+
+            // Hide all texts & videos
+            hide_texts_console()
+            hide_videos_console()
+
+            // Show text
+            texts_console[3].group.visible = true
 
             // Start animation translation
             object_movement_translation(console_gameboy.group, -0.25, 1, -0.5)
@@ -725,12 +748,23 @@ document.addEventListener(
 
         // Console arcade
         if(hover_console_arcade){
+            // Reset camera
             camera_reset()
-            camera_to_arcade = true
-            hide_texts()
-            texts[4].group.visible = true
-        }
 
+            // Hide all texts & videos
+            hide_texts_console()
+            hide_videos_console()
+
+            // Show text
+            texts_console[4].group.visible = true
+            if (click_console_arcade == null) {
+                click_console_arcade = 'not null'
+            }
+
+        }
+        else {
+            click_console_arcade = null
+        }
 
         // Console tv
         if(hover_tv){
@@ -742,8 +776,85 @@ document.addEventListener(
 
 // Console arcade
 
+/**
+ * Keyboard
+ */
+// Space bar ( Continue )
+document.addEventListener(
+    'keydown',
+    _event => {
+        if(_event.code === 'Space'){
+            if (click_console_switch !== null) {
+                // Hide all texts & videos
+                hide_texts_console()
+                hide_videos_console()
 
+                // Show video
+                videos_console[0].group.visible = true
+                videos_console[0].play()
+            }
+            else if (click_console_wii !== null) {
+                // Hide all texts & videos
+                hide_texts_console()
+                hide_videos_console()
 
+                // Show video
+                videos_console[1].group.visible = true
+                videos_console[1].play()
+            }
+            else if (click_console_nes !== null) {
+                // Hide all texts & videos
+                hide_texts_console()
+                hide_videos_console()
+
+                // Show video
+                videos_console[2].group.visible = true
+                videos_console[2].play()
+            }
+            else if (click_console_gameboy !== null) {
+                // Hide all texts & videos
+                hide_texts_console()
+                hide_videos_console()
+
+                // Show video
+                videos_console[3].group.visible = true
+                videos_console[3].play()
+            }
+            else if (click_console_arcade !== null) {
+                // Hide all texts & videos
+                hide_texts_console()
+                hide_videos_console()
+
+                // // Show video
+                // videos_console[4].group.visible = true
+                // videos_console[4].play()
+
+                // Switch camera to arcade
+                camera_to_arcade = true
+                TweenLite.to(
+                    camera_pos,
+                    1,
+                    {
+                        x: 1.1,
+                        y: 1.5,
+                        z: 1,
+                        ease: 'Power3.easeInOut'
+                    }
+                )
+                TweenLite.to(
+                    camera_look_at_pos,
+                    1,
+                    {
+                        x: 1.1,
+                        y: 1.25,
+                        z: -2,
+                        ease: 'Power3.easeInOut'
+                    }
+                )
+            }
+        }
+    }
+)
 
 /**
  * Loop

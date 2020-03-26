@@ -33,4 +33,7 @@ export default class Video
     play(){
         this.$video.play()
     }
+    reset_current_time(){
+        this.$video.currentTime = 0
+    }
 }
