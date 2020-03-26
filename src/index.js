@@ -92,9 +92,14 @@ scene.add(point_light_helper)
 const room = new Room()
 scene.add(room.group)
 
-
-
-
+// TV detection
+const tv = new THREE.Mesh(
+    new THREE.PlaneGeometry(240, 135, 4, 4),
+    new THREE.MeshStandardMaterial({ color: 0xff8866, transparent: true, opacity: 0})
+)
+tv.position.set(-0.22, 1.4, -1.05)
+tv.scale.set(0.0045, 0.0045, 0.0045)
+scene.add(tv)
 
 
 // Console arcade
@@ -167,7 +172,7 @@ scene.add(console_nes_group)
 // Console gameboy
 const console_gameboy = new Console('models/gltf/console_gameboy/scene.gltf')
 console_gameboy.group.scale.set(0.0007, 0.0007, 0.0007)
-console_gameboy.group.position.set(-0.32, 0.956, -1.05)
+console_gameboy.group.position.set(0.15, 0.956, -1.05)
 console_gameboy.group.rotation.set(0, Math.PI*-0.6, 0)
 scene.add(console_gameboy.group)
 
@@ -200,7 +205,7 @@ cartridge_mario_nes.group.scale.set(0.0005, 0.0005, 0.0005)
 scene.add(cartridge_mario_nes.group)
 
 const cartridge_pokemon_gameboy = new Decoration('models/gltf/cartridge_pokemon_gameboy/scene.gltf')
-cartridge_pokemon_gameboy.group.position.set(-0.95, 0.958, -1.15)
+cartridge_pokemon_gameboy.group.position.set(-0.85, 0.958, -1.15)
 cartridge_pokemon_gameboy.group.rotation.set(-1.5, Math.PI*0, 0)
 cartridge_pokemon_gameboy.group.scale.set(1, 1, 1)
 scene.add(cartridge_pokemon_gameboy.group)
@@ -218,7 +223,7 @@ mario_mystery_box_figurine.group.scale.set(0.05, 0.05, 0.05)
 scene.add(mario_mystery_box_figurine.group)
 
 const pokeball_figurine = new Decoration('models/gltf/pokeball_figurine/scene.gltf')
-pokeball_figurine.group.position.set(0.15, 0.975, -0.9)
+pokeball_figurine.group.position.set(-0.32, 0.975, -0.9)
 pokeball_figurine.group.rotation.set(1.3, Math.PI*1, 0)
 pokeball_figurine.group.scale.set(0.004, 0.004, 0.004)
 scene.add(pokeball_figurine.group)
@@ -329,25 +334,25 @@ document.addEventListener(
 
 
 // Text
-const text = new Text('Une borne d\'arcade est un des premiers jeu vidéo disponible au grand public \n\nnotamment dans des lieux ouverts au public comme les bars, les centres \n\ncommerciaux ou certains établissements de divertissement. L\'origine du nom \n\nprovient des lieux où ces bornes étaient souvent installées, sous les arcades \n\nafin de rentabiliser l\'espace. C\'est sur ce support que l’on a vu apparaître \n\npour la première fois l\'icône du jeu vidéo de Nintendo : “Mario”.')
-text.group.visible = true
-scene.add(text.group)
+const text_console_arcade = new Text('Une borne d\'arcade est un des premiers jeu vidéo disponible au grand public \n\nnotamment dans des lieux ouverts au public comme les bars, les centres \n\ncommerciaux ou certains établissements de divertissement. L\'origine du nom \n\nprovient des lieux où ces bornes étaient souvent installées, sous les arcades \n\nafin de rentabiliser l\'espace. C\'est sur ce support que l’on a vu apparaître \n\npour la première fois l\'icône du jeu vidéo de Nintendo : “Mario”.')
+text_console_arcade.group.visible = true
+scene.add(text_console_arcade.group)
 
-const text2 = new Text('La Nintendo Entertainment System, par abréviation NES, est une des premières \n\nconsoles de jeux de salon fabriquée par l\'entreprise japonaise Nintendo.\n\nElle a été distribuée à partir de 1985 ; La console connut un succès mondial, \n\nce qui fixa les normes pour les consoles suivantes notamment en matière \n\nde game design. Super Mario Bros fut le jeu le plus vendu sur la console. \n\nSon succès fut tel que ce jeu justifiait bien souvent l\'achat de la console \n\nà lui tout seul.')
-// text2.group.visible = true
-scene.add(text2.group)
+const text_console_nes = new Text('La Nintendo Entertainment System, par abréviation NES, est une des premières \n\nconsoles de jeux de salon fabriquée par l\'entreprise japonaise Nintendo.\n\nElle a été distribuée à partir de 1985 ; La console connut un succès mondial, \n\nce qui fixa les normes pour les consoles suivantes notamment en matière \n\nde game design. Super Mario Bros fut le jeu le plus vendu sur la console. \n\nSon succès fut tel que ce jeu justifiait bien souvent l\'achat de la console \n\nà lui tout seul.')
+// text_console_nes.group.visible = true
+scene.add(text_console_nes.group)
 
-const text3 = new Text('La Game Boy est une des premières consoles portables de jeu vidéo fabriquée \n\npar Nintendo et mise en vente au Japon en 1989, c’est la première console \n\nportable qui a démocratisé l’utilisation de ces dernières dans le monde.\n\nMalgré la sortie de consoles portables techniquement plus avancées, \n\nla Game Boy connaît un franc succès. Les modèles Game Boy et Game Boy Color \n\ntotalisent 118 millions d\'exemplaires vendus à travers le monde.')
-// text3.group.visible = true
-scene.add(text3.group)
+const text_console_gameboy = new Text('La Game Boy est une des premières consoles portables de jeu vidéo fabriquée \n\npar Nintendo et mise en vente au Japon en 1989, c’est la première console \n\nportable qui a démocratisé l’utilisation de ces dernières dans le monde.\n\nMalgré la sortie de consoles portables techniquement plus avancées, \n\nla Game Boy connaît un franc succès. Les modèles Game Boy et Game Boy Color \n\ntotalisent 118 millions d\'exemplaires vendus à travers le monde.')
+// text_console_gameboy.group.visible = true
+scene.add(text_console_gameboy.group)
 
-const text4 = new Text('La Wii est une console de jeux de salon dot de reconnaissance de mouvement, \n\nsortie en 2006. Console de la septième génération, tout comme la Xbox 360 et \n\nla PlayStation 3 avec lesquelles elle est en rivalité. La Wii est la console de salon \n\nla plus vendue de sa génération avec 100 millions d\'exemplaires écoulés en 2016.\n\nElle a comme particularité d’avoir été une des premières consoles à utiliser un \n\naccéléromètre capable de détecter la position, l\'orientation et les mouvements \n\ndans l\'espace de la manette.')
-// text4.group.visible = true
-scene.add(text4.group)
+const text_console_wii = new Text('La Wii est une console de jeux de salon dot de reconnaissance de mouvement, \n\nsortie en 2006. Console de la septième génération, tout comme la Xbox 360 et \n\nla PlayStation 3 avec lesquelles elle est en rivalité. La Wii est la console de salon \n\nla plus vendue de sa génération avec 100 millions d\'exemplaires écoulés en 2016.\n\nElle a comme particularité d’avoir été une des premières consoles à utiliser un \n\naccéléromètre capable de détecter la position, l\'orientation et les mouvements \n\ndans l\'espace de la manette.')
+// text_console_wii.group.visible = true
+scene.add(text_console_wii.group)
 
-const text5 = new Text('La Nintendo Switch est la première console de jeu vidéo à offrir une expérience \n\nhybride entre la console de salon et la console portable. Il suffit de rentrer sa \n\nconsole dans  une petite borne connecté en HDMI à la télé pour voir son ecran \n\npassé sur la télé du salon et offrir une expérience plus agréable et familiale.\n\nLa Nintendo Switch est sortie mondialement en 2017.')
-// text5.group.visible = true
-scene.add(text5.group)
+const text_console_switch = new Text('La Nintendo Switch est la première console de jeu vidéo à offrir une expérience \n\nhybride entre la console de salon et la console portable. Il suffit de rentrer sa \n\nconsole dans  une petite borne connecté en HDMI à la télé pour voir son ecran \n\npassé sur la télé du salon et offrir une expérience plus agréable et familiale.\n\nLa Nintendo Switch est sortie mondialement en 2017.')
+// text_console_switch.group.visible = true
+scene.add(text_console_switch.group)
 
 
 
@@ -521,14 +526,15 @@ window.addEventListener('resize', () => {
  * Object movement
  */
 
-// Hover console detection - false or true
+// Hover detection - false or true
+let hover_tv = false
 let hover_console_switch = false
 let hover_console_wii = false
 let hover_console_nes = false
 let hover_console_gameboy = false
 let hover_console_arcade = false
 
-// Click console detection - null or not null
+// Click detection - null or not null
 let click_console_switch = null
 let click_console_wii = null
 let click_console_wii_gamepad_01 = null
@@ -701,7 +707,7 @@ document.addEventListener(
             }
         } else {
             // Reset animation translation
-            object_movement_translation(console_gameboy.group, -1.1, 0.955, -1.3)
+            object_movement_translation(console_gameboy.group, 0.15, 0.956, -1.05)
 
             // Reset animation rotation
             clearInterval(click_console_gameboy)
@@ -712,10 +718,16 @@ document.addEventListener(
 
 
 
-        // Console Arcade
+        // Console arcade
         if(hover_console_arcade){
             camera_reset()
             camera_to_arcade=true
+        }
+
+
+        // Console tv
+        if(hover_tv){
+            camera_reset()
         }
 
     }
@@ -742,7 +754,9 @@ const loop = () => {
     raycaster.setFromCamera(raycaster_cursor, camera)
 
 
-
+    // Raycast tv
+    const intersects_tv = new Raycaster(tv, hover_tv, raycaster)
+    hover_tv = intersects_tv.hover
 
     // Raycast console switch
     const intersects_switch = new Raycaster(console_switch.group, hover_console_switch, raycaster)
@@ -768,7 +782,7 @@ const loop = () => {
 
 
     // Change cursor on hover
-    if(hover_console_wii || hover_console_switch || hover_console_nes || hover_console_gameboy || hover_console_arcade){
+    if(hover_console_wii || hover_console_switch || hover_console_nes || hover_console_gameboy || hover_console_arcade || hover_tv){
         document.body.style.cursor = 'pointer'
     }
     else{
