@@ -17,6 +17,86 @@ import Decoration from './scripts/Decoration.js'
 
 
 
+
+// /**
+//  * Introduction
+//  */
+
+import img_click_src from './images/click.png'
+import img_spacebar_src from './images/spacebar.png' 
+import { log } from 'three'
+
+
+// Declare variable
+const $intro_container = document.querySelector('.container_intro')
+const $img_container = $intro_container.querySelector('.img_container')
+const $img_click = $img_container.querySelector('.img_click')
+const $img_spacebar = $img_container.querySelector('.img_spacebar')
+const $text = $intro_container.querySelector('.main_text_intro')
+let intro_finish = false
+
+// Img source
+$img_click.src = img_click_src
+$img_spacebar.src = img_spacebar_src
+
+// Texts
+const texts = []
+texts.push('Hey ! Salut toi !')
+texts.push('Comment ça va ?')
+texts.push('Bienvenue dans le musée des grandes consoles de Nintendo')
+texts.push('Alors visite ma chambre et découvre les secrets quelle renferme !')
+texts.push('Ah oui attend !')
+texts.push('J\'ai oublié de te donner les commandes')
+texts.push('Maintenant amuse-toi bien !')
+texts.push('Appuyez sur la touche \'Espace\'')
+let speed = 50 /* The speed/duration of the effect in milliseconds */
+
+
+// Typing text
+let text_number = 0
+const typing_text = (text)=> {
+    let i = 0
+    $text.textContent = '­'
+    if (i < text.length) {
+        // Write text
+        const text_interval = setInterval(
+            ()=>{
+                $text.textContent += text.charAt(i)
+                i++
+            }, speed
+        )
+        // Stop write text
+        setTimeout(
+            ()=>{
+                // Write next text
+                if (text_number < 7) {
+                    text_number += 1
+                    clearInterval(text_interval)
+                    typing_text(texts[text_number])
+                }
+                // Blink end text
+                else{
+                    setInterval(
+                        ()=>{
+                            $text.classList.toggle('blink')
+                        }, 1000
+                    )
+                    intro_finish = true
+                }
+                // Show tutorial images
+                if (text_number == 5) {
+                    $img_container.classList.add('show')
+                }
+            }, (speed * text.length * 2)
+        )
+    }
+}
+
+
+
+
+
+
 /**
  * Sizes
  */
@@ -375,11 +455,12 @@ let camera_parallax_strength = 0.25
 
 let camera_pos_intro = true
 
-// Camera pos
+
+// Camera pos default
 let camera_pos = {
     x: -0.25,
-    y: 1.45,
-    z: -0.9
+    y: 1.5,
+    z: 1
 }
 
 camera.position.set (camera_pos.x, camera_pos.y, camera_pos.z)
@@ -388,26 +469,8 @@ camera.position.set (camera_pos.x, camera_pos.y, camera_pos.z)
 let camera_look_at_pos = {
     x: -0.25,
     y: 1.25,
-    z: -3.9
+    z: -2
 }
-
-
-
-
-// // Camera pos default
-// let camera_pos = {
-//     x: -0.25,
-//     y: 1.5,
-//     z: 1
-// }
-
-
-// // Camera look at
-// let camera_look_at_pos = {
-//     x: -0.25,
-//     y: 1.25,
-//     z: -2
-// }
 
 
 
@@ -960,7 +1023,19 @@ document.addEventListener(
                     }
                 )
             }
-            else if (camera_pos_intro){
+            else if (intro_finish){
+                $intro_container.classList.add('hide')
+                document.querySelector('body').style.pointerEvents = 'auto'
+                camera_pos = {
+                    x: -0.25,
+                    y: 1.45,
+                    z: -0.9
+                }
+                camera_look_at_pos = {
+                    x: -0.25,
+                    y: 1.25,
+                    z: -3.9
+                }
                 TweenLite.to(
                     camera_pos,
                     1,
@@ -981,15 +1056,50 @@ document.addEventListener(
                         ease: 'Power3.easeInOut'
                     }
                 )
-                console.log('test');
-                console.log(camera_pos);
-                console.log(camera_look_at_pos);
-                console.log(camera.position);
-                
             }
         }
     }
 )
+/**
+ * Loader
+ */
+
+// Variables
+const $loader_text = $intro_container.querySelector('.loader_text')
+let load_pourcentage = 0
+
+// All objects
+let load_those_objects = [room, console_switch, console_wii, console_wii_gamepad_01, console_wii_gamepad_02, console_nes, console_nes_gamepad_01, console_nes_gamepad_02, console_gameboy, console_arcade, cartridge_duck_hunt_nes, cartridge_mario_nes, cartridge_pokemon_gameboy, headphones, mario_mystery_box_figurine, pokeball_figurine, cable, zelda_shield, plante_piranha, battery_duracell, picture_frame, box_nes, fire_flower_figurine, nooks_house, cabinet, alien, matrix, le_seigneur_des_anneaux, terminator, star_wars, satoru_iwata, super_mario_bowing]
+let load_those_objects_length_static = load_those_objects.length
+
+// Check if object are loaded & change pourcentage value
+setInterval(
+    ()=>{
+        for (let i = load_those_objects.length - 1; i >= 0; i--) {
+            // Check if object is loaded
+            if (load_those_objects[i].loaded) {
+                load_those_objects.splice(i, 1)
+                load_pourcentage += 100/load_those_objects_length_static
+            }
+            // Change pourcetage text content
+            $loader_text.textContent = `${parseInt(load_pourcentage)}%`
+
+            // When fully loaded
+            if (load_pourcentage == 100) {
+                // Hide pourcentage text
+                $loader_text.classList.add('hide')
+
+                // Launch introduction
+                typing_text(texts[0])
+
+                // Stop for
+                break
+            }
+        }
+    }, 300
+)
+
+
 
 /**
  * Loop

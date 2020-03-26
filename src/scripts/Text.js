@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import font from '../style/fonts/Nintendo_DS_BIOS_Regular.json'
+import font from '../fonts/Nintendo_DS_BIOS_Regular.json'
 
 export default class Text
 {
