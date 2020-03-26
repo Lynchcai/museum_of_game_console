@@ -11,7 +11,7 @@ export default class Console_arcade
 
         // Loaders
         const dracoLoader = new DRACOLoader()
-        dracoLoader.setDecoderPath('/draco/')
+        dracoLoader.setDecoderPath('draco/')
 
         const gltfLoader = new GLTFLoader()
         gltfLoader.setDRACOLoader(dracoLoader)

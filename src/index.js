@@ -324,12 +324,12 @@ const raycaster = new THREE.Raycaster()
 const video_test = new Video('videos/gameboy.mp4')
 scene.add(video_test.group)
 
-document.addEventListener(
-    'click',
-    ()=>{
-        video_test.play()
-    }
-)
+// document.addEventListener(
+//     'click',
+//     ()=>{
+//         video_test.play()
+//     }
+// )
 
 
 
