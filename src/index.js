@@ -299,6 +299,18 @@ star_wars.group.rotation.set(0, Math.PI*0.5, 0)
 star_wars.group.scale.set(0.002, 0.005, 0.002)
 scene.add(star_wars.group)
 
+const satoru_iwata = new Poster('poster_affiche/satoru_iwata.jpg')
+satoru_iwata.group.position.set(-1.134, 1.05, -0.94)
+satoru_iwata.group.rotation.set(-0.38, Math.PI*0.2, 0.22)
+satoru_iwata.group.scale.set(0.0005, 0.00125, 0.0005)
+scene.add(satoru_iwata.group)
+
+const super_mario_bowing = new Poster('poster_affiche/super_mario_bowing.jpg')
+super_mario_bowing.group.position.set(-1.133, 1.05, -0.94)
+super_mario_bowing.group.rotation.set(-0.38, Math.PI*0.2, 0.22)
+super_mario_bowing.group.scale.set(0.0005, 0.00125, 0.0005)
+scene.add(super_mario_bowing.group)
+
 const raycaster = new THREE.Raycaster()
 
 
