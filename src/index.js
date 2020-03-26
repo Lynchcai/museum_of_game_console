@@ -1016,6 +1016,7 @@ document.addEventListener(
                 intro_finish = 2
                 intro_finish_audio = new Audio('./background_music/room_ambiance_sound.mp3')
                 intro_finish_audio.play()
+                intro_finish_audio.loop = true
                 $intro_container.classList.add('hide')
                 document.querySelector('body').style.pointerEvents = 'auto'
                 camera_pos = {
