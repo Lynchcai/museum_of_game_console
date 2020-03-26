@@ -16,6 +16,7 @@ import Poster from './scripts/Poster.js'
 import Decoration from './scripts/Decoration.js'
 
 
+
 /**
  * Sizes
  */
@@ -372,11 +373,13 @@ const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 
 // Position front screen
 let camera_parallax_strength = 0.25
 
+let camera_pos_intro = true
+
 // Camera pos
 let camera_pos = {
     x: -0.25,
-    y: 1.5,
-    z: 1
+    y: 1.45,
+    z: -0.9
 }
 
 camera.position.set (camera_pos.x, camera_pos.y, camera_pos.z)
@@ -385,8 +388,29 @@ camera.position.set (camera_pos.x, camera_pos.y, camera_pos.z)
 let camera_look_at_pos = {
     x: -0.25,
     y: 1.25,
-    z: -2
+    z: -3.9
 }
+
+
+
+
+// // Camera pos default
+// let camera_pos = {
+//     x: -0.25,
+//     y: 1.5,
+//     z: 1
+// }
+
+
+// // Camera look at
+// let camera_look_at_pos = {
+//     x: -0.25,
+//     y: 1.25,
+//     z: -2
+// }
+
+
+
 
 // Camera movement detection
 
@@ -530,9 +554,6 @@ const object_movement_translation = (object, x, y, z)=>{
         object.position,
         1,
         {
-            // x: -0.9,
-            // y: 0.965,
-            // z: -1,
             x: x,
             y: y,
             z: z,
@@ -872,6 +893,33 @@ document.addEventListener(
                     }
                 )
             }
+            else if (camera_pos_intro){
+                TweenLite.to(
+                    camera_pos,
+                    1,
+                    {
+                        x: -0.25,
+                        y: 1.5,
+                        z: 1,
+                        ease: 'Power3.easeInOut'
+                    }
+                )
+                TweenLite.to(
+                    camera_look_at_pos,
+                    1,
+                    {
+                        x: -0.25,
+                        y: 1.25,
+                        z: -2,
+                        ease: 'Power3.easeInOut'
+                    }
+                )
+                console.log('test');
+                console.log(camera_pos);
+                console.log(camera_look_at_pos);
+                console.log(camera.position);
+                
+            }
         }
     }
 )
@@ -938,6 +986,7 @@ const loop = () => {
     // Camera parallax
     camera.position.x = camera_pos.x + cursor.x * - camera_parallax_strength
     camera.position.y = camera_pos.y + cursor.y * camera_parallax_strength
+    camera.position.z = camera_pos.z
     camera.lookAt(camera_look_at_pos.x, camera_look_at_pos.y, camera_look_at_pos.z)
 }
 
