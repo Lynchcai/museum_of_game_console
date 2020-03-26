@@ -10,21 +10,18 @@ export default class Console_arcade
         this.group = new THREE.Group()
 
         // Loading manager
-        const loading_manager = new THREE.LoadingManager()
+        this.loading_manager = new THREE.LoadingManager()
+        this.loaded = false
 
-        loading_manager.onProgress = function(item, loaded, total){
-            console.log(item, loaded, total);
-        }
-
-        loading_manager.onLoad = function(){
-            console.log('success');
+        this.loading_manager.onLoad = ()=>{
+            this.loaded = true
         }
 
         // Loaders
-        const dracoLoader = new DRACOLoader(loading_manager)
+        const dracoLoader = new DRACOLoader(this.loading_manager)
         dracoLoader.setDecoderPath('./draco/')
 
-        const gltfLoader = new GLTFLoader(loading_manager)
+        const gltfLoader = new GLTFLoader(this.loading_manager)
         gltfLoader.setDRACOLoader(dracoLoader)
 
         // Load model

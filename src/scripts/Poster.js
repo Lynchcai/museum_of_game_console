@@ -7,14 +7,11 @@ export default class Poster
         this.group = new THREE.Group()
 
         // Loading manager
-        const loading_manager = new THREE.LoadingManager()
+        this.loading_manager = new THREE.LoadingManager()
+        this.loaded = false
 
-        loading_manager.onProgress = function(item, loaded, total){
-            console.log(item, loaded, total);
-        }
-
-        loading_manager.onLoad = function(){
-            console.log('success');
+        this.loading_manager.onLoad = ()=>{
+            this.loaded = true
         }
 
         // image DOM
@@ -24,7 +21,7 @@ export default class Poster
         document.querySelector('body').appendChild(this.$image)
         
         // Texture
-        const image_texture = new THREE.TextureLoader(loading_manager).load(image_url)
+        const image_texture = new THREE.TextureLoader(this.loading_manager).load(image_url)
         // Material
         const image_material = new THREE.MeshToonMaterial ({ map: image_texture})
         
