@@ -19,5 +19,19 @@ After that the player can launch a video via the play button that shows a game o
 
 ## Features
 
+The consoles are clickable and rotate on itself in front of the user, they let appear a text on the screen and then a video on the same screen.
+
+The site has some Easter eggs:
+- Some objects are clickable and produce a sound.
+- Mario's photo frame shows a photo of Nintendo's founder (who died in 2015) when you click on it.
+- The posters produce a sound (pop culture) when you click on them.
+
+There is also several background music
 
 ## Instructions
+
+After watching the introduction the players are free to click on whatever they want:
+
+- The Consoles : To learn more about them and access their gameplay.
+- Objects and Posters : To launch ambient sounds
+- The Headphones : To stop or restart the music
