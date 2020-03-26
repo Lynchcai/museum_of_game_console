@@ -266,7 +266,7 @@ nooks_house.group.scale.set(0.04, 0.04, 0.04)
 scene.add(nooks_house.group)
 
 const cabinet = new Decoration('models/gltf/cabinet/scene.gltf')
-cabinet.group.position.set(1.6, 0.72, -1.25)
+cabinet.group.position.set(1.6, 0.76, -1.25)
 cabinet.group.rotation.set(0, Math.PI*0, 0)
 cabinet.group.scale.set(0.007, 0.007, 0.007)
 scene.add(cabinet.group)
@@ -535,6 +535,16 @@ let hover_console_wii = false
 let hover_console_nes = false
 let hover_console_gameboy = false
 let hover_console_arcade = false
+let hover_decoration_nooks = false
+let hover_decoration_mystery_box = false
+let hover_decoration_fire_flower = false
+let hover_poster_star_wars = false
+let hover_poster_matrix = false
+let hover_decoration_plante_piranha = false
+let hover_decoration_pokeball_figurine = false
+let hover_poster_terminator = false
+let hover_poster_le_seigneur_des_anneaux = false
+
 
 // Click detection - null or not null
 let click_console_switch = null
@@ -789,6 +799,63 @@ document.addEventListener(
         if(hover_poster_mario){
             super_mario_bowing.group.visible = false
         }
+
+
+
+        if(hover_decoration_nooks){
+            hover_decoration_nooks = new Audio('./audio/animal_crossing.mp3')
+            hover_decoration_nooks.play()
+        }
+
+        if(hover_decoration_mystery_box){
+            hover_decoration_mystery_box = new Audio('./audio/coin.mp3')
+            hover_decoration_mystery_box.play()
+        }
+
+        if(hover_decoration_fire_flower){
+            hover_decoration_fire_flower = new Audio('./audio/fire.mp3')
+            hover_decoration_fire_flower.play()
+        }
+
+        if(hover_poster_star_wars){
+            hover_poster_star_wars = new Audio('./audio/lightsaber.mp3')
+            hover_poster_star_wars.play()
+        }
+
+        if(hover_poster_matrix){
+            hover_poster_matrix = new Audio('./audio/matrix.mp3')
+            hover_poster_matrix.play()
+        }
+
+        if(hover_decoration_plante_piranha){
+            hover_decoration_plante_piranha = new Audio('./audio/plant.mp3')
+            hover_decoration_plante_piranha.play()
+        }
+
+        if(hover_decoration_pokeball_figurine){
+            hover_decoration_pokeball_figurine = new Audio('./audio/pokemon.mp3')
+            hover_decoration_pokeball_figurine.play()
+        }
+
+        if(hover_poster_terminator){
+            hover_poster_terminator = new Audio('./audio/terminator.mp3')
+            hover_poster_terminator.play()
+        }
+
+        if(hover_poster_le_seigneur_des_anneaux){
+            hover_poster_le_seigneur_des_anneaux = new Audio('./audio/you_shall_not_pass.mp3')
+            hover_poster_le_seigneur_des_anneaux.play()
+        }
+
+        if(hover_decoration_nooks){
+            hover_decoration_nooks = new Audio('./audio/animal_crossing.mp3')
+            hover_decoration_nooks.play()
+        }
+
+        if(hover_decoration_nooks){
+            hover_decoration_nooks = new Audio('./audio/animal_crossing.mp3')
+            hover_decoration_nooks.play()
+        }
     }
 )
 
@@ -941,10 +1008,6 @@ const loop = () => {
     const raycaster_cursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
     raycaster.setFromCamera(raycaster_cursor, camera)
 
-    // Raycast poster mario
-    const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
-    hover_poster_mario = intersects_mario.hover
-
     // Raycast tv
     const intersects_tv = new Raycaster(tv, hover_tv, raycaster)
     hover_tv = intersects_tv.hover
@@ -968,6 +1031,54 @@ const loop = () => {
     // Raycast console arcade
     const intersects_arcade = new Raycaster(console_arcade.group, hover_console_arcade, raycaster)
     hover_console_arcade = intersects_arcade.hover
+
+    // Raycast poster mario
+    const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
+    hover_poster_mario = intersects_mario.hover
+
+    // Raycast nooks house
+    const intersects_nooks = new Raycaster(nooks_house.group, hover_decoration_nooks, raycaster)
+    hover_decoration_nooks = intersects_nooks.hover
+
+     // Raycast mystery box
+    const intersects_mystery_box = new Raycaster(mario_mystery_box_figurine.group, hover_decoration_mystery_box, raycaster)
+    hover_decoration_mystery_box = intersects_mystery_box.hover
+
+    // Raycast fire flower
+    const intersects_fire_flower = new Raycaster(fire_flower_figurine.group, hover_decoration_fire_flower, raycaster)
+    hover_decoration_fire_flower = intersects_fire_flower.hover
+
+    // Raycast star wars
+    const intersects_star_wars = new Raycaster(star_wars.group, hover_poster_star_wars, raycaster)
+    hover_poster_star_wars = intersects_star_wars.hover
+
+    // Raycast matrix
+    const intersects_matrix = new Raycaster(matrix.group, hover_poster_matrix, raycaster)
+    hover_poster_matrix = intersects_matrix.hover
+
+    // Raycast plante piranha
+    const intersects_plante_piranha = new Raycaster(plante_piranha.group, hover_decoration_plante_piranha, raycaster)
+    hover_decoration_plante_piranha = intersects_plante_piranha.hover
+
+    // Raycast pokemon figurine
+    const intersects_pokemon = new Raycaster(pokeball_figurine.group, hover_decoration_pokeball_figurine, raycaster)
+    hover_decoration_pokeball_figurine = intersects_pokemon.hover
+
+    // Raycast poster terminator
+    const intersects_terminator = new Raycaster(terminator.group, hover_poster_terminator, raycaster)
+    hover_poster_terminator = intersects_terminator.hover
+
+    // Raycast poster mario
+    const intersects_le_seigneur_des_anneaux = new Raycaster(le_seigneur_des_anneaux.group, hover_poster_mario, raycaster)
+    hover_poster_le_seigneur_des_anneaux = intersects_le_seigneur_des_anneaux.hover
+
+    // // Raycast poster mario
+    // const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
+    // hover_poster_mario = intersects_mario.hover
+
+    // // Raycast poster mario
+    // const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
+    // hover_poster_mario = intersects_mario.hover
 
 
 
