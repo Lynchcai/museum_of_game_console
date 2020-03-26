@@ -92,9 +92,14 @@ scene.add(point_light_helper)
 const room = new Room()
 scene.add(room.group)
 
-
-
-
+// TV detection
+const tv = new THREE.Mesh(
+    new THREE.PlaneGeometry(240, 135, 4, 4),
+    new THREE.MeshStandardMaterial({ color: 0xff8866, transparent: true, opacity: 0})
+)
+tv.position.set(-0.22, 1.4, -1.05)
+tv.scale.set(0.0045, 0.0045, 0.0045)
+scene.add(tv)
 
 
 // Console arcade
@@ -167,7 +172,7 @@ scene.add(console_nes_group)
 // Console gameboy
 const console_gameboy = new Console('models/gltf/console_gameboy/scene.gltf')
 console_gameboy.group.scale.set(0.0007, 0.0007, 0.0007)
-console_gameboy.group.position.set(-0.32, 0.956, -1.05)
+console_gameboy.group.position.set(0.15, 0.956, -1.05)
 console_gameboy.group.rotation.set(0, Math.PI*-0.6, 0)
 scene.add(console_gameboy.group)
 
@@ -200,7 +205,7 @@ cartridge_mario_nes.group.scale.set(0.0005, 0.0005, 0.0005)
 scene.add(cartridge_mario_nes.group)
 
 const cartridge_pokemon_gameboy = new Decoration('models/gltf/cartridge_pokemon_gameboy/scene.gltf')
-cartridge_pokemon_gameboy.group.position.set(-0.95, 0.958, -1.15)
+cartridge_pokemon_gameboy.group.position.set(-0.85, 0.958, -1.15)
 cartridge_pokemon_gameboy.group.rotation.set(-1.5, Math.PI*0, 0)
 cartridge_pokemon_gameboy.group.scale.set(1, 1, 1)
 scene.add(cartridge_pokemon_gameboy.group)
@@ -218,7 +223,7 @@ mario_mystery_box_figurine.group.scale.set(0.05, 0.05, 0.05)
 scene.add(mario_mystery_box_figurine.group)
 
 const pokeball_figurine = new Decoration('models/gltf/pokeball_figurine/scene.gltf')
-pokeball_figurine.group.position.set(0.15, 0.975, -0.9)
+pokeball_figurine.group.position.set(-0.32, 0.975, -0.9)
 pokeball_figurine.group.rotation.set(1.3, Math.PI*1, 0)
 pokeball_figurine.group.scale.set(0.004, 0.004, 0.004)
 scene.add(pokeball_figurine.group)
@@ -509,14 +514,15 @@ window.addEventListener('resize', () => {
  * Object movement
  */
 
-// Hover console detection - false or true
+// Hover detection - false or true
+let hover_tv = false
 let hover_console_switch = false
 let hover_console_wii = false
 let hover_console_nes = false
 let hover_console_gameboy = false
 let hover_console_arcade = false
 
-// Click console detection - null or not null
+// Click detection - null or not null
 let click_console_switch = null
 let click_console_wii = null
 let click_console_wii_gamepad_01 = null
@@ -689,7 +695,7 @@ document.addEventListener(
             }
         } else {
             // Reset animation translation
-            object_movement_translation(console_gameboy.group, -1.1, 0.955, -1.3)
+            object_movement_translation(console_gameboy.group, 0.15, 0.956, -1.05)
 
             // Reset animation rotation
             clearInterval(click_console_gameboy)
@@ -700,10 +706,16 @@ document.addEventListener(
 
 
 
-        // Console Arcade
+        // Console arcade
         if(hover_console_arcade){
             camera_reset()
             camera_to_arcade=true
+        }
+
+
+        // Console tv
+        if(hover_tv){
+            camera_reset()
         }
 
     }
@@ -730,7 +742,9 @@ const loop = () => {
     raycaster.setFromCamera(raycaster_cursor, camera)
 
 
-
+    // Raycast tv
+    const intersects_tv = new Raycaster(tv, hover_tv, raycaster)
+    hover_tv = intersects_tv.hover
 
     // Raycast console switch
     const intersects_switch = new Raycaster(console_switch.group, hover_console_switch, raycaster)
@@ -756,7 +770,7 @@ const loop = () => {
 
 
     // Change cursor on hover
-    if(hover_console_wii || hover_console_switch || hover_console_nes || hover_console_gameboy || hover_console_arcade){
+    if(hover_console_wii || hover_console_switch || hover_console_nes || hover_console_gameboy || hover_console_arcade || hover_tv){
         document.body.style.cursor = 'pointer'
     }
     else{
