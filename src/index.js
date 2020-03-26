@@ -345,7 +345,7 @@ nooks_house.group.rotation.set(0, Math.PI*-0.7, 0)
 nooks_house.group.scale.set(0.04, 0.04, 0.04)
 scene.add(nooks_house.group)
 
-const cabinet = new Decoration('models/gltf/cabinet/scene.gltf')
+const cabinet = new Decoration('./models/gltf/cabinet/scene.gltf')
 cabinet.group.position.set(1.6, 0.7, -1.25)
 cabinet.group.rotation.set(0, Math.PI*0, 0)
 cabinet.group.scale.set(0.008, 0.008, 0.008)
