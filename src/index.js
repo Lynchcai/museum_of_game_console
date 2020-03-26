@@ -17,7 +17,6 @@ import Decoration from './scripts/Decoration.js'
 
 
 
-
 // /**
 //  * Introduction
 //  */
@@ -92,9 +91,6 @@ const typing_text = (text)=> {
 
 
 
-
-
-
 /**
  * Sizes
  */
@@ -124,7 +120,6 @@ window.addEventListener('mousemove', (_event) => {
  * Scene
  */
 const scene = new THREE.Scene()
-
 
 
 
@@ -159,7 +154,6 @@ scene.add(point_light)
  */
 const point_light_helper = new THREE.PointLightHelper(point_light)
 scene.add(point_light_helper)
-
 
 
 
@@ -392,7 +386,6 @@ const raycaster = new THREE.Raycaster()
 
 
 
-
 // Videos
 const videos_console = new Array() // switch, wii, nes, gameboy, arcade
 videos_console.push(new Video('./videos/switch.mp4'))
@@ -442,7 +435,6 @@ const hide_texts_console = ()=>{
 
 
 
-
 /**
  * Camera
  */
@@ -467,7 +459,6 @@ let camera_look_at_pos = {
     y: 1.25,
     z: -2
 }
-
 
 
 
@@ -517,7 +508,6 @@ scene.add(camera)
 
 
 
-
 /**
  * Renderer
  */
@@ -555,16 +545,6 @@ document.body.appendChild(renderer.domElement)
 
 
 /**
- * Camera controls with orbitcontrols (dev)
- */
-
-// const cameraControls = new OrbitControls(camera, renderer.domElement)
-// cameraControls.zoomSpeed = 0.3
-// cameraControls.enableDamping = true
-
-
-
-/**
  * Resize
  */
 window.addEventListener('resize', () => {
@@ -578,8 +558,6 @@ window.addEventListener('resize', () => {
 
     effectComposer.setSize(sizes.width, sizes.height)
 })
-
-
 
 
 /**
@@ -603,6 +581,7 @@ let hover_decoration_plante_piranha = false
 let hover_decoration_pokeball_figurine = false
 let hover_poster_terminator = false
 let hover_poster_le_seigneur_des_anneaux = false
+let hover_decoration_zelda_shield = false
 
 
 // Click detection - null or not null
@@ -906,14 +885,9 @@ document.addEventListener(
             hover_poster_le_seigneur_des_anneaux.play()
         }
 
-        if(hover_decoration_nooks){
-            hover_decoration_nooks = new Audio('./audio/animal_crossing.mp3')
-            hover_decoration_nooks.play()
-        }
-
-        if(hover_decoration_nooks){
-            hover_decoration_nooks = new Audio('./audio/animal_crossing.mp3')
-            hover_decoration_nooks.play()
+        if(hover_decoration_zelda_shield){
+            hover_decoration_zelda_shield = new Audio('./audio/armure_2.mp3')
+            hover_decoration_zelda_shield.play()
         }
     }
 )
@@ -1110,7 +1084,6 @@ const loop = () => {
 
 
 
-
     // Raycaster
     const raycaster_cursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
     raycaster.setFromCamera(raycaster_cursor, camera)
@@ -1179,14 +1152,9 @@ const loop = () => {
     const intersects_le_seigneur_des_anneaux = new Raycaster(le_seigneur_des_anneaux.group, hover_poster_mario, raycaster)
     hover_poster_le_seigneur_des_anneaux = intersects_le_seigneur_des_anneaux.hover
 
-    // // Raycast poster mario
-    // const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
-    // hover_poster_mario = intersects_mario.hover
-
-    // // Raycast poster mario
-    // const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
-    // hover_poster_mario = intersects_mario.hover
-
+    // Raycast zelda shield
+    const intersects_zelda_shield = new Raycaster(zelda_shield.group, hover_decoration_zelda_shield, raycaster)
+    hover_decoration_zelda_shield = intersects_zelda_shield.hover
 
 
 
@@ -1197,7 +1165,6 @@ const loop = () => {
     else{
         document.body.style.cursor = 'default'
     }
-
 
 
 
