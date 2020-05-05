@@ -31,6 +31,7 @@ There is also several background music
 
 ## Instructions
 
+https://lynchcai.github.io/Popup/
 After watching the introduction the players are free to click on whatever they want:
 
 - The Consoles : To learn more about them and access their gameplay.
