@@ -21,7 +21,8 @@ canvas
     background-position 0 0, 25px 25px
     background-size 50px 50px
 
-
+.hide
+    opacity 0 !important
 
 .container_intro
     z-index 9999
@@ -106,5 +107,32 @@ canvas
         position absolute
         top 2.5vw
         text-align center
-.container_intro.hide
-    opacity 0
+
+.commands
+    z-index 9999
+    position absolute
+    bottom 4rem
+    left 4rem
+    transition opacity ease
+    .command_container
+        display: flex
+        justify-content space-between
+        align-items center
+        color white
+        margin-top 2rem
+        .command_img
+            height 1.75rem
+            display flex
+            justify-content center
+            align-items center
+            img
+                height inherit
+        .command_key
+            border white 0.0625rem solid
+            padding 0.2rem 0.5rem 0.25rem 0.5rem
+            border-radius 0.5rem
+            
+            font-family: 'Barlow Condensed', sans-serif
+        .command_text
+            margin-left 0.75rem
+            font-family: 'Work Sans', sans-serif

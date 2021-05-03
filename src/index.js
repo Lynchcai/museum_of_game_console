@@ -38,13 +38,13 @@ $img_spacebar.src = img_spacebar_src
 
 // Texts
 const texts = []
-texts.push('Hey ! Salut toi !')
-texts.push('Comment ça va ?')
-texts.push('Bienvenue dans le musée des grandes consoles de Nintendo')
-texts.push('Alors visite la chambre et découvre les secrets qu\'elle renferme !')
-texts.push('Ah oui attend !')
-texts.push('J\'ai oublié de te donner les commandes')
-texts.push('Maintenant amuse-toi bien !')
+// texts.push('Hey ! Salut toi !')
+// texts.push('Comment ça va ?')
+// texts.push('Bienvenue dans le musée des grandes consoles de Nintendo')
+// texts.push('Alors visite la chambre et découvre les secrets qu\'elle renferme !')
+// texts.push('Ah oui attend !')
+// texts.push('J\'ai oublié de te donner les commandes')
+// texts.push('Maintenant amuse-toi bien !')
 texts.push('Appuyez sur la touche \'Espace\' pour continuer')
 let speed = 50 /* The speed/duration of the effect in milliseconds */
 
@@ -66,28 +66,34 @@ const typing_text = (text)=> {
         setTimeout(
             ()=>{
                 // Write next text
-                if (text_number < 7) {
-                    text_number += 1
-                    clearInterval(text_interval)
-                    typing_text(texts[text_number])
-                }
+                // if (text_number < 7) {
+                //     text_number += 1
+                //     clearInterval(text_interval)
+                //     typing_text(texts[text_number])
+                // }
                 // Blink end text
-                else{
+                // else{
                     setInterval(
                         ()=>{
                             $text.classList.toggle('blink')
                         }, 1000
                     )
                     intro_finish = 1
-                }
+                // }
                 // Show tutorial images
-                if (text_number == 5) {
-                    $img_container.classList.add('show')
-                }
-            }, (speed * text.length * 2)
+                // if (text_number == 5) {
+                //     $img_container.classList.add('show')
+                // }
+            }, (speed * text.length)
         )
     }
 }
+
+
+/**
+ * Commands
+ */
+const $commands = document.querySelector('.commands')
 
 
 
@@ -344,10 +350,10 @@ cabinet.group.scale.set(0.007, 0.007, 0.007)
 scene.add(cabinet.group)
 
 // Poster
-const alien = new Poster('./poster/alien.jpg')
-alien.group.position.set(1.8, 1.7, -1.33)
-alien.group.scale.set(0.002, 0.005, 0.002)
-scene.add(alien.group)
+const harry = new Poster('./poster/harry.jpg')
+harry.group.position.set(1.8, 1.7, -1.33)
+harry.group.scale.set(0.002, 0.005, 0.002)
+scene.add(harry.group)
 
 const matrix = new Poster('./poster/matrix.jpg')
 matrix.group.position.set(0.5, 2.05, -1.33)
@@ -579,6 +585,7 @@ let hover_decoration_mystery_box = false
 let hover_decoration_fire_flower = false
 let hover_poster_star_wars = false
 let hover_poster_matrix = false
+let hover_poster_harry = false
 let hover_decoration_plante_piranha = false
 let hover_decoration_pokeball_figurine = false
 let hover_poster_terminator = false
@@ -850,58 +857,63 @@ document.addEventListener(
 
 
 
-        if(hover_decoration_nooks){
+        else if(hover_decoration_nooks){
             hover_decoration_nooks = new Audio('./audio/animal_crossing.mp3')
             hover_decoration_nooks.play()
         }
 
-        if(hover_decoration_mystery_box){
+        else if(hover_decoration_mystery_box){
             hover_decoration_mystery_box = new Audio('./audio/coin.mp3')
             hover_decoration_mystery_box.play()
         }
 
-        if(hover_decoration_fire_flower){
+        else if(hover_decoration_fire_flower){
             hover_decoration_fire_flower = new Audio('./audio/fire.mp3')
             hover_decoration_fire_flower.play()
         }
 
-        if(hover_poster_star_wars){
+        else if(hover_poster_star_wars){
             hover_poster_star_wars = new Audio('./audio/lightsaber.mp3')
             hover_poster_star_wars.play()
         }
 
-        if(hover_poster_matrix){
+        else if(hover_poster_harry){
+            hover_poster_harry = new Audio('./audio/harry.mp3')
+            hover_poster_harry.play()
+        }
+
+        else if(hover_poster_matrix){
             hover_poster_matrix = new Audio('./audio/matrix.mp3')
             hover_poster_matrix.play()
         }
 
-        if(hover_decoration_plante_piranha){
+        else if(hover_decoration_plante_piranha){
             hover_decoration_plante_piranha = new Audio('./audio/plant.mp3')
             hover_decoration_plante_piranha.play()
         }
 
-        if(hover_decoration_pokeball_figurine){
+        else if(hover_decoration_pokeball_figurine){
             hover_decoration_pokeball_figurine = new Audio('./audio/pokemon.mp3')
             hover_decoration_pokeball_figurine.play()
         }
 
-        if(hover_poster_terminator){
+        else if(hover_poster_terminator){
             hover_poster_terminator = new Audio('./audio/terminator.mp3')
             hover_poster_terminator.play()
         }
 
-        if(hover_poster_lord_of_the_ring){
+        else if(hover_poster_lord_of_the_ring){
             hover_poster_lord_of_the_ring = new Audio('./audio/you_shall_not_pass.mp3')
             hover_poster_lord_of_the_ring.play()
         }
 
-        if(hover_decoration_zelda_shield){
+        else if(hover_decoration_zelda_shield){
             hover_decoration_zelda_shield = new Audio('./audio/shield.mp3')
             hover_decoration_zelda_shield.play()
         }
 
 
-        if(hover_decoration_headphones){
+        else if(hover_decoration_headphones){
             if(click_decoration_headphones == null){
                 click_decoration_headphones = 'not null'
                 intro_finish_audio.pause()
@@ -1021,6 +1033,7 @@ document.addEventListener(
                 intro_finish_audio.play()
                 intro_finish_audio.loop = true
                 $intro_container.classList.add('hide')
+                $commands.classList.remove('hide')
                 document.querySelector('body').style.pointerEvents = 'auto'
                 camera_pos = {
                     x: -0.25,
@@ -1065,7 +1078,7 @@ const $loader_text = $intro_container.querySelector('.loader_text')
 let load_pourcentage = 0
 
 // All objects
-let load_those_objects = [room, console_switch, console_wii, console_wii_gamepad_01, console_wii_gamepad_02, console_nes, console_nes_gamepad_01, console_nes_gamepad_02, console_gameboy, console_arcade, cartridge_duck_hunt_nes, cartridge_mario_nes, cartridge_pokemon_gameboy, headphones, mario_mystery_box_figurine, pokeball_figurine, cable, zelda_shield, plante_piranha, battery_duracell, picture_frame, box_nes, fire_flower_figurine, nooks_house, cabinet, alien, matrix, lord_of_the_ring, terminator, star_wars, satoru_iwata, super_mario_bowing]
+let load_those_objects = [room, console_switch, console_wii, console_wii_gamepad_01, console_wii_gamepad_02, console_nes, console_nes_gamepad_01, console_nes_gamepad_02, console_gameboy, console_arcade, cartridge_duck_hunt_nes, cartridge_mario_nes, cartridge_pokemon_gameboy, headphones, mario_mystery_box_figurine, pokeball_figurine, cable, zelda_shield, plante_piranha, battery_duracell, picture_frame, box_nes, fire_flower_figurine, nooks_house, cabinet, harry, matrix, lord_of_the_ring, terminator, star_wars, satoru_iwata, super_mario_bowing]
 let load_those_objects_length_static = load_those_objects.length
 
 // Check if object are loaded & change pourcentage value
@@ -1102,93 +1115,109 @@ setInterval(
  */
 
 
+
+const cursor_new = {
+    x: 0,
+    y: 0,
+    follow_power: 0.0075
+}
+
+let previousime = Date.now()
 const loop = () => {
     window.requestAnimationFrame(loop)
     // Render
     effectComposer.render(scene, camera)
 
+    if (intro_finish == 2) {
+        // Raycaster
+        const raycaster_cursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
+        raycaster.setFromCamera(raycaster_cursor, camera)
 
+        // Raycast tv
+        const intersects_tv = new Raycaster(tv, hover_tv, raycaster)
+        hover_tv = intersects_tv.hover
 
-    // Raycaster
-    const raycaster_cursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
-    raycaster.setFromCamera(raycaster_cursor, camera)
+        // Raycast console switch
+        const intersects_switch = new Raycaster(console_switch.group, hover_console_switch, raycaster)
+        hover_console_switch = intersects_switch.hover
 
-    // Raycast tv
-    const intersects_tv = new Raycaster(tv, hover_tv, raycaster)
-    hover_tv = intersects_tv.hover
+        // Raycast console wii
+        const intersects_wii = new Raycaster(console_wii_group, hover_console_wii, raycaster)
+        hover_console_wii = intersects_wii.hover
 
-    // Raycast console switch
-    const intersects_switch = new Raycaster(console_switch.group, hover_console_switch, raycaster)
-    hover_console_switch = intersects_switch.hover
+        // Raycast console nes
+        const intersects_nes = new Raycaster(console_nes_group, hover_console_nes, raycaster)
+        hover_console_nes = intersects_nes.hover
 
-    // Raycast console wii
-    const intersects_wii = new Raycaster(console_wii_group, hover_console_wii, raycaster)
-    hover_console_wii = intersects_wii.hover
+        // Raycast console gameboy
+        const intersects_gameboy = new Raycaster(console_gameboy.group, hover_console_gameboy, raycaster)
+        hover_console_gameboy = intersects_gameboy.hover
 
-    // Raycast console nes
-    const intersects_nes = new Raycaster(console_nes_group, hover_console_nes, raycaster)
-    hover_console_nes = intersects_nes.hover
+        // Raycast console arcade
+        const intersects_arcade = new Raycaster(console_arcade.group, hover_console_arcade, raycaster)
+        hover_console_arcade = intersects_arcade.hover
 
-    // Raycast console gameboy
-    const intersects_gameboy = new Raycaster(console_gameboy.group, hover_console_gameboy, raycaster)
-    hover_console_gameboy = intersects_gameboy.hover
+        // Raycast poster mario
+        const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
+        hover_poster_mario = intersects_mario.hover
 
-    // Raycast console arcade
-    const intersects_arcade = new Raycaster(console_arcade.group, hover_console_arcade, raycaster)
-    hover_console_arcade = intersects_arcade.hover
+        // Raycast nooks house
+        const intersects_nooks = new Raycaster(nooks_house.group, hover_decoration_nooks, raycaster)
+        hover_decoration_nooks = intersects_nooks.hover
 
-    // Raycast poster mario
-    const intersects_mario = new Raycaster(super_mario_bowing.group, hover_poster_mario, raycaster)
-    hover_poster_mario = intersects_mario.hover
+        // Raycast mystery box
+        const intersects_mystery_box = new Raycaster(mario_mystery_box_figurine.group, hover_decoration_mystery_box, raycaster)
+        hover_decoration_mystery_box = intersects_mystery_box.hover
 
-    // Raycast nooks house
-    const intersects_nooks = new Raycaster(nooks_house.group, hover_decoration_nooks, raycaster)
-    hover_decoration_nooks = intersects_nooks.hover
+        // Raycast fire flower
+        const intersects_fire_flower = new Raycaster(fire_flower_figurine.group, hover_decoration_fire_flower, raycaster)
+        hover_decoration_fire_flower = intersects_fire_flower.hover
 
-     // Raycast mystery box
-    const intersects_mystery_box = new Raycaster(mario_mystery_box_figurine.group, hover_decoration_mystery_box, raycaster)
-    hover_decoration_mystery_box = intersects_mystery_box.hover
+        // Raycast star wars
+        const intersects_star_wars = new Raycaster(star_wars.group, hover_poster_star_wars, raycaster)
+        hover_poster_star_wars = intersects_star_wars.hover
 
-    // Raycast fire flower
-    const intersects_fire_flower = new Raycaster(fire_flower_figurine.group, hover_decoration_fire_flower, raycaster)
-    hover_decoration_fire_flower = intersects_fire_flower.hover
+        // Raycast matrix
+        const intersects_matrix = new Raycaster(matrix.group, hover_poster_matrix, raycaster)
+        hover_poster_matrix = intersects_matrix.hover
 
-    // Raycast star wars
-    const intersects_star_wars = new Raycaster(star_wars.group, hover_poster_star_wars, raycaster)
-    hover_poster_star_wars = intersects_star_wars.hover
+        // Raycast plante piranha
+        const intersects_plante_piranha = new Raycaster(plante_piranha.group, hover_decoration_plante_piranha, raycaster)
+        hover_decoration_plante_piranha = intersects_plante_piranha.hover
 
-    // Raycast matrix
-    const intersects_matrix = new Raycaster(matrix.group, hover_poster_matrix, raycaster)
-    hover_poster_matrix = intersects_matrix.hover
+        // Raycast pokemon figurine
+        const intersects_pokemon = new Raycaster(pokeball_figurine.group, hover_decoration_pokeball_figurine, raycaster)
+        hover_decoration_pokeball_figurine = intersects_pokemon.hover
 
-    // Raycast plante piranha
-    const intersects_plante_piranha = new Raycaster(plante_piranha.group, hover_decoration_plante_piranha, raycaster)
-    hover_decoration_plante_piranha = intersects_plante_piranha.hover
+        // Raycast poster terminator
+        const intersects_terminator = new Raycaster(terminator.group, hover_poster_terminator, raycaster)
+        hover_poster_terminator = intersects_terminator.hover
 
-    // Raycast pokemon figurine
-    const intersects_pokemon = new Raycaster(pokeball_figurine.group, hover_decoration_pokeball_figurine, raycaster)
-    hover_decoration_pokeball_figurine = intersects_pokemon.hover
+        // Raycast poster mario
+        const intersects_lord_of_the_ring = new Raycaster(lord_of_the_ring.group, hover_poster_mario, raycaster)
+        hover_poster_lord_of_the_ring = intersects_lord_of_the_ring.hover
 
-    // Raycast poster terminator
-    const intersects_terminator = new Raycaster(terminator.group, hover_poster_terminator, raycaster)
-    hover_poster_terminator = intersects_terminator.hover
+        // Raycast zelda shield
+        const intersects_zelda_shield = new Raycaster(zelda_shield.group, hover_decoration_zelda_shield, raycaster)
+        hover_decoration_zelda_shield = intersects_zelda_shield.hover
 
-    // Raycast poster mario
-    const intersects_lord_of_the_ring = new Raycaster(lord_of_the_ring.group, hover_poster_mario, raycaster)
-    hover_poster_lord_of_the_ring = intersects_lord_of_the_ring.hover
+        // Raycast headphones
+        const intersects_headphones = new Raycaster(headphones.group, hover_decoration_headphones, raycaster)
+        hover_decoration_headphones = intersects_headphones.hover
 
-    // Raycast zelda shield
-    const intersects_zelda_shield = new Raycaster(zelda_shield.group, hover_decoration_zelda_shield, raycaster)
-    hover_decoration_zelda_shield = intersects_zelda_shield.hover
+        // Raycast harry
+        const intersects_harry = new Raycaster(harry.group, hover_poster_harry, raycaster)
+        hover_poster_harry = intersects_harry.hover
+    }
 
-    // Raycast headphones
-    const intersects_headphones = new Raycaster(headphones.group, hover_decoration_headphones, raycaster)
-    hover_decoration_headphones = intersects_headphones.hover
 
 
 
     // Change cursor on hover
-    if(hover_console_wii || hover_console_switch || hover_console_nes || hover_console_gameboy || hover_console_arcade || hover_tv || hover_poster_mario){
+    if(hover_console_wii || hover_console_switch || hover_console_nes || hover_console_gameboy || hover_console_arcade || hover_tv || hover_poster_mario
+        || hover_decoration_headphones || hover_decoration_zelda_shield || hover_poster_lord_of_the_ring || hover_poster_terminator || hover_decoration_pokeball_figurine
+        || hover_decoration_plante_piranha || hover_poster_matrix || hover_poster_star_wars || hover_decoration_fire_flower || hover_decoration_mystery_box
+        || hover_decoration_nooks || hover_poster_harry){
         document.body.style.cursor = 'pointer'
     }
     else{
@@ -1198,10 +1227,22 @@ const loop = () => {
 
 
     // Camera parallax
-    camera.position.x = camera_pos.x + cursor.x * - camera_parallax_strength
-    camera.position.y = camera_pos.y + cursor.y * camera_parallax_strength
+
+    // GET time for each frame
+    const time = Date.now()
+    const delta = time - previousime
+    previousime = time
+
+    // GET cursor_new position
+    cursor_new.x += (cursor.x - cursor_new.x) * (cursor_new.follow_power * delta)
+    cursor_new.y += (cursor.y - cursor_new.y) * (cursor_new.follow_power * delta)
+
+    // Camera parallax
+    camera.position.x = camera_pos.x + cursor_new.x * - camera_parallax_strength
+    camera.position.y = camera_pos.y + cursor_new.y * camera_parallax_strength
     camera.position.z = camera_pos.z
     camera.lookAt(camera_look_at_pos.x, camera_look_at_pos.y, camera_look_at_pos.z)
+
 }
 
 loop()
